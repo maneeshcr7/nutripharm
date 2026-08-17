@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivid Nutripharm — Science-Led Nutraceutical Manufacturing</title>
+  <meta name="description" content="Vivid Nutripharm formulates and manufactures differentiated wellness products — from full-spectrum Cordyceps and oral sprays to phytosome delivery and private-label manufacturing." />
+  <link rel="icon" href="assets/cropped-ChatGPT-Image-Aug-6-2026-12_16_26-PM-75x75.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: {
+              950: '#031810',
+              900: '#062a20',
+              800: '#0a3d2e',
+              700: '#0f5240',
+              600: '#147a5c',
+              500: '#1a9a74',
+              400: '#2db890',
+              300: '#6fd4b0',
+              100: '#e6f7f0',
+              50: '#f3fbf7',
+            },
+            mist: '#f6f8f6',
+            ink: '#0c1612',
+            gold: '#b8954a',
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            display: ['Fraunces', 'Georgia', 'serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px rgba(6, 42, 32, 0.12)',
+            lift: '0 20px 50px rgba(6, 42, 32, 0.18)',
+          },
+          animation: {
+            'fade-up': 'fadeUp 0.8s ease forwards',
+            float: 'float 7s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeUp: {
+              '0%': { opacity: '0', transform: 'translateY(24px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <style>
+    :root {
+      --forest: #0a3d2e;
+      --forest-deep: #031810;
+      --accent: #1a9a74;
+      --mist: #f6f8f6;
+      --ink: #0c1612;
+    }
+
+    body {
+      background: var(--mist);
+      color: var(--ink);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    .font-display { font-family: Fraunces, Georgia, serif; }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(18px) saturate(1.4);
+      -webkit-backdrop-filter: blur(18px) saturate(1.4);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 10px 40px rgba(6, 42, 32, 0.08);
+    }
+
+    .glass-nav.is-scrolled {
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 12px 40px rgba(6, 42, 32, 0.12);
+    }
+
+    .hero-mesh {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(26, 154, 116, 0.35), transparent 60%),
+        radial-gradient(ellipse 50% 40% at 15% 80%, rgba(184, 149, 74, 0.18), transparent 55%),
+        linear-gradient(160deg, #031810 0%, #062a20 45%, #0a3d2e 100%);
+    }
+
+    .hero-grain::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.07;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .bento-card {
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 24px 48px rgba(6, 42, 32, 0.14);
+      border-color: rgba(26, 154, 116, 0.35);
+    }
+
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0;
+      height: 2px;
+      background: var(--forest);
+      transition: width 0.3s ease;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    details.faq summary::-webkit-details-marker { display: none; }
+    details.faq[open] .faq-icon { transform: rotate(45deg); }
+
+    .marquee {
+      animation: marquee 32s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    .facility-track {
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+    .facility-track > * {
+      scroll-snap-align: start;
+    }
+
+    /* Facilities marquee — continuous L→R scroll; pause & enlarge on image hover */
+    .facilities-viewport {
+      overflow-x: clip;
+      overflow-y: visible;
+      padding: 2.75rem 0 3.25rem;
+      mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    }
+    .facilities-rail {
+      display: flex;
+      width: max-content;
+      gap: 1rem;
+      will-change: transform;
+    }
+    .facilities-rail.is-animating {
+      animation: facilitiesScroll 45s linear infinite;
+      animation-direction: reverse; /* content moves left → right */
+    }
+    .facilities-viewport.is-paused .facilities-rail.is-animating {
+      animation-play-state: paused;
+    }
+    @keyframes facilitiesScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .facility-shot {
+      position: relative;
+      flex: 0 0 auto;
+      width: 20rem;
+      height: 14rem;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(6, 42, 32, 0.12);
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease;
+      z-index: 1;
+      cursor: pointer;
+    }
+    @media (min-width: 640px) {
+      .facility-shot {
+        width: 22rem;
+        height: 16rem;
+      }
+    }
+    .facility-shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .facility-shot.is-enlarged {
+      transform: scale(1.18);
+      box-shadow: 0 28px 60px rgba(6, 42, 32, 0.28);
+      z-index: 20;
+    }
+    .facility-shot.is-enlarged img {
+      transform: scale(1.04);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #1a9a74;
+      box-shadow: 0 0 0 3px rgba(26, 154, 116, 0.18);
+    }
+  </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+  <!-- Floating Nav -->
+  <header class="fixed top-0 inset-x-0 z-50 px-4 pt-4 md:px-6 md:pt-5">
+    <nav id="navbar" class="glass-nav mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 md:px-6 md:py-3.5 transition-all duration-300" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2.5 group">
+        <img src="assets/ChatGPT-Image-Aug-6-2026-12_16_26-PM.png" alt="Vivid Nutripharm" class="h-10 w-10 rounded-full object-cover ring-2 ring-forest-100 transition-transform duration-300 group-hover:scale-105" />
+        <span class="text-sm font-extrabold tracking-[0.14em] text-forest-900 uppercase">Vivid Nutripharm</span>
+      </a>
+
+      <div class="hidden items-center gap-8 lg:flex">
+        <a href="#about" class="nav-link text-sm font-semibold text-ink/80 hover:text-forest-800 transition-colors">About</a>
+        <a href="#process" class="nav-link text-sm font-semibold text-ink/80 hover:text-forest-800 transition-colors">Process</a>
+        <a href="#platforms" class="nav-link text-sm font-semibold text-ink/80 hover:text-forest-800 transition-colors">Technology</a>
+        <a href="#solutions" class="nav-link text-sm font-semibold text-ink/80 hover:text-forest-800 transition-colors">Solutions</a>
+        <a href="#leaders" class="nav-link text-sm font-semibold text-ink/80 hover:text-forest-800 transition-colors">Leaders</a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full bg-forest-800 px-5 py-2.5 text-sm font-semibold text-white shadow-glass transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-700 hover:shadow-lift">
+          Partner With Us <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+
+      <button id="menuBtn" type="button" class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-forest-800/10 bg-white/60 text-forest-800" aria-label="Open menu" aria-expanded="false">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <div id="mobileMenu" class="mx-auto mt-2 hidden max-w-6xl overflow-hidden rounded-2xl border border-white/50 bg-white/95 p-4 shadow-lift backdrop-blur-xl lg:hidden">
+      <div class="flex flex-col gap-1">
+        <a href="#about" class="mobile-link rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-forest-50">About</a>
+        <a href="#process" class="mobile-link rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-forest-50">Process</a>
+        <a href="#platforms" class="mobile-link rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-forest-50">Technology</a>
+        <a href="#solutions" class="mobile-link rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-forest-50">Solutions</a>
+        <a href="#leaders" class="mobile-link rounded-xl px-4 py-3 text-sm font-semibold text-ink hover:bg-forest-50">Leaders</a>
+        <a href="#contact" class="mobile-link mt-2 rounded-xl bg-forest-800 px-4 py-3 text-center text-sm font-semibold text-white">Partner With Us</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero-mesh hero-grain relative min-h-[100svh] overflow-hidden text-white">
+      <div class="absolute inset-0">
+        <img
+          src="assets/Vivid-hero-section-image.png"
+          alt="Vivid Nutripharm advanced delivery and manufacturing"
+          class="h-full w-full object-cover opacity-40 mix-blend-luminosity"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/85 to-forest-900/40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-forest-950/50"></div>
+      </div>
+
+      <div class="relative mx-auto flex min-h-[100svh] max-w-6xl flex-col justify-end px-6 pb-16 pt-36 md:justify-center md:pb-24 md:pt-40 lg:px-8">
+        <div class="max-w-3xl">
+          <p class="mb-5 text-[11px] font-bold uppercase tracking-[0.28em] text-forest-300/90 animate-[fadeUp_0.8s_ease_forwards]">
+            Science-led · Quality-driven · Innovation-focused
+          </p>
+          <h1 class="font-display text-[clamp(2.4rem,6vw,4.6rem)] font-semibold leading-[1.05] tracking-tight text-white animate-[fadeUp_0.8s_ease_0.1s_forwards] opacity-0">
+            Vivid Nutripharm
+          </h1>
+          <p class="mt-4 max-w-2xl text-lg font-medium text-white/90 md:text-xl animate-[fadeUp_0.8s_ease_0.18s_forwards] opacity-0">
+            Your trusted nutraceutical manufacturing partner — from Cordyceps to cutting-edge delivery.
+          </p>
+          <p class="mt-4 max-w-xl text-base leading-relaxed text-white/65 animate-[fadeUp_0.8s_ease_0.26s_forwards] opacity-0">
+            We formulate and manufacture differentiated wellness products for brands ready to move the industry forward.
+          </p>
+
+          <div class="mt-9 flex flex-wrap items-center gap-4 animate-[fadeUp_0.8s_ease_0.34s_forwards] opacity-0">
+            <a href="#solutions" class="group inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-bold text-forest-900 transition-all duration-300 hover:-translate-y-0.5 hover:bg-forest-50 hover:shadow-lift">
+              Explore Our Solutions
+              <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-white/50 hover:bg-white/10">
+              Partner With Us
+            </a>
+          </div>
+        </div>
+
+        <div class="mt-14 grid grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-4 animate-[fadeUp_0.8s_ease_0.42s_forwards] opacity-0">
+          <div>
+            <p class="font-display text-3xl font-semibold text-white md:text-4xl">65+</p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">Formulations</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-semibold text-white md:text-4xl">10+</p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">Delivery Platforms</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-semibold text-white md:text-4xl">100%</p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">Quality Compliance</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-semibold text-white md:text-4xl">25+</p>
+            <p class="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">Countries Reach</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pointer-events-none absolute bottom-8 right-8 hidden md:block">
+        <div class="animate-float rounded-2xl border border-white/15 bg-white/5 px-5 py-3 backdrop-blur-md">
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-forest-300">R&amp;D-Led Innovation</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="relative overflow-hidden bg-white py-24 md:py-32">
+      <div class="absolute -right-24 top-20 h-72 w-72 rounded-full bg-forest-100/60 blur-3xl"></div>
+      <div class="relative mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+        <div class="reveal lg:col-span-5">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Who We Are</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold leading-tight text-ink md:text-5xl">
+            Driven by science.<br />Built for brands that move wellness forward.
+          </h2>
+        </div>
+        <div class="reveal lg:col-span-7 lg:pt-10">
+          <p class="text-lg leading-relaxed text-ink/70">
+            From our roots in Cordyceps to advanced formulations, standardized extracts, and innovative delivery technologies, Vivid Nutripharm turns ideas into differentiated wellness products — backed by rigorous quality control and a science-first approach at every stage.
+          </p>
+          <div class="mt-10 grid gap-4 sm:grid-cols-3">
+            <article class="rounded-2xl border border-forest-800/8 bg-mist p-5 transition-all hover:-translate-y-1 hover:shadow-glass">
+              <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-forest-800 text-white"><i class="fa-solid fa-flask"></i></div>
+              <h3 class="font-semibold text-ink">Science-Led</h3>
+              <p class="mt-1 text-sm text-ink/55">Evidence-backed actives &amp; validated methods</p>
+            </article>
+            <article class="rounded-2xl border border-forest-800/8 bg-mist p-5 transition-all hover:-translate-y-1 hover:shadow-glass">
+              <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-forest-800 text-white"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3 class="font-semibold text-ink">Quality-Driven</h3>
+              <p class="mt-1 text-sm text-ink/55">GMP, ISO, FSSAI &amp; organic compliance</p>
+            </article>
+            <article class="rounded-2xl border border-forest-800/8 bg-mist p-5 transition-all hover:-translate-y-1 hover:shadow-glass">
+              <div class="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-forest-800 text-white"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3 class="font-semibold text-ink">Innovation-Focused</h3>
+              <p class="mt-1 text-sm text-ink/55">BioEnh™, phytosomes &amp; oral sprays</p>
+            </article>
+          </div>
+          <a href="#contact" class="mt-8 inline-flex items-center gap-2 text-sm font-bold text-forest-700 transition-all hover:gap-3">
+            Learn about partnering <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section id="process" class="bg-forest-950 py-24 text-white md:py-32">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-400">From Seed to Shelf</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold md:text-5xl">Our process</h2>
+          <p class="mt-4 text-base leading-relaxed text-white/60">
+            A structured, six-stage journey from concept to market — built for speed without cutting corners on quality.
+          </p>
+        </div>
+
+        <div class="reveal mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">01</span>
+            <h3 class="mt-4 text-xl font-bold">Discovery</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Market research &amp; concept evaluation</p>
+          </article>
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">02</span>
+            <h3 class="mt-4 text-xl font-bold">Research</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Scientific validation &amp; ingredient selection</p>
+          </article>
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">03</span>
+            <h3 class="mt-4 text-xl font-bold">Formulation</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Custom formulation &amp; development</p>
+          </article>
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">04</span>
+            <h3 class="mt-4 text-xl font-bold">Testing</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Stability, safety &amp; efficacy testing</p>
+          </article>
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">05</span>
+            <h3 class="mt-4 text-xl font-bold">Manufacturing</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Scalable &amp; compliant production</p>
+          </article>
+          <article class="group rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-forest-400/40 hover:bg-white/10">
+            <span class="font-display text-4xl font-semibold text-forest-400/40 transition-colors group-hover:text-forest-300">06</span>
+            <h3 class="mt-4 text-xl font-bold">Brand Launch</h3>
+            <p class="mt-2 text-sm leading-relaxed text-white/55">Packaging, regulatory &amp; market support</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Platforms -->
+    <section id="platforms" class="bg-mist py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="reveal flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div class="max-w-xl">
+            <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Delivery Innovation</p>
+            <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-5xl">Technology platforms</h2>
+            <p class="mt-4 text-base leading-relaxed text-ink/60">
+              Advanced systems engineered for better bioavailability, faster absorption, and formulation flexibility.
+            </p>
+          </div>
+          <a href="#solutions" class="inline-flex items-center gap-2 text-sm font-bold text-forest-700 transition-all hover:gap-3">
+            See it in our products <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <div class="reveal mt-14 grid gap-5 md:grid-cols-2">
+          <article class="bento-card group overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-glass md:row-span-2">
+            <div class="aspect-[16/10] overflow-hidden bg-forest-50 md:aspect-[4/3]">
+              <img src="assets/BioEnh%E2%84%A2-Technology-e1785996356841.png" alt="BioEnh™ Technology" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="p-7 md:p-8">
+              <span class="rounded-full bg-forest-100 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-forest-700">Proprietary</span>
+              <h3 class="mt-4 font-display text-2xl font-semibold text-ink md:text-3xl">BioEnh™ Technology</h3>
+              <p class="mt-3 text-sm leading-relaxed text-ink/60 md:text-base">
+                Re-engineers how actives are delivered, improving solubility and absorption so the body uses more of what’s in every dose.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card group overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-glass">
+            <div class="flex gap-5 p-6 md:p-7">
+              <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-forest-50">
+                <img src="assets/Phytosome-Technology-e1785996386667.png" alt="Phytosome Technology" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-ink">Phytosome Technology</h3>
+                <p class="mt-2 text-sm leading-relaxed text-ink/60">Wraps plant actives in a phospholipid shell that mirrors cell membranes for smoother botanical uptake.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card group overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-glass">
+            <div class="flex gap-5 p-6 md:p-7">
+              <div class="h-20 w-20 shrink-0 overflow-hidden rounded-2xl bg-forest-50">
+                <img src="assets/Oral-Spray-Platform-e1785996427758.png" alt="Oral Spray Platform" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-ink">Oral Spray Platform</h3>
+                <p class="mt-2 text-sm leading-relaxed text-ink/60">Fast-absorbing sublingual format — precisely dosed actives, no capsules or water needed.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card group overflow-hidden rounded-3xl border border-forest-800/10 bg-forest-800 text-white md:col-span-2">
+            <div class="grid items-center gap-6 p-7 md:grid-cols-[1fr_auto] md:p-8">
+              <div>
+                <h3 class="font-display text-2xl font-semibold">Full-Spectrum Cordyceps</h3>
+                <p class="mt-3 max-w-2xl text-sm leading-relaxed text-white/65 md:text-base">
+                  Every bioactive compound of the mushroom preserved across capsule, powder, and extract formats — the complete profile, not an isolated fraction.
+                </p>
+              </div>
+              <img src="assets/Full-Spectrum-Cordyceps-e1785996450952.png" alt="Full-Spectrum Cordyceps" class="h-28 w-28 justify-self-end rounded-2xl object-cover ring-2 ring-white/10" />
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Bento -->
+    <section id="solutions" class="bg-white py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Product Categories</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-5xl">Our solutions</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink/60">
+            Eight specialized categories, each built on real science — ready for private label and brand development.
+          </p>
+        </div>
+
+        <div class="reveal mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[minmax(160px,auto)]">
+          <a href="./durt-cordyceps-range/" class="bento-card group relative overflow-hidden rounded-3xl border border-forest-800/10 bg-forest-900 p-6 text-white lg:col-span-2 lg:row-span-2">
+            <img src="assets/Dried-Cordyceps-Fruiting-Bodies.png" alt="" class="absolute inset-0 h-full w-full object-cover opacity-25 transition-transform duration-700 group-hover:scale-105" />
+            <div class="relative flex h-full min-h-[220px] flex-col justify-between">
+              <i class="fa-solid fa-seedling text-2xl text-forest-300"></i>
+              <div>
+                <h3 class="font-display text-2xl font-semibold md:text-3xl">Our Cordyceps Range</h3>
+                <p class="mt-2 text-sm text-white/65">Fruiting bodies, powders, tinctures, Cordy Maxx &amp; more — request bulk quotes</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="./oral-sprays/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 transition-colors hover:bg-forest-50">
+            <i class="fa-solid fa-spray-can text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Oral Sprays</h3>
+            <p class="mt-1 text-sm text-ink/55">Sublingual, fast-absorbing formats</p>
+          </a>
+
+          <a href="./phytosomes/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 hover:bg-forest-50">
+            <i class="fa-solid fa-dna text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Phytosomes</h3>
+            <p class="mt-1 text-sm text-ink/55">Phospholipid botanical delivery</p>
+          </a>
+
+          <a href="./chronic-disease-management/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 hover:bg-forest-50">
+            <i class="fa-solid fa-heart-pulse text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Chronic Disease</h3>
+            <p class="mt-1 text-sm text-ink/55">Metabolic &amp; long-term wellness</p>
+          </a>
+
+          <a href="./mens-sexual-wellness/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 hover:bg-forest-50">
+            <i class="fa-solid fa-person text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Men’s Wellness</h3>
+            <p class="mt-1 text-sm text-ink/55">Performance &amp; vitality formulas</p>
+          </a>
+
+          <a href="./women-wellness/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 hover:bg-forest-50">
+            <i class="fa-solid fa-venus text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Women Wellness</h3>
+            <p class="mt-1 text-sm text-ink/55">Hormone &amp; lifecycle support</p>
+          </a>
+
+          <a href="./effervescent/" class="bento-card rounded-3xl border border-forest-800/10 bg-mist p-6 hover:bg-forest-50">
+            <i class="fa-solid fa-glass-water text-forest-600"></i>
+            <h3 class="mt-6 text-lg font-bold text-ink">Effervescent</h3>
+            <p class="mt-1 text-sm text-ink/55">Fast-dissolve tablet formats</p>
+          </a>
+
+          <a href="./single-extracts/" class="bento-card rounded-3xl border border-forest-800/10 bg-forest-800 p-6 text-white lg:col-span-2">
+            <i class="fa-solid fa-leaf text-forest-300"></i>
+            <h3 class="mt-6 text-lg font-bold">Single Extracts</h3>
+            <p class="mt-1 text-sm text-white/60">Standardized botanical actives for precise formulation</p>
+          </a>
+        </div>
+
+        <!-- Category product rows -->
+        <div class="reveal mt-10 overflow-hidden rounded-3xl border border-forest-800/8 bg-mist p-6 md:p-8">
+          <div id="solTabs" class="mb-6 flex gap-2 overflow-x-auto pb-1">
+            <button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold sol-tab-active bg-forest-800 text-white" data-sol="cordyceps">Our Cordyceps</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="oral-sprays">Oral Sprays</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="phytosomes">Phytosomes</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="chronic-disease">Chronic Disease</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="mens-wellness">Men’s Wellness</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="women-wellness">Women Wellness</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="effervescent">Effervescent</button><button type="button" class="sol-tab shrink-0 rounded-full border border-forest-800/10 px-4 py-2 text-xs font-bold bg-white text-ink/70 hover:bg-forest-50" data-sol="single-extracts">General Wellness</button>
+          </div>
+          <div id="solPanels">
+            
+          <div class="sol-panel" data-sol-panel="cordyceps">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Cordyceps highlight</h3>
+              <a href="./durt-cordyceps-range/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+                      <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./durt-cordyceps-range/?product=fruiting-bodies#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Dried-Cordyceps-Fruiting-Bodies.png" alt="Dried Fruiting Bodies" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Dried Fruiting Bodies</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=powder#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Dried-Cordyceps-Powder.png" alt="Dried Cordyceps Powder" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Dried Powder</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=tincture#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Cordyceps-Double-Extract-Tincture-.png" alt="Double Extract Tincture" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Double Extract Tincture</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=cordy-maxx#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Cordyceps-Extract-Powder-Cordy-Maxx.png" alt="Cordy Maxx" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Cordy Maxx Powder</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=capsules#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Cordyceps-Extract-CapsulesTablet.png" alt="Capsules / Tablets" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Capsules / Tablets</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=green-tea#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Cordyceps-Green-Tea-Extract.png" alt="Green Tea Extract" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Green Tea Extract</span>
+            </a>
+            <a href="./durt-cordyceps-range/?product=coffee#quote" class="w-40 shrink-0 snap-start text-center sm:w-44 transition hover:-translate-y-1">
+              <img src="assets/Cordyceps-Arabica-Coffee-Extract.png" alt="Arabica Coffee Extract" class="mx-auto h-28 w-28 rounded-2xl object-cover shadow-glass" />
+              <span class="mt-3 block text-xs font-semibold text-ink">Arabica Coffee Extract</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="oral-sprays">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Oral sprays</h3>
+              <a href="./oral-sprays/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./oral-sprays/?product=vitamin-d3k2#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Vitamin D3K2 (Liposomal)</span>
+              <span class="mt-1 block text-[11px] text-ink/45">3600 IU D3 + 55 mcg K2-7 per ml</span>
+            </a>
+            <a href="./oral-sprays/?product=multivitamin#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Multivitamin (Liposomal)</span>
+              <span class="mt-1 block text-[11px] text-ink/45">B-complex + fat-soluble vitamins</span>
+            </a>
+            <a href="./oral-sprays/?product=vitamin-c#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Vitamin C Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">360 mg Vitamin C per ml</span>
+            </a>
+            <a href="./oral-sprays/?product=iron-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Iron Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Iron bisglycinate</span>
+            </a>
+            <a href="./oral-sprays/?product=zma-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">ZMA Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Zinc + magnesium + B6</span>
+            </a>
+            <a href="./oral-sprays/?product=sleep-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Sleep Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Melatonin + L-theanine + 5-HTP</span>
+            </a>
+            <a href="./oral-sprays/?product=mind-focus#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Mind Focus Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">L-theanine + caffeine + B5</span>
+            </a>
+            <a href="./oral-sprays/?product=ed-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Erectile Dysfunction Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Nitrosigine® + Cordyceps + pine bark</span>
+            </a>
+            <a href="./oral-sprays/?product=testoboost-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Testoboost Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Maca + Rhodiola + Shilajit</span>
+            </a>
+            <a href="./oral-sprays/?product=vo2-maxx#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">VO2 Maxx Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Cordyceps + Rhodiola + beta-alanine</span>
+            </a>
+            <a href="./oral-sprays/?product=smokers-cough-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Smoker’s Cough Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Cordyceps + Astragalus + Vasaka</span>
+            </a>
+            <a href="./oral-sprays/?product=dry-mouth#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Dry Mouth Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Glycerol + HPMC + sorbitol</span>
+            </a>
+            <a href="./oral-sprays/?product=biotin-spray#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-spray-can"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Biotin Spray</span>
+              <span class="mt-1 block text-[11px] text-ink/45">Biotin</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="phytosomes">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Phytosomes</h3>
+              <a href="./phytosomes/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./phytosomes/?product=phyto-curcumin#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-dna"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Phyto Curcumin</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30–50% curcumin</span>
+            </a>
+            <a href="./phytosomes/?product=phyto-berberine#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-dna"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Phyto Berberine</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30–35% berberine</span>
+            </a>
+            <a href="./phytosomes/?product=phyto-silymarin#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-dna"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Phyto Silymarin</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30% silybin</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="chronic-disease">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Chronic disease</h3>
+              <a href="./chronic-disease-management/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./chronic-disease-management/?product=ckd#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">CKD Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=diabetes#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Diabetes Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=cartilage#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Cartilage Restoration (Arthritis)</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=lung-health#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Lung Health</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=smokers-respiratory#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Smoker’s Cough / Respiratory</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=weight-loss#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Weight Loss Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=sleep-tablets#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Sleep Support</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=sinus#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Sinus Support</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=joint-pain#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Joint Pain Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./chronic-disease-management/?product=cancer-support#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-heart-pulse"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Cancer Management Support</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="mens-wellness">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Men’s wellness</h3>
+              <a href="./mens-sexual-wellness/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./mens-sexual-wellness/?product=ed-tablets#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-person"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Erectile Dysfunction</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./mens-sexual-wellness/?product=pe-management#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-person"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Premature Ejaculation Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./mens-sexual-wellness/?product=mood-vitality#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-person"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Mood, Vitality &amp; Sexual Wellness</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./mens-sexual-wellness/?product=men-fertility#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-person"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Men’s Fertility</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./mens-sexual-wellness/?product=testosterone-boost#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-person"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Testosterone Boost</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="women-wellness">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Women wellness</h3>
+              <a href="./women-wellness/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./women-wellness/?product=fertility#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-venus"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Women’s Fertility &amp; Preconception Wellness</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./women-wellness/?product=leukorrhea#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-venus"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Leukorrhea Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./women-wellness/?product=pcos#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-venus"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">PCOS / PCOD Management</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./women-wellness/?product=skincare#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-venus"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Skincare From Within</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 tablets</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="effervescent">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">Effervescent</h3>
+              <a href="./effervescent/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./effervescent/?product=instant-sex-drive#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-glass-water"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Instant Sex Drive</span>
+              <span class="mt-1 block text-[11px] text-ink/45">15 tablets</span>
+            </a>
+            <a href="./effervescent/?product=gut-probiotics#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-glass-water"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Gut Health Probiotics</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 tablets</span>
+            </a>
+            <a href="./effervescent/?product=weight-probiotics#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-glass-water"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Weight Loss Probiotics</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 tablets</span>
+            </a>
+            <a href="./effervescent/?product=molecular-hydrogen#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-glass-water"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Molecular Hydrogen Tabs</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 tablets</span>
+            </a>
+          </div>
+          </div>
+          <div class="sol-panel hidden" data-sol-panel="single-extracts">
+            <div class="mb-6 flex items-center justify-between gap-4">
+              <h3 class="text-sm font-bold uppercase tracking-[0.18em] text-forest-700">General wellness</h3>
+              <a href="./single-extracts/" class="text-xs font-bold text-forest-700 transition hover:gap-2 inline-flex items-center gap-1.5">View all <i class="fa-solid fa-arrow-right text-[10px]"></i></a>
+            </div>
+            <div class="facility-track flex gap-4 overflow-x-auto pb-2">
+            <a href="./single-extracts/?product=triple-magnesium#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-leaf"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Triple Magnesium</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./single-extracts/?product=omega-3#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-leaf"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Omega-3 Softgels</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 softgels</span>
+            </a>
+            <a href="./single-extracts/?product=digestive-mints#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-leaf"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Post-Meal Digestive Mints</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 mints</span>
+            </a>
+            <a href="./single-extracts/?product=energy-booster#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-leaf"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Energy Booster</span>
+              <span class="mt-1 block text-[11px] text-ink/45">60 tablets</span>
+            </a>
+            <a href="./single-extracts/?product=antioxidant#quote" class="w-44 shrink-0 snap-start rounded-2xl border border-forest-800/8 bg-white p-4 text-center transition hover:-translate-y-1 hover:shadow-glass">
+              <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-forest-100 text-forest-700"><i class="fa-solid fa-leaf"></i></div>
+              <span class="mt-3 block text-xs font-semibold text-ink">Antioxidant Anti-Ageing Tablets</span>
+              <span class="mt-1 block text-[11px] text-ink/45">30 tablets</span>
+            </a>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leaders -->
+    <section id="leaders" class="bg-forest-50 py-24 md:py-32">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="reveal max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Leadership Team</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-5xl">Our leaders</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink/60">
+            The scientific minds behind Vivid Nutripharm’s formulations and manufacturing standards.
+          </p>
+        </div>
+
+        <div class="reveal mt-14 grid gap-8 md:grid-cols-2">
+          <article class="group overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-glass">
+            <div class="aspect-[4/3] overflow-hidden bg-forest-100">
+              <img src="assets/ChatGPT-Image-Aug-6-2026-03_15_35-PM.png" alt="Dr. Ushasree Bommareddy" class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="p-7 md:p-8">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-forest-600">Founder &amp; CEO</p>
+              <h3 class="font-display mt-2 text-2xl font-semibold text-ink">Dr. Ushasree Bommareddy</h3>
+              <ul class="mt-4 space-y-2 text-sm text-ink/65">
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> PhD in Molecular Infection Biology</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> Master’s in Molecular Medicine &amp; Biotechnology</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> Internationally Published Researcher</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-forest-800/10 bg-white shadow-glass">
+            <div class="aspect-[4/3] overflow-hidden bg-forest-100">
+              <img src="assets/Dr.-Praveen-Bommareddy-1.png" alt="Dr. Praveen Bommareddy" class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+            </div>
+            <div class="p-7 md:p-8">
+              <p class="text-xs font-bold uppercase tracking-[0.18em] text-forest-600">Co-Founder &amp; CTO</p>
+              <h3 class="font-display mt-2 text-2xl font-semibold text-ink">Dr. Praveen Bommareddy</h3>
+              <ul class="mt-4 space-y-2 text-sm text-ink/65">
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> PhD in Fungal Genetics &amp; Molecular Biology</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> 7+ Years in Formulation &amp; Extraction Expertise</li>
+                <li class="flex gap-2"><i class="fa-solid fa-check mt-1 text-forest-500"></i> Innovation &amp; R&amp;D Leader</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section id="facilities" class="bg-white py-24 md:py-28">
+      <div class="mx-auto max-w-6xl px-6 lg:px-8">
+        <div class="reveal mb-10 max-w-2xl">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Inside Vivid</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-4xl">Our facilities</h2>
+          <p class="mt-3 text-base text-ink/60">Labs and manufacturing floors where formulations are researched, tested, and produced at scale.</p>
+        </div>
+      </div>
+
+      <div class="reveal facilities-viewport relative mx-auto max-w-[100vw]" id="facilitiesViewport" aria-label="Facility photo gallery">
+        <div class="facilities-rail is-animating" id="facilitiesRail">
+          <figure class="facility-shot"><img src="assets/1.jpg" alt="Vivid Nutripharm manufacturing facility photo 1" /></figure>
+          <figure class="facility-shot"><img src="assets/2.jpg" alt="Vivid Nutripharm manufacturing facility photo 2" /></figure>
+          <figure class="facility-shot"><img src="assets/3.jpg" alt="Vivid Nutripharm manufacturing facility photo 3" /></figure>
+          <figure class="facility-shot"><img src="assets/4.jpg" alt="Vivid Nutripharm manufacturing facility photo 4" /></figure>
+          <figure class="facility-shot"><img src="assets/5.jpg" alt="Vivid Nutripharm manufacturing facility photo 5" /></figure>
+          <figure class="facility-shot"><img src="assets/6.jpg" alt="Vivid Nutripharm manufacturing facility photo 6" /></figure>
+          <figure class="facility-shot"><img src="assets/7.jpg" alt="Vivid Nutripharm manufacturing facility photo 7" /></figure>
+          <figure class="facility-shot"><img src="assets/8.jpg" alt="Vivid Nutripharm manufacturing facility photo 8" /></figure>
+          <figure class="facility-shot"><img src="assets/9.jpg" alt="Vivid Nutripharm manufacturing facility photo 9" /></figure>
+          <figure class="facility-shot"><img src="assets/10.jpg" alt="Vivid Nutripharm manufacturing facility photo 10" /></figure>
+          <figure class="facility-shot"><img src="assets/11.jpg" alt="Vivid Nutripharm manufacturing facility photo 11" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications marquee -->
+    <section id="certifications" class="border-y border-forest-800/8 bg-mist py-16 md:py-20">
+      <div class="mx-auto max-w-6xl px-6 text-center lg:px-8">
+        <p class="reveal text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Trust &amp; Compliance</p>
+        <h2 class="reveal font-display mt-3 text-2xl font-semibold text-ink md:text-4xl">Certified for global standards</h2>
+      </div>
+      <div class="reveal mt-10 overflow-hidden">
+        <div class="marquee flex w-max gap-10 px-6">
+          <img src="assets/EU-Organic.webp" alt="EU Organic" class="h-16 w-auto object-contain opacity-80 grayscale transition hover:grayscale-0 hover:opacity-100 sm:h-20" />
+          <img src="assets/ISO_9001v015.webp" alt="ISO 9001" class="h-16 w-auto object-contain opacity-80 grayscale transition hover:grayscale-0 hover:opacity-100 sm:h-20" />
+          <img src="assets/GMP-Certified.webp" alt="GMP" class="h-16 w-auto object-contain opacity-80 grayscale transition hover:grayscale-0 hover:opacity-100 sm:h-20" />
+          <img src="assets/FSSAI-Certified.webp" alt="FSSAI" class="h-16 w-auto object-contain opacity-80 grayscale transition hover:grayscale-0 hover:opacity-100 sm:h-20" />
+          <img src="assets/DPIIT-Recognized-scaled.webp" alt="DPIIT" class="h-16 w-auto object-contain opacity-80 grayscale transition hover:grayscale-0 hover:opacity-100 sm:h-20" />
+          <img src="assets/EU-Organic.webp" alt="" class="h-16 w-auto object-contain opacity-80 grayscale sm:h-20" aria-hidden="true" />
+          <img src="assets/ISO_9001v015.webp" alt="" class="h-16 w-auto object-contain opacity-80 grayscale sm:h-20" aria-hidden="true" />
+          <img src="assets/GMP-Certified.webp" alt="" class="h-16 w-auto object-contain opacity-80 grayscale sm:h-20" aria-hidden="true" />
+          <img src="assets/FSSAI-Certified.webp" alt="" class="h-16 w-auto object-contain opacity-80 grayscale sm:h-20" aria-hidden="true" />
+          <img src="assets/DPIIT-Recognized-scaled.webp" alt="" class="h-16 w-auto object-contain opacity-80 grayscale sm:h-20" aria-hidden="true" />
+        </div>
+      </div>
+      <p class="mx-auto mt-8 max-w-2xl px-6 text-center text-sm text-ink/50">
+        DPIIT Recognized · FSSAI Certified · ISO 9001:2015 · GMP Certified · EU Organic &amp; USDA Organic compliant
+      </p>
+    </section>
+
+    <!-- CTA + Testimonials-style social proof -->
+    <section class="relative overflow-hidden bg-forest-900 py-24 text-white md:py-28">
+      <div class="absolute inset-0 opacity-30">
+        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80" alt="" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-forest-950/80"></div>
+      </div>
+      <div class="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
+        <div class="reveal">
+          <h2 class="font-display text-3xl font-semibold md:text-5xl">Let’s build the future of wellness together</h2>
+          <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/65">
+            From Idea to Impact, Vivid Nutripharm is the manufacturing partner behind your next breakthrough product.
+          </p>
+          <a href="#contact" class="mt-9 inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 text-sm font-bold text-forest-900 transition-all hover:-translate-y-0.5 hover:shadow-lift">
+            Partner With Us <i class="fa-solid fa-arrow-right text-xs"></i>
+          </a>
+        </div>
+
+        <div class="reveal mt-16 grid gap-5 text-left md:grid-cols-3">
+          <blockquote class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <p class="text-sm leading-relaxed text-white/80">“Science-first formulations with delivery platforms that actually differentiate a brand on shelf.”</p>
+            <footer class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-forest-500/30 text-sm font-bold">AB</div>
+              <div>
+                <p class="text-sm font-semibold">Brand Partner</p>
+                <p class="text-xs text-white/45">Wellness Startup</p>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <p class="text-sm leading-relaxed text-white/80">“Private-label support from concept through packaging and regulatory — one accountable team.”</p>
+            <footer class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-forest-500/30 text-sm font-bold">RK</div>
+              <div>
+                <p class="text-sm font-semibold">Product Lead</p>
+                <p class="text-xs text-white/45">D2C Supplement Brand</p>
+              </div>
+            </footer>
+          </blockquote>
+          <blockquote class="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+            <p class="text-sm leading-relaxed text-white/80">“BioEnh™ and full-spectrum Cordyceps gave us a clear clinical story competitors couldn’t match.”</p>
+            <footer class="mt-5 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-forest-500/30 text-sm font-bold">MS</div>
+              <div>
+                <p class="text-sm font-semibold">Formulation Buyer</p>
+                <p class="text-xs text-white/45">Global Distributor</p>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-white py-24 md:py-28">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12 lg:px-8">
+        <div class="reveal lg:col-span-4">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">FAQ</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-4xl">Common questions</h2>
+          <p class="mt-4 text-sm leading-relaxed text-ink/55">Straight answers for brands evaluating manufacturing partners.</p>
+        </div>
+        <div class="reveal space-y-3 lg:col-span-8">
+          <details class="faq group rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              What kind of products can Vivid Nutripharm manufacture?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">We manufacture across capsules, tablets, effervescents, liquid extracts &amp; tinctures, oral sprays, and full-spectrum Cordyceps formats — spanning metabolic wellness, women’s health, respiratory health, sleep &amp; stress, and performance categories.</p>
+          </details>
+          <details class="faq rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              Do you offer private label / white label manufacturing?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">Yes — we support brands from concept and formulation through to packaging, regulatory support, and market-ready production.</p>
+          </details>
+          <details class="faq rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              What certifications does Vivid Nutripharm hold?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">We’re DPIIT Recognized, FSSAI Certified, ISO 9001:2015 certified, GMP Certified, and compliant with EU Organic and USDA Organic standards.</p>
+          </details>
+          <details class="faq rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              What is your typical development timeline?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">Timelines vary by product complexity and testing requirements — our team will give you a clear timeline once we understand your formulation and volume needs.</p>
+          </details>
+          <details class="faq rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              What is BioEnh™ and how is it different?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">BioEnh™ is our proprietary bioavailability enhancement technology, designed to help the body absorb and use active ingredients more effectively than conventional formulations.</p>
+          </details>
+          <details class="faq rounded-2xl border border-forest-800/10 bg-mist open:bg-white open:shadow-glass">
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-sm font-semibold text-ink md:px-6 md:text-base">
+              How do I get started?
+              <span class="faq-icon flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-forest-100 text-forest-700 transition-transform"><i class="fa-solid fa-plus text-xs"></i></span>
+            </summary>
+            <p class="px-5 pb-5 text-sm leading-relaxed text-ink/60 md:px-6">Reach out through the form below with your product idea or requirements, and our team will walk you through the next steps.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="bg-mist py-24 md:py-32">
+      <div class="mx-auto grid max-w-6xl gap-12 px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+        <div class="reveal lg:col-span-5">
+          <p class="text-xs font-bold uppercase tracking-[0.22em] text-forest-600">Get in Touch</p>
+          <h2 class="font-display mt-4 text-3xl font-semibold text-ink md:text-4xl">Let’s talk about your next product</h2>
+          <p class="mt-4 text-base leading-relaxed text-ink/60">
+            Have a formulation idea, a private-label brief, or a question about our manufacturing capabilities? Send a note — we respond within 1–2 business days.
+          </p>
+
+          <ul class="mt-10 space-y-5 text-sm">
+            <li class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-forest-800 text-white"><i class="fa-solid fa-envelope"></i></span>
+              <div>
+                <p class="font-semibold text-ink">Email</p>
+                <a href="mailto:info@vividnutripharm.com" class="text-forest-700 hover:underline">info@vividnutripharm.com</a>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-forest-800 text-white"><i class="fa-solid fa-phone"></i></span>
+              <div>
+                <p class="font-semibold text-ink">Phone</p>
+                <p class="text-ink/65"><a href="tel:7036300776" class="hover:text-forest-700">7036300776</a> · <a href="tel:8179678794" class="hover:text-forest-700">8179678794</a></p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-forest-800 text-white"><i class="fa-solid fa-location-dot"></i></span>
+              <div>
+                <p class="font-semibold text-ink">Location</p>
+                <p class="text-ink/65">Dr. No. 1-62/AB/60, Sri Aurobindo Colony Lane 1, Opp Dr Reddy’s Foundation, JP Nagar Road, Miyapur, Hyderabad-500049, Telangana, India</p>
+              </div>
+            </li>
+          </ul>
+
+          <div class="mt-8 flex gap-3">
+            <a href="#" aria-label="Instagram" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest-800/15 text-forest-800 transition hover:-translate-y-0.5 hover:bg-forest-800 hover:text-white"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter / X" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest-800/15 text-forest-800 transition hover:-translate-y-0.5 hover:bg-forest-800 hover:text-white"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest-800/15 text-forest-800 transition hover:-translate-y-0.5 hover:bg-forest-800 hover:text-white"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook" class="flex h-10 w-10 items-center justify-center rounded-full border border-forest-800/15 text-forest-800 transition hover:-translate-y-0.5 hover:bg-forest-800 hover:text-white"><i class="fa-brands fa-facebook-f"></i></a>
+          </div>
+        </div>
+
+        <div class="reveal lg:col-span-7">
+          <form id="contactForm" class="rounded-3xl border border-forest-800/10 bg-white p-6 shadow-lift md:p-8" novalidate>
+            <h3 class="text-lg font-bold text-ink">Send us a message</h3>
+            <p class="mt-1 text-sm text-ink/50">We respect your privacy. Your details are never shared.</p>
+
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <label class="block text-sm font-medium text-ink/80">
+                Full Name *
+                <input required name="name" type="text" placeholder="Your name" class="mt-1.5 w-full rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition" />
+              </label>
+              <label class="block text-sm font-medium text-ink/80">
+                Email Address *
+                <input required name="email" type="email" placeholder="you@company.com" class="mt-1.5 w-full rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition" />
+              </label>
+              <label class="block text-sm font-medium text-ink/80">
+                Phone Number
+                <input name="phone" type="tel" placeholder="7036300776" class="mt-1.5 w-full rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition" />
+              </label>
+              <label class="block text-sm font-medium text-ink/80">
+                Company / Brand
+                <input name="company" type="text" placeholder="Your company name" class="mt-1.5 w-full rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition" />
+              </label>
+            </div>
+
+            <label class="mt-4 block text-sm font-medium text-ink/80">
+              I’m Interested In
+              <select name="interest" class="mt-1.5 w-full rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition">
+                <option value="">Select an option</option>
+                <option value="private-label">Private Label / White Label Manufacturing</option>
+                <option value="single-extracts">Single Extracts</option>
+                <option value="oral-sprays">Oral Sprays</option>
+                <option value="phytosomes">Phytosomes</option>
+                <option value="chronic-disease">Chronic Disease Management</option>
+                <option value="mens-wellness">Men’s Sexual Wellness</option>
+                <option value="women-wellness">Women Wellness</option>
+                <option value="effervescent">Effervescent</option>
+                <option value="cordyceps">Cordyceps Range</option>
+              </select>
+            </label>
+
+            <label class="mt-4 block text-sm font-medium text-ink/80">
+              Message *
+              <textarea required name="message" rows="4" placeholder="Tell us a bit about your product idea or requirement..." class="mt-1.5 w-full resize-y rounded-xl border border-forest-800/15 bg-mist px-4 py-3 text-sm transition"></textarea>
+            </label>
+
+            <button type="submit" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-forest-800 px-6 py-3.5 text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-forest-700 hover:shadow-lift sm:w-auto">
+              Send Message <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+            <p id="formStatus" class="mt-3 hidden text-sm font-medium text-forest-600" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-forest-950 text-white">
+    <div class="mx-auto grid max-w-6xl gap-12 px-6 py-16 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+      <div class="lg:col-span-1">
+        <div class="flex items-center gap-3">
+          <img src="assets/ChatGPT-Image-Aug-6-2026-12_16_26-PM.png" alt="" class="h-11 w-11 rounded-full object-cover" />
+          <span class="text-sm font-extrabold uppercase tracking-[0.14em]">Vivid Nutripharm</span>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-white/55">
+          Differentiated wellness manufacturing — from full-spectrum Cordyceps to advanced delivery technologies.
+        </p>
+        <form class="mt-6 flex gap-2" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('[data-nl]').classList.remove('hidden');">
+          <input type="email" required placeholder="Newsletter email" class="w-full rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/35" />
+          <button type="submit" class="shrink-0 rounded-full bg-forest-500 px-4 py-2.5 text-sm font-bold text-forest-950 transition hover:bg-forest-300">Join</button>
+        </form>
+        <p data-nl class="mt-2 hidden text-xs text-forest-300">Thanks — you’re on the list.</p>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-[0.18em] text-white/40">Quick Links</h4>
+        <ul class="mt-4 space-y-2 text-sm text-white/70">
+          <li><a href="#top" class="hover:text-white">Home</a></li>
+          <li><a href="#about" class="hover:text-white">About Us</a></li>
+          <li><a href="#solutions" class="hover:text-white">Our Solutions</a></li>
+          <li><a href="#contact" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-[0.18em] text-white/40">Products</h4>
+        <ul class="mt-4 space-y-2 text-sm text-white/70">
+          <li><a href="./durt-cordyceps-range/" class="hover:text-white">Cordyceps Range</a></li>
+          <li><a href="./oral-sprays/" class="hover:text-white">Oral Sprays</a></li>
+          <li><a href="./phytosomes/" class="hover:text-white">Phytosomes</a></li>
+          <li><a href="./chronic-disease-management/" class="hover:text-white">Chronic Disease</a></li>
+          <li><a href="./mens-sexual-wellness/" class="hover:text-white">Men’s Wellness</a></li>
+          <li><a href="./women-wellness/" class="hover:text-white">Women Wellness</a></li>
+          <li><a href="./effervescent/" class="hover:text-white">Effervescent</a></li>
+          <li><a href="./single-extracts/" class="hover:text-white">General Wellness</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-[0.18em] text-white/40">Contact Us</h4>
+        <ul class="mt-4 space-y-3 text-sm text-white/70">
+          <li><a href="tel:7036300776" class="hover:text-white">7036300776</a> · <a href="tel:8179678794" class="hover:text-white">8179678794</a></li>
+          <li><a href="mailto:info@vividnutripharm.com" class="hover:text-white">info@vividnutripharm.com</a></li>
+          <li class="leading-relaxed">Miyapur, Hyderabad-500049, Telangana, India</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-6 py-6 text-xs text-white/40 sm:flex-row lg:px-8">
+        <p>© 2026 Vivid Nutripharm. All rights reserved.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white/70">Privacy Policy</a>
+          <a href="#" class="hover:text-white/70">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('is-scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    document.querySelectorAll('.mobile-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = e.currentTarget;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const status = document.getElementById('formStatus');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnHtml = submitBtn.innerHTML;
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      status.classList.remove('hidden');
+      status.classList.remove('text-red-600');
+      status.classList.add('text-forest-600');
+      status.textContent = 'Sending your message…';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending…';
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/info@vividnutripharm.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            _subject: `Website contact from ${data.name || 'visitor'}`,
+            _template: 'table',
+            _captcha: 'false',
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '—',
+            company: data.company || '—',
+            interest: data.interest || '—',
+            message: data.message,
+          }),
+        });
+
+        if (!res.ok) throw new Error('Request failed');
+
+        status.textContent = 'Thanks — your message was sent. Our team will follow up shortly.';
+        form.reset();
+      } catch (err) {
+        status.classList.remove('text-forest-600');
+        status.classList.add('text-red-600');
+        status.textContent = 'Could not send right now. Please email info@vividnutripharm.com directly.';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnHtml;
+      }
+    });
+
+    const solTabs = document.querySelectorAll('#solTabs .sol-tab');
+    const solPanels = document.querySelectorAll('#solPanels .sol-panel');
+    solTabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        const id = tab.getAttribute('data-sol');
+        solTabs.forEach((t) => {
+          t.classList.remove('sol-tab-active', 'bg-forest-800', 'text-white');
+          t.classList.add('bg-white', 'text-ink/70');
+        });
+        tab.classList.add('sol-tab-active', 'bg-forest-800', 'text-white');
+        tab.classList.remove('bg-white', 'text-ink/70');
+        solPanels.forEach((p) => p.classList.toggle('hidden', p.getAttribute('data-sol-panel') !== id));
+      });
+    });
+
+    // Active nav highlight
+    const sections = ['about', 'process', 'platforms', 'solutions', 'leaders', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+        });
+      });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) sectionObserver.observe(el);
+    });
+
+    // Facilities: continuous L→R scroll; pause + enlarge on image hover
+    (function initFacilitiesGallery() {
+      const viewport = document.getElementById('facilitiesViewport');
+      const rail = document.getElementById('facilitiesRail');
+      if (!viewport || !rail) return;
+
+      const originals = [...rail.children];
+      originals.forEach((node) => {
+        const clone = node.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        rail.appendChild(clone);
+      });
+
+      const allShots = () => [...rail.querySelectorAll('.facility-shot')];
+
+      rail.addEventListener('mouseover', (e) => {
+        const shot = e.target.closest('.facility-shot');
+        if (!shot || !rail.contains(shot)) return;
+        viewport.classList.add('is-paused');
+        allShots().forEach((s) => s.classList.toggle('is-enlarged', s === shot));
+      });
+
+      rail.addEventListener('mouseout', (e) => {
+        const related = e.relatedTarget;
+        if (related && related.closest && related.closest('.facility-shot') && rail.contains(related.closest('.facility-shot'))) {
+          return;
+        }
+        viewport.classList.remove('is-paused');
+        allShots().forEach((shot) => shot.classList.remove('is-enlarged'));
+      });
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        rail.classList.remove('is-animating');
+        viewport.style.overflowX = 'auto';
+      }
+    })();
+  </script>
+</body>
+</html>
