@@ -12,6 +12,7 @@ published via GitHub Pages.
 | Solutions | `solutions.html` |
 | Contact | `contact.html` |
 | Cordyceps Range | `durt-cordyceps-range.html` |
+| Mushroom Tinctures | `mushroom-tinctures.html` |
 | Oral Sprays | `oral-sprays-2.html` |
 | Phytosomes | `phytosomes.html` |
 | Chronic Disease Management | `chronic-disease-management.html` |
@@ -20,7 +21,7 @@ published via GitHub Pages.
 | Effervescent | `effervescent.html` |
 | Single Extracts | `single-extracts.html` |
 
-51 products across the eight product pages. Clicking a product opens a large
+54 products across the nine product pages. Clicking a product opens a large
 flip-out detail panel; homepage tiles deep-link straight to it via
 `<page>.html#<product-id>`.
 
