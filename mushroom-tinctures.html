@@ -64,7 +64,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			</script>
 			    <style>
         html { scroll-padding-top: 150px; }
+        /* Astra lays #content and #primary out as flex items. Their default
+           min-width:auto resolves to min-content, so wide descendants inflate
+           the page width instead of wrapping. Letting them shrink keeps the
+           layout inside the viewport. */
+        #content, #primary { min-width: 0; }
         .vivid-header {
+            box-sizing: border-box;
             position: sticky;
             top: 0;
             box-shadow: 0 2px 12px rgba(10, 61, 46, 0.07);

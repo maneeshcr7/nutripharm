@@ -64,7 +64,14 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 			</script>
 			    <style>
         html { scroll-padding-top: 150px; }
+        /* Astra lays #content and #primary out as flex items. Their default
+           min-width:auto resolves to min-content, so a wide descendant -- the
+           horizontally scrolling product card rows -- inflates the page width
+           instead of scrolling inside its own container. Letting them shrink
+           keeps that overflow where it belongs. */
+        #content, #primary { min-width: 0; }
         .vivid-header {
+            box-sizing: border-box;
             position: sticky;
             top: 0;
             box-shadow: 0 2px 12px rgba(10, 61, 46, 0.07);
@@ -540,7 +547,6 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/cert-orbit.css">
 
 <style>
     /* ---------- shared tokens (scoped via class prefixes, no global resets) ---------- */
@@ -719,71 +725,80 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     .vpr-head h2 .vpr-hl-gold { color: #b8862f; }
     .vpr-head p { font-size: 15.5px; color: #4b5750; line-height: 1.7; max-width: 620px; margin: 0 auto; }
 
-    /* ---- circular process diagram ---- */
-    .vpo-wrap { position: relative; }
-    .vpo {
+    .vpr-line-wrap { position: relative; }
+    .vpr-track { display: flex; align-items: flex-start; position: relative; }
+    .vpr-step {
         position: relative;
-        width: min(720px, 100%);
-        aspect-ratio: 1 / 1;
-        margin: 0 auto;
+        flex: 1 1 0; min-width: 0; text-align: center; padding: 0 6px;
+        opacity: 0; transform: translateY(26px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
     }
-    .vpo-arrows { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
 
-    .vpo-hub {
-        position: absolute; left: 50%; top: 50%; width: 40%; aspect-ratio: 1 / 1;
-        transform: translate(-50%, -50%) scale(0.85);
-        border-radius: 50%; background: #f4f8f6; border: 1px solid #dcebe4;
-        box-shadow: 0 12px 30px rgba(10, 61, 46, 0.08);
-        z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center;
-        padding: 10%; text-align: center;
-        opacity: 0; transition: opacity 0.6s ease 0.15s, transform 0.6s ease 0.15s;
-    }
-    .vpo-wrap.vpr-in .vpo-hub { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .vpo-hub-label {
-        font-family: 'Poppins', Arial, sans-serif; font-size: 10.5px; font-weight: 700;
-        letter-spacing: 1.6px; text-transform: uppercase; color: #0a3d2e; margin-bottom: 10%;
-    }
-    .vpo-hub-certs { display: grid; grid-template-columns: 1fr 1fr; gap: 10% 12%; width: 100%; }
-    .vpo-hub-cert { display: flex; flex-direction: column; align-items: center; gap: 4px; color: #1f8f3f; }
-    .vpo-hub-cert svg { width: 22px; height: 22px; }
-    .vpo-hub-cert span { font-size: 8.5px; font-weight: 700; letter-spacing: 0.3px; color: #121212; text-transform: uppercase; line-height: 1.2; }
-
-    .vpo-node {
-        --angle: calc(var(--i) * 60deg - 90deg);
+    /* Connecting timeline line running behind the icons, plus a small node
+       dot centered under each icon. Both grow/pop in once the section
+       scrolls into view (see .vpr-in below). */
+    .vpr-track::before {
+        content: '';
         position: absolute;
-        left: calc(50% + 36.45% * cos(var(--angle)));
-        top: calc(50% + 36.45% * sin(var(--angle)));
-        z-index: 3; display: flex; flex-direction: column; align-items: center;
-        width: 150px; text-align: center;
-        opacity: 0; transform: translate(-50%, -50%) translateY(14px) scale(0.92);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-        transition-delay: calc(var(--i) * 0.1s);
+        top: 128px; left: 8.3333%; right: 8.3333%;
+        height: 2px;
+        background: linear-gradient(90deg, #cfe4da 0%, #b8862f 50%, #cfe4da 100%);
+        transform: scaleX(0); transform-origin: left center;
+        transition: transform 1.1s ease 0.2s;
+        z-index: 0;
     }
-    .vpo-wrap.vpr-in .vpo-node { opacity: 1; transform: translate(-50%, -50%); }
-    .vpo-num {
-        display: block; font-family: 'Poppins', Arial, sans-serif; font-size: 12.5px; font-weight: 700;
-        letter-spacing: 1px; color: #93a89b; margin: 0 0 8px;
+    .vpr-line-wrap.vpr-in .vpr-track::before { transform: scaleX(1); }
+    .vpr-step::after {
+        content: '';
+        position: absolute;
+        top: 123px; left: 50%;
+        width: 10px; height: 10px; border-radius: 50%;
+        background: #0a3d2e; border: 2px solid #ffffff;
+        box-shadow: 0 0 0 2px #cfe4da;
+        transform: translateX(-50%) scale(0);
+        transition: transform 0.4s ease 0.5s;
+        z-index: 1;
     }
-    .vpo-badge {
-        width: 92px; height: 92px; border-radius: 50%; margin: 0 0 14px;
-        background: #ffffff; border: 1.5px solid #dcebe4;
+    .vpr-line-wrap.vpr-in .vpr-step::after { transform: translateX(-50%) scale(1); }
+
+    .vpr-line-wrap.vpr-in .vpr-step { opacity: 1; transform: translateY(0); }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(1) { transition-delay: 0.05s; }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(2) { transition-delay: 0.15s; }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(3) { transition-delay: 0.25s; }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(4) { transition-delay: 0.35s; }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(5) { transition-delay: 0.45s; }
+    .vpr-line-wrap.vpr-in .vpr-track > *:nth-child(6) { transition-delay: 0.55s; }
+
+    .vpr-dot {
+        width: auto; height: auto; margin: 0 auto 16px; position: relative;
+        background: none;
         display: flex; align-items: center; justify-content: center;
-        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        box-shadow: none;
+        transition: transform 0.35s ease;
     }
-    .vpo-node:hover .vpo-badge { transform: scale(1.07); box-shadow: 0 10px 22px rgba(10, 61, 46, 0.14); }
-    .vpo-badge svg { width: 38px; height: 38px; }
-    .vpo-node h3 { font-size: 13.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: #121212; margin: 0; line-height: 1.35; }
+    .vpr-step:hover .vpr-dot { transform: scale(1.07); }
+    .vpr-dot img { width: 120px; height: 120px; object-fit: contain; display: block; }
+    .vpr-num {
+        display: block; font-family: 'Poppins', Arial, sans-serif; font-size: 13px; font-weight: 700;
+        letter-spacing: 1px; color: #0a3d2e; margin: 0 0 8px;
+    }
+    .vpr-step h3 { font-size: 14px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: #121212; margin: 0 0 10px; }
+    .vpr-step p { font-size: 12.5px; color: #4b5750; line-height: 1.6; margin: 0 auto; max-width: 175px; }
 
-    .vpo-list { display: none; list-style: none; margin: 0 auto; padding: 0; max-width: 480px; }
-    .vpo-list li { display: flex; align-items: flex-start; gap: 16px; padding: 14px 4px; border-bottom: 1px solid #e7efec; }
-    .vpo-list li:last-child { border-bottom: none; }
-    .vpo-list-num { font-family: 'Poppins', Arial, sans-serif; font-size: 13px; font-weight: 700; color: #b8862f; flex-shrink: 0; padding-top: 2px; }
-    .vpo-list h4 { font-size: 14px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase; color: #121212; margin: 0 0 4px; }
-    .vpo-list p { font-size: 12.5px; color: #4b5750; line-height: 1.6; margin: 0; }
-
-    @media (max-width: 720px) {
-        .vpo { display: none; }
-        .vpo-list { display: block; }
+    @media (max-width: 900px) {
+        .vpr-track { flex-direction: column; gap: 34px; position: relative; }
+        .vpr-track::before { display: none; }
+        .vpr-step::after { display: none; }
+        .vpr-step { display: flex; align-items: flex-start; gap: 16px; text-align: left; padding: 0; transform: translateX(-20px); }
+        .vpr-line-wrap.vpr-in .vpr-step { transform: translateX(0); }
+        .vpr-dot { margin: 0; flex-shrink: 0; }
+        .vpr-step .vpr-num { margin-bottom: 4px; }
+        .vpr-step p { max-width: none; margin: 0; }
+        .vpr-line-wrap::before {
+            content: ''; position: absolute; top: 6px; bottom: 6px; left: 60px; width: 2px; background: #e7efec;
+            transform: scaleY(0); transform-origin: top center; transition: transform 1s ease 0.15s;
+        }
+        .vpr-line-wrap.vpr-in::before { transform: scaleY(1); }
     }
     @media (max-width: 640px) {
         .vpr-process { padding: 64px 20px; }
@@ -1147,7 +1162,14 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
         .vfc-slide { flex: 0 0 100%; }
     }
 
-    /* Certifications circular diagram: see assets/cert-orbit.css */
+    /* ================= CERTIFICATIONS (scrolling ribbon) ================= */
+    .vcert-strip { background: #f4f8f6; padding: 56px 0; overflow: hidden; }
+    .vcert-head { text-align: center; margin-bottom: 34px; padding: 0 20px; }
+    .vcert-head h2 { font-family: 'Poppins', Arial, sans-serif; font-size: 26px; color: #121212; margin: 0; font-weight: 700; }
+    .vcert-track-wrap { width: 100%; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .vcert-track { display: flex; align-items: center; gap: 70px; width: max-content; animation: vcertScroll 22s linear infinite; }
+    .vcert-track img { height: 60px; width: auto; display: block; filter: grayscale(15%); opacity: 0.9; }
+    @keyframes vcertScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
     /* ================= FINAL CTA + FAQ ================= */
     .vfaq-final { background: #0a3d2e; padding: 80px 40px; }
@@ -1356,65 +1378,9 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
             </div>
         </div>
         <div class="vhs-hero-media">
-            <svg class="vivid-hero-graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 930" width="100%" role="img" aria-label="Vivid Nutripharm six-step product development process">
-<defs>
-  <filter id="pc-shadow" x="-40%" y="-40%" width="180%" height="180%">
-    <feDropShadow dx="0" dy="4" stdDeviation="7" flood-color="#0a3d2e" flood-opacity="0.13"/>
-  </filter>
-</defs>
-<rect width="900" height="930" fill="none"/>
-<path d="M512.04 140.11 A318 318 0 0 1 678.93 231.29" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="512.04" cy="140.11" r="4" fill="#1f8f3f"/>
-<path d="M689.09 242.33 L683.86 226.96 L674.53 235.14 Z" fill="#1f8f3f"/>
-<path d="M751.12 349.78 A318 318 0 0 1 755.61 539.91" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="751.12" cy="349.78" r="4" fill="#1f8f3f"/>
-<path d="M751.12 554.22 L761.82 542.01 L750.07 538.02 Z" fill="#1f8f3f"/>
-<path d="M689.09 661.67 A318 318 0 0 1 526.68 760.62" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="689.09" cy="661.67" r="4" fill="#1f8f3f"/>
-<path d="M512.04 763.89 L527.96 767.04 L525.54 754.88 Z" fill="#1f8f3f"/>
-<path d="M387.96 763.89 A318 318 0 0 1 221.07 672.71" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="387.96" cy="763.89" r="4" fill="#1f8f3f"/>
-<path d="M210.91 661.67 L216.14 677.04 L225.47 668.86 Z" fill="#1f8f3f"/>
-<path d="M148.88 554.22 A318 318 0 0 1 144.39 364.09" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="148.88" cy="554.22" r="4" fill="#1f8f3f"/>
-<path d="M148.88 349.78 L138.18 361.99 L149.93 365.98 Z" fill="#1f8f3f"/>
-<path d="M210.91 242.33 A318 318 0 0 1 373.32 143.38" fill="none" stroke="#1f8f3f" stroke-width="1.8" stroke-opacity="0.7" stroke-linecap="round"/>
-<circle cx="210.91" cy="242.33" r="4" fill="#1f8f3f"/>
-<path d="M387.96 140.11 L372.04 136.96 L374.46 149.12 Z" fill="#1f8f3f"/>
-<image href="assets/product-cluster.png" x="220" y="222" width="460" height="460" preserveAspectRatio="xMidYMid meet"/>
-<circle cx="450.00" cy="134.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="450.00" cy="134.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(430.00 114.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5M9 18h6M10 21h4"/></g>
-<text x="450.00" y="66.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">01</text>
-<text x="450.00" y="214.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">IDEA</text>
-<circle cx="725.40" cy="293.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="725.40" cy="293.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(705.40 273.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8M3 22h18M14 22a7 7 0 1 0 0-14h-1M9 14h2M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2ZM12 6V3a1 1 0 0 0-1-1H9"/></g>
-<text x="725.40" y="225.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">02</text>
-<text x="725.40" y="373.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">RESEARCH</text>
-<circle cx="725.40" cy="611.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="725.40" cy="611.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(705.40 591.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16a8 8 0 0 1-8 8 8 8 0 0 1-8-8zM12 18v3M8 21h8M14.5 9.5 19 3.5"/></g>
-<text x="725.40" y="543.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">03</text>
-<text x="725.40" y="691.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">FORMULATION</text>
-<circle cx="450.00" cy="770.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="450.00" cy="770.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(430.00 750.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2ZM17 18h1M12 18h1M7 18h1"/></g>
-<text x="450.00" y="702.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">04</text>
-<text x="450.00" y="850.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">MANUFACTURING</text>
-<circle cx="174.60" cy="611.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="174.60" cy="611.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(154.60 591.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
-<text x="174.60" y="543.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">05</text>
-<text x="174.60" y="691.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">QUALITY &amp;</text>
-<text x="174.60" y="717.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">VALIDATION</text>
-<circle cx="174.60" cy="293.00" r="46" fill="#ffffff" filter="url(#pc-shadow)"/>
-<circle cx="174.60" cy="293.00" r="46" fill="none" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<g transform="translate(154.60 273.00) scale(1.6667)" fill="none" stroke="#0d5c2e" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9 0zM12 15l-3-3a22 22 0 0 1 2-4A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22 22 0 0 1-4 2zM9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></g>
-<text x="174.60" y="225.00" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="20" font-weight="600" letter-spacing="1.2" fill="#1f8f3f">06</text>
-<text x="174.60" y="373.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">BRAND</text>
-<text x="174.60" y="399.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">LAUNCH</text>
-</svg>
+            <img class="vivid-hero-graphic" src="assets/product-lifecycle.png"
+                 alt="Vivid Nutripharm six-step product development cycle: idea, research, formulation, manufacturing, quality and validation, and brand launch"
+                 width="1900" height="1990" fetchpriority="high" decoding="async">
         </div>
     </div>
 </section>
@@ -1472,105 +1438,58 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     </div>
 </section>
 
-<!-- ================= OUR PROCESS (circular diagram) ================= -->
+<!-- ================= OUR PROCESS (timeline) ================= -->
 <section class="vpr-process">
     <div class="vpr-inner">
         <div class="vpr-head">
             <h2>From Seed to Shelf — Our Process</h2>
             <p>A structured, six-stage journey that takes your product from concept to market — built for speed without cutting corners on quality.</p>
         </div>
-        <div class="vpo-wrap" id="vprLineWrap">
-            <div class="vpo">
-                <svg class="vpo-arrows" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <defs>
-                        <marker id="vpo-head" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-                            <path d="M1 1.2 L8 4.5 L1 7.8" fill="none" stroke="#b8862f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </marker>
-                    </defs>
-                    <g stroke="#b8862f" stroke-width="1.7" stroke-dasharray="5 7" stroke-linecap="round" marker-end="url(#vpo-head)">
-                        <path d="M 529.35 131.74 A 328 328 0 0 1 685.94 222.15"/>
-                        <path d="M 765.29 359.59 A 328 328 0 0 1 765.29 540.41"/>
-                        <path d="M 685.94 677.85 A 328 328 0 0 1 529.35 768.26"/>
-                        <path d="M 370.65 768.26 A 328 328 0 0 1 214.06 677.85"/>
-                        <path d="M 134.71 540.41 A 328 328 0 0 1 134.71 359.59"/>
-                        <path d="M 214.06 222.15 A 328 328 0 0 1 370.65 131.74"/>
-                    </g>
-                </svg>
-
-                <div class="vpo-hub">
-                    <span class="vpo-hub-label">Certified Quality</span>
-                    <div class="vpo-hub-certs">
-                        <div class="vpo-hub-cert">
-                            <svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.4"/><path d="M12.5 21.5l5.2 5.2 11.8-12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            <span>GMP</span>
-                        </div>
-                        <div class="vpo-hub-cert">
-                            <svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.4"/><path d="M12.5 21.5l5.2 5.2 11.8-12" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            <span>ISO 9001:2015</span>
-                        </div>
-                        <div class="vpo-hub-cert">
-                            <svg viewBox="0 0 42 42" fill="none"><path d="M16 8h10v11.5a8.5 8.5 0 1 1-10 0V8z" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="M16 8h10" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"/><path d="M16.5 24.5l3.2 3.2 6.3-6.6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                            <span>FSSAI</span>
-                        </div>
-                        <div class="vpo-hub-cert">
-                            <svg viewBox="0 0 42 42" fill="none"><circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.4"/><path d="M21 29.5c0-7.2 4.4-12.2 10-13.5-1.1 8.2-5.4 13.5-10 13.5z" fill="currentColor"/><path d="M21 29.5c0-7.2-4.4-12.2-10-13.5 1.1 8.2 5.4 13.5 10 13.5z" fill="currentColor" opacity="0.85"/><path d="M21 29.5V14.5" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/></svg>
-                            <span>USDA &amp; EU Organic</span>
-                        </div>
+        <div class="vpr-line-wrap" id="vprLineWrap">
+            <div class="vpr-track">
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Discover.png" alt="Discovery icon" loading="lazy" width="120" height="120">
                     </div>
+                    <h3>Discovery</h3>
+                    <p>Market research &amp; concept evaluation</p>
                 </div>
-
-                <div class="vpo-node" style="--i:0">
-                    <span class="vpo-num">01</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.45 1.1 1.2 1.1 2.2h5c0-1 .5-1.75 1.1-2.2A6 6 0 0 0 12 3z"/></svg>
-                    </div>
-                    <h3>Idea</h3>
-                </div>
-                <div class="vpo-node" style="--i:1">
-                    <span class="vpo-num">02</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M9 14h2"/><path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z"/><path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3"/></svg>
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Research-and-development.png" alt="Research icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Research</h3>
+                    <p>Scientific validation &amp; ingredient selection</p>
                 </div>
-                <div class="vpo-node" style="--i:2">
-                    <span class="vpo-num">03</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Formulation-Development.png" alt="Formulation icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Formulation</h3>
+                    <p>Custom formulation &amp; development</p>
                 </div>
-                <div class="vpo-node" style="--i:3">
-                    <span class="vpo-num">04</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l4 3v-3l4 3v-3l4 3V6l4 3v11H4z"/><path d="M4 20h16"/></svg>
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Testing-Validation.png" alt="Testing icon" loading="lazy" width="120" height="120">
+                    </div>
+                    <h3>Testing</h3>
+                    <p>Stability, safety &amp; efficacy testing</p>
+                </div>
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Manufacturing-Packaging.png" alt="Manufacturing icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Manufacturing</h3>
+                    <p>Scalable &amp; compliant production</p>
                 </div>
-                <div class="vpo-node" style="--i:4">
-                    <span class="vpo-num">05</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-                    </div>
-                    <h3>Quality &amp; Validation</h3>
-                </div>
-                <div class="vpo-node" style="--i:5">
-                    <span class="vpo-num">06</span>
-                    <div class="vpo-badge" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                <div class="vpr-step">
+                    <div class="vpr-dot">
+                        <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Market-Ready-Products.png" alt="Brand launch icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Brand Launch</h3>
+                    <p>Packaging, regulatory &amp; market support</p>
                 </div>
             </div>
-
-            <ul class="vpo-list">
-                <li><span class="vpo-list-num">01</span><div><h4>Idea</h4><p>Market research &amp; concept evaluation</p></div></li>
-                <li><span class="vpo-list-num">02</span><div><h4>Research</h4><p>Scientific validation &amp; ingredient selection</p></div></li>
-                <li><span class="vpo-list-num">03</span><div><h4>Formulation</h4><p>Custom formulation &amp; development</p></div></li>
-                <li><span class="vpo-list-num">04</span><div><h4>Manufacturing</h4><p>Scalable &amp; compliant production</p></div></li>
-                <li><span class="vpo-list-num">05</span><div><h4>Quality &amp; Validation</h4><p>Stability, safety &amp; efficacy testing</p></div></li>
-                <li><span class="vpo-list-num">06</span><div><h4>Brand Launch</h4><p>Packaging, regulatory &amp; market support</p></div></li>
-            </ul>
         </div>
     </div>
 </section>
@@ -2233,75 +2152,24 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     })();
 </script>
 
-<!-- ================= CERTIFICATIONS (circular diagram) ================= -->
-<section class="vcert-strip vco-section vco-wrap">
-    <div class="vco-head"><h2>Certified for Global Standards</h2></div>
-    <div class="vco" aria-hidden="true">
-        <svg class="vco-arrows" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <marker id="vco-head-home" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
-                    <path d="M1 1.2 L8 4.5 L1 7.8" fill="none" stroke="#4a9d3f" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </marker>
-            </defs>
-            <g stroke="#4a9d3f" stroke-width="1.7" stroke-dasharray="5 7" stroke-linecap="round" marker-end="url(#vco-head-home)">
-                <path d="M 542.33 135.26 A 328 328 0 0 1 720.80 264.93"/>
-                <path d="M 777.86 440.55 A 328 328 0 0 1 709.69 650.36"/>
-                <path d="M 560.30 758.90 A 328 328 0 0 1 339.70 758.90"/>
-                <path d="M 190.31 650.36 A 328 328 0 0 1 122.14 440.55"/>
-                <path d="M 179.20 264.93 A 328 328 0 0 1 357.67 135.26"/>
-            </g>
-        </svg>
-        <div class="vco-hub">
-            <img src="assets/product-disc.png" alt="" width="720" height="720" decoding="async">
-        </div>
-        <div class="vco-node" style="--i:0">
-            <span class="vco-num">01</span>
-            <span class="vco-badge"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/DPIIT-Recognized-scaled.webp" alt="" loading="lazy"></span>
-            <span class="vco-label">DPIIT Recognized</span>
-        </div>
-        <div class="vco-node" style="--i:1">
-            <span class="vco-num">02</span>
-            <span class="vco-badge"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/FSSAI-Certified.webp" alt="" loading="lazy"></span>
-            <span class="vco-label">FSSAI Certified</span>
-        </div>
-        <div class="vco-node" style="--i:2">
-            <span class="vco-num">03</span>
-            <span class="vco-badge"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/ISO_9001v015.webp" alt="" loading="lazy"></span>
-            <span class="vco-label">ISO 9001:2015</span>
-        </div>
-        <div class="vco-node" style="--i:3">
-            <span class="vco-num">04</span>
-            <span class="vco-badge"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/GMP-Certified.webp" alt="" loading="lazy"></span>
-            <span class="vco-label">GMP Certified</span>
-        </div>
-        <div class="vco-node" style="--i:4">
-            <span class="vco-num">05</span>
-            <span class="vco-badge"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/EU-Organic.webp" alt="" loading="lazy"></span>
-            <span class="vco-label">USDA &amp; EU Organic</span>
+<!-- ================= CERTIFICATIONS (scrolling ribbon) ================= -->
+<section class="vcert-strip">
+    <div class="vcert-head"><h2>Certified for Global Standards</h2></div>
+    <div class="vcert-track-wrap">
+        <div class="vcert-track">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/EU-Organic.webp" alt="EU Organic certification" loading="lazy">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/ISO_9001v015.webp" alt="ISO 9001:2015 Quality Management certification" loading="lazy">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/GMP-Certified.webp" alt="GMP Good Manufacturing Practice certification" loading="lazy">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/FSSAI-Certified.webp" alt="FSSAI Food Safety certification" loading="lazy">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/DPIIT-Recognized-scaled.webp" alt="DPIIT Recognized Startup India certification" loading="lazy">
+            <!-- duplicated set for a seamless infinite scroll loop -->
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/EU-Organic.webp" alt="EU Organic certification" loading="lazy" aria-hidden="true">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/ISO_9001v015.webp" alt="ISO 9001:2015 Quality Management certification" loading="lazy" aria-hidden="true">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/GMP-Certified.webp" alt="GMP Good Manufacturing Practice certification" loading="lazy" aria-hidden="true">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/FSSAI-Certified.webp" alt="FSSAI Food Safety certification" loading="lazy" aria-hidden="true">
+            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/DPIIT-Recognized-scaled.webp" alt="DPIIT Recognized Startup India certification" loading="lazy" aria-hidden="true">
         </div>
     </div>
-    <ul class="vco-list vco-list--sr">
-        <li class="vco-list-item">
-            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/DPIIT-Recognized-scaled.webp" alt="" loading="lazy">
-            <span><strong>DPIIT Recognized</strong><small>Startup India</small></span>
-        </li>
-        <li class="vco-list-item">
-            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/FSSAI-Certified.webp" alt="" loading="lazy">
-            <span><strong>FSSAI Certified</strong><small>Food Safety</small></span>
-        </li>
-        <li class="vco-list-item">
-            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/ISO_9001v015.webp" alt="" loading="lazy">
-            <span><strong>ISO 9001:2015</strong><small>Quality Management</small></span>
-        </li>
-        <li class="vco-list-item">
-            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/GMP-Certified.webp" alt="" loading="lazy">
-            <span><strong>GMP Certified</strong><small>Manufacturing Practice</small></span>
-        </li>
-        <li class="vco-list-item">
-            <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/EU-Organic.webp" alt="" loading="lazy">
-            <span><strong>USDA &amp; EU Organic</strong><small>Global Compliance</small></span>
-        </li>
-    </ul>
 </section>
 
 <!-- ================= FINAL CTA + FAQ ================= -->
