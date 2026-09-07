@@ -1,0 +1,248 @@
+/* Circular certifications diagram — homepage + About Us */
+
+.vco-wrap {
+    --vco-green: #0a3d2e;
+    --vco-black: #050505;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+.vco-wrap *,
+.vco-wrap *::before,
+.vco-wrap *::after {
+    box-sizing: border-box;
+}
+
+.vco-head {
+    text-align: center;
+    margin: 0 0 28px;
+    padding: 0 16px;
+}
+.vco-head h2 {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 28px;
+    color: #fff;
+    margin: 0;
+    font-weight: 700;
+}
+.vco-head p {
+    margin: 10px auto 0;
+    max-width: 520px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #cfe9dd;
+}
+
+.vco {
+    position: relative;
+    width: min(720px, 100%);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+}
+
+.vco-arrows {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.vco-hub {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 42%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 2;
+    background: #050505;
+}
+.vco-hub img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.vco-node {
+    --angle: calc(var(--i) * 72deg - 90deg);
+    position: absolute;
+    left: calc(50% + 36.45% * cos(var(--angle)));
+    top: calc(50% + 36.45% * sin(var(--angle)));
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 132px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.vco-num {
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+.vco-badge {
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    padding: 12px;
+}
+.vco-badge img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.vco-label {
+    margin-top: 8px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    line-height: 1.25;
+    text-transform: uppercase;
+    color: var(--vco-green);
+}
+
+/* Screen-reader / mobile stacked list */
+.vco-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 480px;
+}
+.vco-list-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: #111;
+    border: 1px solid #1c3d32;
+    border-radius: 16px;
+    padding: 14px 16px;
+}
+.vco-list-item + .vco-list-item {
+    margin-top: 10px;
+}
+.vco-list-item img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 50%;
+    padding: 8px;
+}
+.vco-list-item strong {
+    display: block;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+}
+.vco-list-item small {
+    display: block;
+    font-size: 12.5px;
+    color: #9fbfb2;
+    font-weight: 500;
+}
+
+/* Desktop: diagram visible, list visually hidden but available to AT */
+.vco-list--sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Homepage full-bleed black band */
+.vcert-strip.vco-section {
+    background: var(--vco-black, #050505);
+    padding: 72px 24px 80px;
+    overflow: hidden;
+}
+
+/* About Us: sit beside Precision Manufacturing copy */
+.vau-certs-orbit {
+    background: #050505;
+    border-radius: 24px;
+    padding: 22px 10px 28px;
+}
+.vau-certs-orbit .vco-head {
+    margin-bottom: 8px;
+}
+.vau-certs-orbit .vco-head h2,
+.vau-certs-orbit .vau-certs-label {
+    display: block;
+    text-align: center;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    margin: 0 0 6px;
+    letter-spacing: 0.02em;
+}
+.vau-certs-orbit .vco {
+    width: min(560px, 100%);
+}
+.vau-certs-orbit .vco-badge {
+    width: 78px;
+    height: 78px;
+    padding: 10px;
+}
+.vau-certs-orbit .vco-node {
+    width: 118px;
+}
+.vau-certs-orbit .vco-label {
+    font-size: 10.5px;
+}
+
+@media (max-width: 1024px) {
+    .vau-certs-orbit .vco {
+        width: min(640px, 100%);
+    }
+}
+
+@media (max-width: 720px) {
+    .vco {
+        display: none;
+    }
+    .vco-list--sr {
+        position: static;
+        width: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        clip: unset;
+        clip-path: none;
+        white-space: normal;
+    }
+    .vcert-strip.vco-section {
+        padding: 48px 20px 56px;
+    }
+    .vco-head h2 {
+        font-size: 23px;
+    }
+    .vau-certs-orbit {
+        padding: 22px 16px 20px;
+    }
+}
