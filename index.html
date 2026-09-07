@@ -543,12 +543,12 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 
 <style>
     /* ---------- shared tokens (scoped via class prefixes, no global resets) ---------- */
-    .vhs-hero, .vrb-ribbon, .vab-cta, .vpr-process, .vtp-tech, .vso-solutions,
+    .vhs-hero, .vhb-certs, .vrb-ribbon, .vab-cta, .vpr-process, .vtp-tech, .vso-solutions,
     .vts-testi, .vld-leaders, .vfc-facilities, .vcert-strip, .vfaq-final {
         font-family: Arial, Helvetica, sans-serif;
         box-sizing: border-box;
     }
-    .vhs-hero *, .vrb-ribbon *, .vab-cta *, .vpr-process *, .vtp-tech *, .vso-solutions *,
+    .vhs-hero *, .vhb-certs *, .vrb-ribbon *, .vab-cta *, .vpr-process *, .vtp-tech *, .vso-solutions *,
     .vts-testi *, .vld-leaders *, .vfc-facilities *, .vcert-strip *, .vfaq-final * {
         box-sizing: border-box;
     }
@@ -630,8 +630,73 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
         .vhs-btn-primary, .vhs-btn-secondary { font-size: 14px; padding: 13px 24px; }
     }
 
+    /* ================= HERO CERTIFICATION BAR ================= */
+    .vhb-certs {
+        background: #0a3d2e;
+        padding: 22px 40px;
+    }
+    .vhb-certs-inner {
+        max-width: 1120px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+    }
+    .vhb-cert {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 8px 18px;
+        position: relative;
+        min-width: 0;
+    }
+    .vhb-cert + .vhb-cert::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 18%;
+        bottom: 18%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.28);
+    }
+    .vhb-cert-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        color: #7ed197;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .vhb-cert-icon svg { width: 42px; height: 42px; display: block; }
+    .vhb-cert-text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+    .vhb-cert-name {
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.2px;
+    }
+    .vhb-cert-status { font-size: 13px; color: #cfe9dd; font-weight: 400; }
+    @media (max-width: 900px) {
+        .vhb-certs { padding: 18px 16px; }
+        .vhb-certs-inner { grid-template-columns: 1fr 1fr; }
+        .vhb-cert { padding: 14px 12px; justify-content: flex-start; }
+        .vhb-cert:nth-child(2n+1)::before { display: none; }
+        .vhb-cert:nth-child(-n+2) { border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
+        .vhb-cert-name { font-size: 14px; }
+    }
+    @media (max-width: 480px) {
+        .vhb-cert { gap: 10px; padding: 12px 8px; }
+        .vhb-cert-icon { width: 36px; height: 36px; }
+        .vhb-cert-icon svg { width: 36px; height: 36px; }
+        .vhb-cert-name { font-size: 13px; }
+        .vhb-cert-status { font-size: 12px; }
+    }
+
     /* ================= STATS RIBBON (whole-bar capsule design) ================= */
-    .vrb-ribbon { background: #ffffff; padding: 70px 40px; }
+    .vrb-ribbon { background: #ffffff; padding: 48px 40px 70px; }
     .vrb-inner { max-width: 1120px; margin: 0 auto; }
     .vrb-heading {
         text-align: center; color: #0a3d2e; font-size: 13px; font-weight: 700;
@@ -1412,6 +1477,63 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 <text x="174.60" y="373.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">BRAND</text>
 <text x="174.60" y="399.00" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="19" font-weight="600" letter-spacing="1.1" fill="#141414">LAUNCH</text>
 </svg>
+        </div>
+    </div>
+</section>
+
+<!-- ================= HERO CERTIFICATION BAR ================= -->
+<section class="vhb-certs" aria-label="Certifications">
+    <div class="vhb-certs-inner">
+        <div class="vhb-cert">
+            <div class="vhb-cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 42 42" fill="none">
+                    <circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.2"/>
+                    <path d="M12.5 21.5l5.2 5.2 11.8-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="vhb-cert-text">
+                <span class="vhb-cert-name">GMP</span>
+                <span class="vhb-cert-status">Certified</span>
+            </div>
+        </div>
+        <div class="vhb-cert">
+            <div class="vhb-cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 42 42" fill="none">
+                    <circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.2"/>
+                    <path d="M12.5 21.5l5.2 5.2 11.8-12" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="vhb-cert-text">
+                <span class="vhb-cert-name">ISO 9001:2015</span>
+                <span class="vhb-cert-status">Certified</span>
+            </div>
+        </div>
+        <div class="vhb-cert">
+            <div class="vhb-cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 42 42" fill="none">
+                    <path d="M16 8h10v11.5a8.5 8.5 0 1 1-10 0V8z" stroke="currentColor" stroke-width="2.1" stroke-linejoin="round"/>
+                    <path d="M16 8h10" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/>
+                    <path d="M16.5 24.5l3.2 3.2 6.3-6.6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="vhb-cert-text">
+                <span class="vhb-cert-name">FSSAI</span>
+                <span class="vhb-cert-status">Certified</span>
+            </div>
+        </div>
+        <div class="vhb-cert">
+            <div class="vhb-cert-icon" aria-hidden="true">
+                <svg viewBox="0 0 42 42" fill="none">
+                    <circle cx="21" cy="21" r="19" stroke="currentColor" stroke-width="2.2"/>
+                    <path d="M21 29.5c0-7.2 4.4-12.2 10-13.5-1.1 8.2-5.4 13.5-10 13.5z" fill="currentColor"/>
+                    <path d="M21 29.5c0-7.2-4.4-12.2-10-13.5 1.1 8.2 5.4 13.5 10 13.5z" fill="currentColor" opacity="0.85"/>
+                    <path d="M21 29.5V14.5" stroke="#0a3d2e" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="vhb-cert-text">
+                <span class="vhb-cert-name">USDA &amp; EU Organic</span>
+                <span class="vhb-cert-status">Certified</span>
+            </div>
         </div>
     </div>
 </section>
