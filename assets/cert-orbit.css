@@ -181,47 +181,6 @@
     overflow: hidden;
 }
 
-/* About Us: sit beside Precision Manufacturing copy */
-.vau-certs-orbit {
-    background: #050505;
-    border-radius: 24px;
-    padding: 22px 10px 28px;
-}
-.vau-certs-orbit .vco-head {
-    margin-bottom: 8px;
-}
-.vau-certs-orbit .vco-head h2,
-.vau-certs-orbit .vau-certs-label {
-    display: block;
-    text-align: center;
-    font-family: 'Poppins', Arial, sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: #fff;
-    margin: 0 0 6px;
-    letter-spacing: 0.02em;
-}
-.vau-certs-orbit .vco {
-    width: min(560px, 100%);
-}
-.vau-certs-orbit .vco-badge {
-    width: 78px;
-    height: 78px;
-    padding: 10px;
-}
-.vau-certs-orbit .vco-node {
-    width: 118px;
-}
-.vau-certs-orbit .vco-label {
-    font-size: 10.5px;
-}
-
-@media (max-width: 1024px) {
-    .vau-certs-orbit .vco {
-        width: min(640px, 100%);
-    }
-}
-
 @media (max-width: 720px) {
     .vco {
         display: none;
@@ -241,8 +200,5 @@
     }
     .vco-head h2 {
         font-size: 23px;
-    }
-    .vau-certs-orbit {
-        padding: 22px 16px 20px;
     }
 }
