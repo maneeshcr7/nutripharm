@@ -1013,16 +1013,35 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
         background: radial-gradient(circle, rgba(10,61,46,0.08) 0%, rgba(10,61,46,0) 70%);
         pointer-events: none;
     }
-    .vld-inner { max-width: 980px; margin: 0 auto; position: relative; z-index: 1; }
-    .vld-head { text-align: center; margin-bottom: 56px; }
-    .vld-eyebrow {
-        display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-        color: #0a3d2e; background: #fff; border: 1px solid #dcebe4; padding: 7px 16px; border-radius: 30px; margin-bottom: 18px;
-        box-shadow: 0 4px 12px rgba(10,61,46,0.05);
+    .vld-inner { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
+    .vld-layout {
+        display: grid;
+        grid-template-columns: minmax(260px, 0.9fr) minmax(420px, 1.15fr);
+        gap: 56px;
+        align-items: center;
     }
-    .vld-head h2 { font-family: 'Poppins', Arial, sans-serif; font-size: 34px; color: #121212; margin: 0 0 10px; font-weight: 700; }
-    .vld-head p { font-size: 15.5px; color: #4b5750; max-width: 560px; margin: 0 auto; }
-    .vld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .vld-intro { text-align: left; }
+    .vld-eyebrow {
+        display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
+        color: #0a3d2e; margin: 0 0 16px; padding: 0; background: none; border: none; box-shadow: none;
+    }
+    .vld-intro h2 {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 42px; line-height: 1.12; color: #121212; margin: 0 0 12px; font-weight: 700;
+    }
+    .vld-subhead {
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: 22px; line-height: 1.3; color: #1a1a1a; margin: 0 0 16px; font-weight: 600;
+    }
+    .vld-intro p { font-size: 16px; color: #4b5750; line-height: 1.7; margin: 0 0 28px; max-width: 460px; }
+    .vld-meet {
+        display: inline-flex; align-items: center; gap: 8px;
+        font-size: 14.5px; font-weight: 600; color: #1a1a1a; text-decoration: none;
+        border: 1px solid #d5ddd8; border-radius: 999px; padding: 12px 22px;
+        background: #fff; transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .vld-meet:hover { border-color: #0a3d2e; transform: translateY(-2px); box-shadow: 0 8px 18px rgba(10,61,46,0.08); }
+    .vld-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 
     /* Card is now just the photo — full-bleed image, no white panel, no text
        underneath. All copy lives in an overlay that's hidden until the
@@ -1034,9 +1053,9 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
         aspect-ratio: 3 / 4;
         box-shadow: 0 10px 30px rgba(10,61,46,0.14);
         cursor: pointer;
-        width: 70%;
-        margin: 0 auto;
-        justify-self: center;
+        width: 100%;
+        margin: 0;
+        justify-self: stretch;
     }
     .vld-card img {
         width: 100%; height: 100%; object-fit: cover; display: block;
@@ -1071,9 +1090,14 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     .vld-list li { font-size: 13px; color: #d9ebe3; line-height: 1.6; padding-left: 20px; position: relative; margin-bottom: 8px; }
     .vld-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 7px; height: 7px; border-radius: 50%; background: #7ed197; }
 
+    @media (max-width: 980px) {
+        .vld-layout { grid-template-columns: 1fr; gap: 40px; }
+        .vld-intro { text-align: center; }
+        .vld-intro p { margin-left: auto; margin-right: auto; }
+        .vld-intro h2 { font-size: 34px; }
+    }
     @media (max-width: 768px) {
         .vld-leaders { padding: 64px 20px; }
-        .vld-head { margin-bottom: 40px; }
         .vld-grid { grid-template-columns: 1fr; }
         .vld-card { aspect-ratio: 4 / 5; width: 70%; }
     }
@@ -1941,14 +1965,17 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 </script>
 
 <!-- ================= OUR LEADERS (image-only, text on hover) ================= -->
-<section class="vld-leaders">
+<section class="vld-leaders" id="our-teams">
     <div class="vld-inner">
-        <div class="vld-head">
-            <span class="vld-eyebrow">Leadership Team</span>
-            <h2>Our Leaders</h2>
-            <p>The scientific minds behind Vivid Nutripharm&#8217;s formulations and manufacturing standards. Hover a photo to read more.</p>
+        <div class="vld-layout">
+        <div class="vld-intro">
+            <span class="vld-eyebrow">Rooted in Science. Driven by Purpose.</span>
+            <h2>Our Teams</h2>
+            <p class="vld-subhead">Leadership With a Research-First Mindset</p>
+            <p>Our leadership combines deep scientific expertise with a passion for innovation to deliver wellness that truly makes a difference.</p>
+            <a href="#vld-grid" class="vld-meet">Meet Our Team <span aria-hidden="true">→</span></a>
         </div>
-        <div class="vld-grid">
+        <div class="vld-grid" id="vld-grid">
             <div class="vld-card" tabindex="0">
                 <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/ChatGPT-Image-Aug-6-2026-03_15_35-PM.png" alt="Dr. Ushasree Bommareddy, Founder and CEO of Vivid Nutripharm" loading="lazy" width="600" height="800">
                 <div class="vld-overlay">
@@ -1973,6 +2000,7 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
                     </ul>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </section>
