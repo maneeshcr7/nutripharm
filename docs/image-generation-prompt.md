@@ -30,6 +30,23 @@ Those images must be generated at a true 4:3.
 
 ---
 
+## Which images actually need alpha
+
+Transparency is confirmed for the packshots, but it is not the right choice for
+every file. What decides it is whether the image appears over more than one
+background colour.
+
+| Group | Backgrounds it renders on | Verdict |
+|---|---|---|
+| Product packshots (sprays, tinctures, tubes, jars, pouch, raw cordyceps) | card `#FFFFFF`, popup `#eef4ea` | **Transparent PNG required** — two different grounds, so a baked-in background shows as a hard rectangle in the popup |
+| Page heroes (`assets/hero-*.jpg`) | `.hero` is `#FFFFFF`, image box has no background of its own | **Stay opaque JPEG on pure white** — visually identical over white, and a PNG-24 group shot at 1200 px runs 1-3 MB against ~50-120 KB for the JPEG |
+| Category images on the four cropping pages | `.p-thumb` is `#eef4ea`, `object-fit:cover` | **Stay opaque** — `cover` fills the box edge to edge, so alpha buys nothing and a transparent area would just expose green tint mid-crop |
+
+So: generate the packshots with alpha, and keep the heroes and category images
+as ordinary white-background JPEGs.
+
+---
+
 ## Block 1 — paste this first (house style)
 
 ```
@@ -46,15 +63,21 @@ STYLE
   the right, gentle specular highlight down one edge of the bottle or tube.
 - Sharp focus edge to edge. No depth-of-field blur. No lens flare, no bokeh.
 - Colour: neutral and accurate. No warm or teal grade, no film emulation.
-- A soft contact shadow directly under the product only. No long cast shadows,
-  no reflective mirror floor, no pedestal, no props, no hands, no people,
-  no leaves, no scattered powder, no background scenery.
+- NO ground shadow, NO contact shadow, NO cast shadow of any kind. The product
+  must appear to float free with nothing underneath it. Shading belongs only on
+  the product's own surface, as form shadow that describes its curvature.
+- No reflective mirror floor, no pedestal, no surface, no horizon line, no
+  props, no hands, no people, no leaves, no scattered powder, no scenery.
 
 BACKGROUND
-- Pure transparent background, exported as PNG with a real alpha channel.
-- If transparency is not available, use a flat pure white #FFFFFF background
-  with no gradient, no vignette and no visible horizon line, so it can be
-  keyed out cleanly afterwards.
+- Fully transparent background with a real alpha channel. Output PNG-24 with
+  transparency. Nothing behind the product at all — not white, not grey, not a
+  checkerboard rendered as pixels.
+- The cut-out edge must be clean and slightly feathered, with no white halo,
+  no grey fringe and no leftover matte pixels around the silhouette.
+- Where the product itself is transparent or translucent — amber glass, a clear
+  over-cap, a glass pipette — keep that translucency in the alpha channel as
+  partial opacity rather than painting a solid colour behind it.
 
 FRAMING
 - The product fills the frame vertically with roughly 6-8% empty margin on all
@@ -75,6 +98,11 @@ CONSISTENCY
 - Treat every image in this set as the same photoshoot: identical camera angle,
   identical lighting direction, identical label layout grid, identical relative
   scale. Only the product form, label text and accent colour change.
+
+OUTPUT
+- Deliver every image as a PNG with an alpha channel. Never flatten onto a
+  background colour. If you cannot produce true transparency for a given
+  image, say so explicitly instead of silently returning a white background.
 
 Confirm you understand, then wait for my first product.
 ```
@@ -135,21 +163,27 @@ desiccant cap, 20 tablets**. Set **aspect ratio 2:3**.
 | File | Ratio | Prompt |
 |---|---|---|
 | `phyto-curcumin.png` | 4:3 | A shallow wide-mouth white HDPE supplement jar lying beside a small neat mound of deep yellow-orange curcumin phytosome powder. Label text: "VIVID NUTRIPHARM / PHYTO CURCUMIN / Phytosome Complex". Accent colour: turmeric gold #E3A008. Landscape composition, product left of centre, powder right. |
-| `phyto-berberine.jpg` | 4:3 | A shallow wide-mouth white HDPE supplement jar lying beside a small neat mound of mustard-yellow berberine phytosome powder. Label text: "VIVID NUTRIPHARM / PHYTO BERBERINE / Phytosome Complex". Accent colour: amber #C98A16. Landscape composition matching the curcumin shot exactly. |
+| `phyto-berberine.png` (rename from `.jpg`) | 4:3 | A shallow wide-mouth white HDPE supplement jar lying beside a small neat mound of mustard-yellow berberine phytosome powder. Label text: "VIVID NUTRIPHARM / PHYTO BERBERINE / Phytosome Complex". Accent colour: amber #C98A16. Landscape composition matching the curcumin shot exactly. |
 | `phyto-silymarin.png` | 2:3 | An upright white HDPE supplement jar with a white screw cap. Label text: "VIVID NUTRIPHARM / PHYTO SILYMARIN / Milk Thistle Phytosome Complex". Accent colour: thistle purple #6B4C8A. Portrait composition. |
 
 ### Cordyceps range — `assets/products/`
 
 | File | Ratio | Prompt |
 |---|---|---|
-| `cordyceps-fruiting-bodies.jpg` | 3:4 | A small tidy pile of whole dried Cordyceps militaris fruiting bodies — slender bright orange club-shaped stalks, 4-6 cm long, natural texture, no soil. Macro product photography, no packaging, no label. Everything else per the house style. |
+| `cordyceps-fruiting-bodies.png` (rename from `.jpg`) | 3:4 | A small tidy pile of whole dried Cordyceps militaris fruiting bodies — slender bright orange club-shaped stalks, 4-6 cm long, natural texture, no soil. Macro product photography, no packaging, no label. Everything else per the house style. |
 | `cordy-maxx-extract.png` | 2:3 | A tall cylindrical white HDPE bulk-ingredient jar with a white screw cap. Label text: "VIVID NUTRIPHARM / CORDY MAXX / Cordyceps Extract Powder / Standardised". Accent colour: burnt orange #D9722B. |
-| `cordyceps-coffee.jpg` | 1:1 | A matte black stand-up coffee pouch with a degassing valve and a resealable top, standing upright. Label text: "VIVID NUTRIPHARM / CORDYCEPS + ARABICA / Coffee Extract Blend". Accent colour: burnt orange #D9722B on black. |
+| `cordyceps-coffee.png` (rename from `.jpg`) | 1:1 | A matte black stand-up coffee pouch with a degassing valve and a resealable top, standing upright. Label text: "VIVID NUTRIPHARM / CORDYCEPS + ARABICA / Coffee Extract Blend". Accent colour: burnt orange #D9722B on black. |
 
 ### Page heroes — `assets/`
 
-Heroes sit in a `contain` box with `min-height:360px`. These are the one place
-a lifestyle or scene image is appropriate.
+Heroes sit in a `contain` box with `min-height:360px` inside a `#FFFFFF`
+section. These are the one place a lifestyle or scene image is appropriate.
+
+**Override the house style for these four**: ask for a **flat pure white
+#FFFFFF background, not transparency**, and save as JPEG. Over a white section
+the result is pixel-identical, and a transparent PNG group shot at this size
+costs 1-3 MB against ~50-120 KB for the JPEG. A soft contact shadow under the
+bottles is fine here, since it sits on white either way.
 
 | File | Ratio | Prompt |
 |---|---|---|
@@ -165,6 +199,11 @@ a lifestyle or scene image is appropriate.
 WordPress host and they are cropped to 4:3 by `object-fit:cover`. Generate at
 **aspect ratio 4:3** and save into `assets/products/`, then repoint the `img`
 fields in those pages.
+
+**Override the house style for these too**: `object-fit:cover` fills the box
+edge to edge, so alpha buys nothing — ask for a **flat pure white #FFFFFF
+background** and save as JPEG. Keep the subject centred with even margins so a
+centre crop stays balanced at every breakpoint.
 
 | Suggested file | Prompt |
 |---|---|
@@ -201,22 +240,39 @@ fields in those pages.
 
 ## Block 3 — after Gemini returns each image
 
-1. **Check the alpha channel.** If Gemini returned a white background instead
-   of transparency, key it out before saving. Every packshot page renders the
-   popup on `#eef4ea` (`--green-tint`), so a baked-in white rectangle will show
-   as a hard box against the green.
-2. **Trim the transparent margin** tight to the product. The CSS supplies its
-   own padding — 14px on the card, 20px in the popup — so baked-in whitespace
-   just shrinks the product.
-3. **Check the long edge is at least 1200 px** after trimming. That covers the
+1. **Verify the alpha is real.** Open the PNG over a mid-grey and over
+   `#eef4ea`. If a white rectangle, a grey halo or a checkerboard pattern
+   appears as actual pixels, the model flattened it — regenerate, or key it out
+   yourself. `magick in.png -fuzz 8% -transparent white out.png` handles a clean
+   white ground, but re-check translucent parts (amber glass, clear caps)
+   afterwards, since a global key will punch holes in them.
+2. **Defringe the edge.** White-background keying leaves a pale rim that reads
+   as a glow against the green-tint popup.
+   `magick in.png -alpha set -channel A -blur 0x0.5 -level 40x100% +channel out.png`
+   tightens it; in Photoshop use Layer > Matting > Defringe at 1 px.
+3. **Trim the transparent margin** tight to the product:
+   `magick in.png -trim +repage out.png`. The CSS supplies its own padding —
+   14px on the card, 20px in the popup — so baked-in whitespace only shrinks the
+   product on screen.
+4. **Check the long edge is at least 1200 px** after trimming. That covers the
    420 px popup at 2x with room to spare.
-4. **Compress.** Target under 150 KB per packshot; the current sprays are
-   16-24 KB, so there is plenty of headroom. `pngquant --quality 65-85` for
-   PNGs, quality 82 JPEG for the photographic ones.
-5. **Keep the exact existing filename and extension** — the `img` fields in the
-   `products` array in each page reference them literally. Changing `.png` to
-   `.jpg` means editing the page too.
-6. **Spot-check the label text.** Image models routinely misspell. Zoom to 100%
+5. **Compress, keeping the alpha.** `pngquant --quality 65-90 --strip` preserves
+   transparency; `oxipng -o4 --strip safe` after it. Target under 200 KB per
+   packshot. Do **not** run these through a JPEG step — JPEG has no alpha
+   channel and will silently flatten the image onto black or white.
+6. **Rename three files and update their pages.** These packshots currently have
+   a `.jpg` extension, which cannot hold transparency:
+
+   | Old | New | Page to edit |
+   |---|---|---|
+   | `assets/products/phyto-berberine.jpg` | `phyto-berberine.png` | `phytosomes.html` |
+   | `assets/products/cordyceps-fruiting-bodies.jpg` | `cordyceps-fruiting-bodies.png` | `durt-cordyceps-range.html` |
+   | `assets/products/cordyceps-coffee.jpg` | `cordyceps-coffee.png` | `durt-cordyceps-range.html` |
+
+   The `img` fields in each page's `products` array reference the filename
+   literally, so the extension must be changed there too. Every other packshot
+   is already `.png` — keep those filenames exactly as they are.
+7. **Spot-check the label text.** Image models routinely misspell. Zoom to 100%
    and read every word before committing.
 
 ## Current file inventory for reference
