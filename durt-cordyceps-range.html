@@ -719,6 +719,16 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
   }
   #cordy-page .heritage-note .mono-tag{font-size:12px;color:var(--green-deep);display:block;margin-bottom:8px;}
   #cordy-page .heritage-note p{margin:0;font-size:15px;color:var(--charcoal-text);}
+  /* Full-width pharmacology infographic, now sitting inside the Cordyceps
+     description rather than squeezed into the hero column. */
+  #cordy-page .heritage-figure{
+    margin-top:56px;background:#ffffff;border:1px solid var(--line);border-radius:6px;
+    padding:28px 32px 20px;
+  }
+  #cordy-page .heritage-figure .cordy-hero-graphic{width:100%;height:auto;display:block;}
+  @media (max-width:640px){
+    #cordy-page .heritage-figure{margin-top:36px;padding:16px 14px 12px;}
+  }
 
   /* ---------- WHY US ---------- */
   #cordy-page .why{background:var(--parchment);}
@@ -895,8 +905,6 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
   @media (max-width:900px){
     #cordy-page .hero-grid{grid-template-columns:1fr;}
     #cordy-page .hero-text{padding-bottom:0;}
-    #cordy-page .hero-image{min-height:260px;max-height:340px;order:-1;}
-    #cordy-page .hero-image img{max-height:340px;}
     #cordy-page .hero-stats{gap:24px;}
     #cordy-page .heritage-grid{grid-template-columns:1fr;gap:32px;}
     #cordy-page .why-grid{grid-template-columns:repeat(2,1fr);}
@@ -912,8 +920,6 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
     #cordy-page .field-row{grid-template-columns:1fr;}
     #cordy-page .modal-info,#cordy-page .modal-form{padding:30px 22px;}
     #cordy-page .hero-stats{gap:20px 28px;}
-    #cordy-page .hero-image{min-height:220px;max-height:280px;}
-    #cordy-page .hero-image img{max-height:280px;}
     #cordy-page .meta-row{flex-direction:column;gap:4px;}
     #cordy-page .meta-label{flex:none;}
     #cordy-page .modal-img img{max-height:260px;}
@@ -937,11 +943,29 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
     #cordy-page .overlay.flipped .modal{transform:none;}
   }
   #cordy-page .cordy-hero-graphic{width:100%;height:auto;display:block;}
-  #cordy-page .hero-grid{grid-template-columns:0.78fr 1.22fr;gap:32px;}
-  #cordy-page .hero-image{display:block;max-height:none;min-height:0;overflow:visible;align-self:center;margin-right:calc(-1 * min(150px, max(40px, 50vw - 680px) + 22px));}
+  #cordy-page .hero-grid{grid-template-columns:1.02fr 0.98fr;gap:40px;}
   #cordy-page .hero{overflow-x:clip;}
-  @media (max-width:900px){#cordy-page .hero-image{margin-right:0;}}
-  @media (max-width:900px){#cordy-page .hero-grid{grid-template-columns:1fr;}}
+  /* Hero pack shot: shown whole on a soft brand halo, never cropped. */
+  #cordy-page .hero-image{
+    align-self:center;min-height:0;max-height:none;overflow:visible;position:relative;
+    padding:16px 0 64px;
+  }
+  #cordy-page .hero-image::before{
+    content:'';position:absolute;top:50%;left:50%;width:min(460px,86%);aspect-ratio:1;
+    transform:translate(-50%,-54%);border-radius:50%;
+    background:radial-gradient(circle, rgba(31,143,63,0.13) 0%, rgba(31,143,63,0) 68%);
+    pointer-events:none;
+  }
+  #cordy-page .cordy-hero-photo{
+    position:relative;display:block;width:auto;height:auto;
+    max-width:min(430px,100%);max-height:460px;margin:0 auto;object-fit:contain;
+    animation:cordyFadeUp .7s .1s ease both;
+  }
+  @media (max-width:900px){
+    #cordy-page .hero-grid{grid-template-columns:1fr;}
+    #cordy-page .hero-image{order:-1;padding:0 0 24px;}
+    #cordy-page .cordy-hero-photo{max-height:300px;max-width:280px;}
+  }
 </style>
 
 <!-- ================= HERO (white bg, left text/CTA, right full image) ================= -->
@@ -958,136 +982,12 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
       <div class="hero-stats">
         <div class="stat"><strong>500+</strong><span>Years in use</span></div>
         <div class="stat"><strong>1–8%</strong><span>Cordycepin range</span></div>
-        <div class="stat"><strong>7</strong><span>Bulk formats</span></div>
         <div class="stat"><strong>10 kg</strong><span>Min. order</span></div>
       </div>
       <div class="hero-crumb"><a href="index.html">Home</a> / Cordyceps bulk ingredients</div>
     </div>
     <div class="hero-image">
-      <svg class="cordy-hero-graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120" width="100%" role="img" aria-label="Pharmacological benefits of Cordyceps">
-<defs>
-  <radialGradient id="cb-glow" cx="50%" cy="50%" r="50%">
-    <stop offset="55%" stop-color="#eef4ea" stop-opacity="0.85"/>
-    <stop offset="100%" stop-color="#eef4ea" stop-opacity="0"/>
-  </radialGradient>
-</defs>
-<rect width="1600" height="1120" fill="none"/>
-<text x="800" y="72" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="21" font-weight="600" letter-spacing="4.6" fill="#0d5c2e">PHARMACOLOGICAL BENEFITS OF</text>
-<text x="800" y="176" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="104" font-weight="800" letter-spacing="-1" fill="#141414">CORDYCEPS</text>
-<path d="M610 200 H770" stroke="#1f8f3f" stroke-width="2"/>
-<circle cx="800" cy="200" r="5" fill="#1f8f3f"/>
-<path d="M830 200 H990" stroke="#1f8f3f" stroke-width="2"/>
-<text x="800" y="240" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="24" fill="#565a4d">Nature&#8217;s powerful adaptogen for holistic wellness</text>
-<circle cx="800" cy="560" r="232" fill="url(#cb-glow)"/>
-<circle cx="800" cy="560" r="232" fill="none" stroke="#1f8f3f" stroke-width="2.2"/>
-<circle cx="800" cy="560" r="245" fill="none" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-<image href="assets/cordyceps-subject.png" x="628.2" y="376.7" width="343.6" height="385.1"/>
-<circle cx="150" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(130.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4a1.5 1.5 0 1 0 0-.01M9.5 21l2-5.5-3-2.5.5-4.5 4-1.5 2.5 3.5 3 1M8.5 12 5 10.5 2.5 12M13 15.5 9.5 17l-2 4"/></g>
-<text x="215" y="378" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">ENHANCES ENERGY</text>
-<text x="215" y="404" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">&amp; STAMINA</text>
-<text x="215" y="434" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Improves ATP production and</text>
-<text x="215" y="459" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">boosts physical performance.</text>
-<line x1="560" y1="386" x2="612.2" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="560" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="612.2" cy="423.8" r="4.5" fill="#1f8f3f"/>
-<circle cx="150" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(130.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
-<text x="215" y="508" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS IMMUNE</text>
-<text x="215" y="534" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">FUNCTION</text>
-<text x="215" y="564" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Modulates immune response and</text>
-<text x="215" y="589" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">enhances the body's natural defence.</text>
-<line x1="560" y1="516" x2="571.8" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="560" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="571.8" cy="518.2" r="4.5" fill="#1f8f3f"/>
-<circle cx="150" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(130.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v9M8.5 8C7 8 5 9.5 5 13v4a2 2 0 0 0 3 1.7l2-1.2V10c-.5-1.3-1-2-1.5-2zM15.5 8c1.5 0 3.5 1.5 3.5 5v4a2 2 0 0 1-3 1.7l-2-1.2V10c.5-1.3 1-2 1.5-2z"/></g>
-<text x="215" y="638" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROMOTES RESPIRATORY</text>
-<text x="215" y="664" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
-<text x="215" y="694" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports lung function and helps</text>
-<text x="215" y="719" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">with better oxygen utilization.</text>
-<line x1="560" y1="646" x2="581.6" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="560" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="581.6" cy="638.3" r="4.5" fill="#1f8f3f"/>
-<circle cx="150" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(130.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3A2.5 2.5 0 0 0 7 5.5v.4A2.5 2.5 0 0 0 5 8.3a2.5 2.5 0 0 0 .5 3.2 2.5 2.5 0 0 0 0 3 2.5 2.5 0 0 0 2 4h.5A2.5 2.5 0 0 0 12 17V5.5A2.5 2.5 0 0 0 9.5 3zM14.5 3A2.5 2.5 0 0 1 17 5.5v.4a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1-.5 3.2 2.5 2.5 0 0 1 0 3 2.5 2.5 0 0 1-2 4h-.5A2.5 2.5 0 0 1 12 17"/></g>
-<text x="215" y="768" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">NEUROPROTECTIVE</text>
-<text x="215" y="794" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">EFFECTS</text>
-<text x="215" y="824" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports cognitive function, memory,</text>
-<text x="215" y="849" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and protects nerve cells from damage.</text>
-<line x1="560" y1="776" x2="627.6" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="560" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="627.6" cy="715.2" r="4.5" fill="#1f8f3f"/>
-<circle cx="1450" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(1430.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7zM3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></g>
-<text x="1385" y="378" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">CARDIOVASCULAR</text>
-<text x="1385" y="404" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORT</text>
-<text x="1385" y="434" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps maintain heart health, improves</text>
-<text x="1385" y="459" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">circulation and supports healthy BP.</text>
-<line x1="1040" y1="386" x2="987.8" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="1040" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="987.8" cy="423.8" r="4.5" fill="#1f8f3f"/>
-<circle cx="1450" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(1430.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g>
-<text x="1385" y="508" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">REGULATES BLOOD</text>
-<text x="1385" y="534" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUGAR LEVELS</text>
-<text x="1385" y="564" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps improve insulin sensitivity and</text>
-<text x="1385" y="589" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">supports healthy glucose metabolism.</text>
-<line x1="1040" y1="516" x2="1028.2" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="1040" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="1028.2" cy="518.2" r="4.5" fill="#1f8f3f"/>
-<circle cx="1450" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(1430.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0M20.2 20.2c2-2 0-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8c-2 2 0 7.4 4.5 11.9 4.5 4.5 9.9 6.5 11.9 4.5zM15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9-2-2-7.4 0-11.9 4.5-4.5 4.5-6.5 9.9-4.5 11.9 2 2 7.4 0 11.9-4.5z"/></g>
-<text x="1385" y="638" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">POWERFUL ANTIOXIDANT</text>
-<text x="1385" y="664" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROPERTIES</text>
-<text x="1385" y="694" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Neutralizes free radicals and</text>
-<text x="1385" y="719" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">reduces oxidative stress.</text>
-<line x1="1040" y1="646" x2="1018.4" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="1040" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="1018.4" cy="638.3" r="4.5" fill="#1f8f3f"/>
-<circle cx="1450" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-<g transform="translate(1430.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10c3.5 0 6 2.2 6 5s-2.5 5.5-6.5 5.5c-4.5 0-5-3-8-3S4 17.5 4 17.5zM9 7v3.5M13 7v2.5M17 12.5c0 1.4-1 2.5-2.5 2.5"/></g>
-<text x="1385" y="768" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS LIVER</text>
-<text x="1385" y="794" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
-<text x="1385" y="824" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Protects liver cells, supports detoxification</text>
-<text x="1385" y="849" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and promotes overall liver function.</text>
-<line x1="1040" y1="776" x2="972.4" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-<circle cx="1040" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-<circle cx="972.4" cy="715.2" r="4.5" fill="#1f8f3f"/>
-<rect x="70" y="900" width="1460" height="150" rx="8" fill="#ffffff" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-<circle cx="120.0" cy="975.0" r="27" fill="#eef4ea"/>
-<g transform="translate(105.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></g>
-<text x="160.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ADAPTOGENIC</text>
-<text x="160.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">&amp; BALANCING</text>
-<text x="160.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps the body adapt to stress</text>
-<text x="160.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and restore balance.</text>
-<path d="M435.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-<circle cx="485.0" cy="975.0" r="27" fill="#eef4ea"/>
-<g transform="translate(470.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.8-1.6l9.9-10.2a.5.5 0 0 1 .9.5l-1.9 6a1 1 0 0 0 .9 1.3h7a1 1 0 0 1 .8 1.6l-9.9 10.2a.5.5 0 0 1-.9-.5l1.9-6a1 1 0 0 0-.9-1.3z"/></g>
-<text x="525.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ENHANCES EXERCISE</text>
-<text x="525.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">PERFORMANCE</text>
-<text x="525.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Improves VO₂ max, endurance</text>
-<text x="525.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and recovery.</text>
-<path d="M800.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-<circle cx="850.0" cy="975.0" r="27" fill="#eef4ea"/>
-<g transform="translate(835.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0 9 9 0 1 0-18 0M8.5 9a1.4 1.4 0 1 0 0-.01M15 9.5a1.1 1.1 0 1 0 0-.01M9.5 15a1.6 1.6 0 1 0 0-.01M15 14.5a1.2 1.2 0 1 0 0-.01M12 11.8v.01"/></g>
-<text x="890.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">SUPPORTS CELLULAR</text>
-<text x="890.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">REGENERATION</text>
-<text x="890.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Promotes tissue repair</text>
-<text x="890.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and healthy aging.</text>
-<path d="M1165.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-<circle cx="1215.0" cy="975.0" r="27" fill="#eef4ea"/>
-<g transform="translate(1200.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></g>
-<text x="1255.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ANTI-INFLAMMATORY</text>
-<text x="1255.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ACTION</text>
-<text x="1255.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps reduce inflammation and</text>
-<text x="1255.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">supports overall wellness.</text>
-<rect x="470" y="1059" width="238" height="40" rx="20" fill="#1f8f3f"/>
-<g transform="translate(483.00 1068.00) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
-<text x="514" y="1086" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="15" font-weight="600" letter-spacing="1.6" fill="#ffffff">BACKED BY SCIENCE</text>
-<path d="M728 1061 V1097" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.4"/>
-<text x="750" y="1086" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#565a4d">Traditionally valued. Scientifically validated. Clinically relevant.</text>
-</svg>
+      <img class="cordy-hero-photo" src="assets/products/cordyceps-filaments.png" alt="Cordyceps filaments — dried whole fruiting bodies" width="661" height="706" fetchpriority="high" decoding="async">
     </div>
   </div>
 </section>
@@ -1103,7 +1003,7 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
 </div>
 
 <!-- ================= HERITAGE / INTRO ================= -->
-<section class="heritage">
+<section class="heritage" id="cordyceps-benefits">
   <div class="wrap heritage-grid">
     <div>
       <span class="eyebrow">A modern wellness marvel, an old medicine</span>
@@ -1115,6 +1015,132 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
       <span class="mono-tag">Why formulators standardize on us</span>
       <p>Every batch is assayed for Cordycepin and Adenosine before it ships, so the specification on the certificate of analysis is the specification in your finished product — not an average.</p>
     </div>
+  </div>
+  <div class="wrap heritage-figure">
+      <svg class="cordy-hero-graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120" width="100%" role="img" aria-label="Pharmacological benefits of Cordyceps">
+  <defs>
+    <radialGradient id="cb-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="55%" stop-color="#eef4ea" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#eef4ea" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1120" fill="none"/>
+  <text x="800" y="72" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="21" font-weight="600" letter-spacing="4.6" fill="#0d5c2e">PHARMACOLOGICAL BENEFITS OF</text>
+  <text x="800" y="176" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="104" font-weight="800" letter-spacing="-1" fill="#141414">CORDYCEPS</text>
+  <path d="M610 200 H770" stroke="#1f8f3f" stroke-width="2"/>
+  <circle cx="800" cy="200" r="5" fill="#1f8f3f"/>
+  <path d="M830 200 H990" stroke="#1f8f3f" stroke-width="2"/>
+  <text x="800" y="240" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="24" fill="#565a4d">Nature&#8217;s powerful adaptogen for holistic wellness</text>
+  <circle cx="800" cy="560" r="232" fill="url(#cb-glow)"/>
+  <circle cx="800" cy="560" r="232" fill="none" stroke="#1f8f3f" stroke-width="2.2"/>
+  <circle cx="800" cy="560" r="245" fill="none" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
+  <image href="assets/cordyceps-subject.png" x="628.2" y="376.7" width="343.6" height="385.1"/>
+  <circle cx="150" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(130.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4a1.5 1.5 0 1 0 0-.01M9.5 21l2-5.5-3-2.5.5-4.5 4-1.5 2.5 3.5 3 1M8.5 12 5 10.5 2.5 12M13 15.5 9.5 17l-2 4"/></g>
+  <text x="215" y="378" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">ENHANCES ENERGY</text>
+  <text x="215" y="404" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">&amp; STAMINA</text>
+  <text x="215" y="434" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Improves ATP production and</text>
+  <text x="215" y="459" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">boosts physical performance.</text>
+  <line x1="560" y1="386" x2="612.2" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="560" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="612.2" cy="423.8" r="4.5" fill="#1f8f3f"/>
+  <circle cx="150" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(130.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
+  <text x="215" y="508" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS IMMUNE</text>
+  <text x="215" y="534" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">FUNCTION</text>
+  <text x="215" y="564" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Modulates immune response and</text>
+  <text x="215" y="589" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">enhances the body's natural defence.</text>
+  <line x1="560" y1="516" x2="571.8" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="560" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="571.8" cy="518.2" r="4.5" fill="#1f8f3f"/>
+  <circle cx="150" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(130.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v9M8.5 8C7 8 5 9.5 5 13v4a2 2 0 0 0 3 1.7l2-1.2V10c-.5-1.3-1-2-1.5-2zM15.5 8c1.5 0 3.5 1.5 3.5 5v4a2 2 0 0 1-3 1.7l-2-1.2V10c.5-1.3 1-2 1.5-2z"/></g>
+  <text x="215" y="638" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROMOTES RESPIRATORY</text>
+  <text x="215" y="664" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
+  <text x="215" y="694" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports lung function and helps</text>
+  <text x="215" y="719" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">with better oxygen utilization.</text>
+  <line x1="560" y1="646" x2="581.6" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="560" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="581.6" cy="638.3" r="4.5" fill="#1f8f3f"/>
+  <circle cx="150" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(130.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3A2.5 2.5 0 0 0 7 5.5v.4A2.5 2.5 0 0 0 5 8.3a2.5 2.5 0 0 0 .5 3.2 2.5 2.5 0 0 0 0 3 2.5 2.5 0 0 0 2 4h.5A2.5 2.5 0 0 0 12 17V5.5A2.5 2.5 0 0 0 9.5 3zM14.5 3A2.5 2.5 0 0 1 17 5.5v.4a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1-.5 3.2 2.5 2.5 0 0 1 0 3 2.5 2.5 0 0 1-2 4h-.5A2.5 2.5 0 0 1 12 17"/></g>
+  <text x="215" y="768" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">NEUROPROTECTIVE</text>
+  <text x="215" y="794" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">EFFECTS</text>
+  <text x="215" y="824" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports cognitive function, memory,</text>
+  <text x="215" y="849" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and protects nerve cells from damage.</text>
+  <line x1="560" y1="776" x2="627.6" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="560" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="627.6" cy="715.2" r="4.5" fill="#1f8f3f"/>
+  <circle cx="1450" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(1430.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7zM3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></g>
+  <text x="1385" y="378" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">CARDIOVASCULAR</text>
+  <text x="1385" y="404" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORT</text>
+  <text x="1385" y="434" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps maintain heart health, improves</text>
+  <text x="1385" y="459" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">circulation and supports healthy BP.</text>
+  <line x1="1040" y1="386" x2="987.8" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="1040" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="987.8" cy="423.8" r="4.5" fill="#1f8f3f"/>
+  <circle cx="1450" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(1430.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g>
+  <text x="1385" y="508" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">REGULATES BLOOD</text>
+  <text x="1385" y="534" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUGAR LEVELS</text>
+  <text x="1385" y="564" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps improve insulin sensitivity and</text>
+  <text x="1385" y="589" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">supports healthy glucose metabolism.</text>
+  <line x1="1040" y1="516" x2="1028.2" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="1040" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="1028.2" cy="518.2" r="4.5" fill="#1f8f3f"/>
+  <circle cx="1450" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(1430.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0M20.2 20.2c2-2 0-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8c-2 2 0 7.4 4.5 11.9 4.5 4.5 9.9 6.5 11.9 4.5zM15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9-2-2-7.4 0-11.9 4.5-4.5 4.5-6.5 9.9-4.5 11.9 2 2 7.4 0 11.9-4.5z"/></g>
+  <text x="1385" y="638" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">POWERFUL ANTIOXIDANT</text>
+  <text x="1385" y="664" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROPERTIES</text>
+  <text x="1385" y="694" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Neutralizes free radicals and</text>
+  <text x="1385" y="719" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">reduces oxidative stress.</text>
+  <line x1="1040" y1="646" x2="1018.4" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="1040" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="1018.4" cy="638.3" r="4.5" fill="#1f8f3f"/>
+  <circle cx="1450" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
+  <g transform="translate(1430.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10c3.5 0 6 2.2 6 5s-2.5 5.5-6.5 5.5c-4.5 0-5-3-8-3S4 17.5 4 17.5zM9 7v3.5M13 7v2.5M17 12.5c0 1.4-1 2.5-2.5 2.5"/></g>
+  <text x="1385" y="768" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS LIVER</text>
+  <text x="1385" y="794" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
+  <text x="1385" y="824" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Protects liver cells, supports detoxification</text>
+  <text x="1385" y="849" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and promotes overall liver function.</text>
+  <line x1="1040" y1="776" x2="972.4" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
+  <circle cx="1040" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
+  <circle cx="972.4" cy="715.2" r="4.5" fill="#1f8f3f"/>
+  <rect x="70" y="900" width="1460" height="150" rx="8" fill="#ffffff" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
+  <circle cx="120.0" cy="975.0" r="27" fill="#eef4ea"/>
+  <g transform="translate(105.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></g>
+  <text x="160.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ADAPTOGENIC</text>
+  <text x="160.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">&amp; BALANCING</text>
+  <text x="160.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps the body adapt to stress</text>
+  <text x="160.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and restore balance.</text>
+  <path d="M435.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
+  <circle cx="485.0" cy="975.0" r="27" fill="#eef4ea"/>
+  <g transform="translate(470.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.8-1.6l9.9-10.2a.5.5 0 0 1 .9.5l-1.9 6a1 1 0 0 0 .9 1.3h7a1 1 0 0 1 .8 1.6l-9.9 10.2a.5.5 0 0 1-.9-.5l1.9-6a1 1 0 0 0-.9-1.3z"/></g>
+  <text x="525.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ENHANCES EXERCISE</text>
+  <text x="525.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">PERFORMANCE</text>
+  <text x="525.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Improves VO₂ max, endurance</text>
+  <text x="525.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and recovery.</text>
+  <path d="M800.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
+  <circle cx="850.0" cy="975.0" r="27" fill="#eef4ea"/>
+  <g transform="translate(835.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0 9 9 0 1 0-18 0M8.5 9a1.4 1.4 0 1 0 0-.01M15 9.5a1.1 1.1 0 1 0 0-.01M9.5 15a1.6 1.6 0 1 0 0-.01M15 14.5a1.2 1.2 0 1 0 0-.01M12 11.8v.01"/></g>
+  <text x="890.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">SUPPORTS CELLULAR</text>
+  <text x="890.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">REGENERATION</text>
+  <text x="890.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Promotes tissue repair</text>
+  <text x="890.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and healthy aging.</text>
+  <path d="M1165.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
+  <circle cx="1215.0" cy="975.0" r="27" fill="#eef4ea"/>
+  <g transform="translate(1200.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></g>
+  <text x="1255.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ANTI-INFLAMMATORY</text>
+  <text x="1255.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ACTION</text>
+  <text x="1255.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps reduce inflammation and</text>
+  <text x="1255.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">supports overall wellness.</text>
+  <rect x="470" y="1059" width="238" height="40" rx="20" fill="#1f8f3f"/>
+  <g transform="translate(483.00 1068.00) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
+  <text x="514" y="1086" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="15" font-weight="600" letter-spacing="1.6" fill="#ffffff">BACKED BY SCIENCE</text>
+  <path d="M728 1061 V1097" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="750" y="1086" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#565a4d">Traditionally valued. Scientifically validated. Clinically relevant.</text>
+  </svg>
   </div>
 </section>
 
@@ -1283,8 +1309,8 @@ class="post-310 page type-page status-publish ast-article-single" id="post-310" 
   var products = [
     {
       id:"fruiting-bodies",
-      name:"Dried Cordyceps Fruiting Bodies",
-      img:'assets/products/cordyceps-fruiting-bodies.jpg',
+      name:"Cordyceps Filaments (Dried Fruiting Bodies)",
+      img:'assets/products/cordyceps-filaments.png',
       specs:["Cordycepin 1–2%", "Adenosine ≥ 0.2%", "1–3 g daily"],
       cardDesc:"Organically cultivated, lyophilized whole fruiting bodies with a reproducible bioactive profile.",
       desc:"Our Cordyceps cultivation process is based on controlled, hygienic and organic cultivation conditions designed to produce consistent, high-quality biomass with reproducible nutritional and bioactive profiles. Carefully selected strains are cultivated on optimized organic substrates under controlled temperature, humidity, light, aeration and growth conditions. The harvested biomass is processed under stringent quality controls to maintain purity, potency, consistency and batch-to-batch reproducibility, making it suitable for premium nutraceutical and functional wellness applications. Suggested use: 1–3 g daily.",
