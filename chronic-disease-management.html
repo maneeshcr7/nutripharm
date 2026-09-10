@@ -82,7 +82,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             gap: 20px;
             padding: 15px 40px;
             border-top: 3px solid #0a3d2e;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
             background: #fff;
             overflow: visible;
         }
@@ -544,6 +544,13 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Site-wide base: Inter for body and form controls, overriding the theme's
+   system-font default so every page renders on one type system. */
+body, button, input, select, textarea, .ast-button, .ast-custom-button {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+</style>
 
 <div id="vn-cdm-page">
 
@@ -706,20 +713,20 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
   #vn-cdm-page .heritage-grid{
     display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;
   }
-  #vn-cdm-page .heritage h2{font-size:clamp(24px,3.2vw,34px);margin-top:12px;max-width:15ch;}
-  #vn-cdm-page .heritage p{font-size:16px;color:#4a4e42;margin-top:16px;}
+  #vn-cdm-page .heritage h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;max-width:15ch;}
+  #vn-cdm-page .heritage p{font-size:15.5px;color:#4a4e42;margin-top:16px;}
   #vn-cdm-page .heritage-note{
     background:var(--green-tint);border:1px solid var(--line);border-radius:4px;
     padding:24px 26px;
     border-left:3px solid var(--green);
   }
   #vn-cdm-page .heritage-note .mono-tag{font-size:12px;color:var(--green-deep);display:block;margin-bottom:8px;}
-  #vn-cdm-page .heritage-note p{margin:0;font-size:15px;color:var(--charcoal-text);}
+  #vn-cdm-page .heritage-note p{margin:0;font-size:15.5px;color:var(--charcoal-text);}
 
   /* ---------- WHY US ---------- */
   #vn-cdm-page .why{background:var(--parchment);}
   #vn-cdm-page .why .section-head{max-width:56ch;}
-  #vn-cdm-page .why h2{font-size:clamp(24px,3.2vw,32px);margin-top:12px;}
+  #vn-cdm-page .why h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;}
   #vn-cdm-page .why-grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
     background:var(--line);border:1px solid var(--line);margin-top:40px;
@@ -732,7 +739,7 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
   /* ---------- PRODUCTS ---------- */
   #vn-cdm-page .products{background:var(--paper);}
   #vn-cdm-page .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
-  #vn-cdm-page .products h2{font-size:clamp(24px,3.2vw,32px);margin-top:12px;max-width:16ch;}
+  #vn-cdm-page .products h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;max-width:16ch;}
   #vn-cdm-page .products .section-head p{max-width:44ch;color:#565a4d;font-size:15px;}
   #vn-cdm-page .product-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;
@@ -747,7 +754,7 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
   }
   #vn-cdm-page .p-thumb img{width:100%;height:100%;object-fit:cover;}
   #vn-cdm-page .p-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;}
-  #vn-cdm-page .p-body h3{font-size:18px;font-family:'Poppins',sans-serif;font-weight:600;line-height:1.28;}
+  #vn-cdm-page .p-body h3{font-size:17px;font-family:'Poppins',sans-serif;font-weight:600;line-height:1.28;}
   #vn-cdm-page .p-specs{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
   #vn-cdm-page .spec-tag{
     font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--green-deep);
@@ -766,7 +773,7 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
   /* ---------- FAQ ---------- */
   #vn-cdm-page .faq{background:var(--parchment);}
   #vn-cdm-page .faq-wrap{max-width:820px;margin:0 auto;padding:0 24px;}
-  #vn-cdm-page .faq h2{font-size:clamp(24px,3.2vw,32px);text-align:center;margin-top:12px;}
+  #vn-cdm-page .faq h2{font-size:clamp(25px,3.2vw,32px);text-align:center;margin-top:12px;}
   #vn-cdm-page .faq .eyebrow{display:block;text-align:center;}
   #vn-cdm-page .faq-list{margin-top:40px;border-top:1px solid var(--line);}
   #vn-cdm-page .faq-item{border-bottom:1px solid var(--line);}
@@ -781,7 +788,7 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
   }
   #vn-cdm-page .faq-item.open .faq-q .plus{transform:rotate(45deg);}
   #vn-cdm-page .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-  #vn-cdm-page .faq-a p{font-size:15px;color:#4a4e42;padding:0 4px 20px;max-width:68ch;}
+  #vn-cdm-page .faq-a p{font-size:15.5px;color:#4a4e42;padding:0 4px 20px;max-width:68ch;}
   #vn-cdm-page .faq-a a{color:var(--green-deep);text-decoration:underline;text-underline-offset:3px;}
   #vn-cdm-page .faq-cta{text-align:center;margin-top:44px;font-size:14px;color:#565a4d;}
   #vn-cdm-page .faq-cta a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
@@ -827,9 +834,9 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
 
   #vn-cdm-page .modal-info{padding:40px 36px;}
   #vn-cdm-page .modal-info .eyebrow{display:block;margin-bottom:10px;}
-  #vn-cdm-page .modal-info h3{font-size:24px;margin-bottom:14px;line-height:1.2;}
+  #vn-cdm-page .modal-info h3{font-size:21px;margin-bottom:14px;line-height:1.2;}
   #vn-cdm-page .modal-info .p-specs{margin-bottom:18px;}
-  #vn-cdm-page .modal-info p.desc{font-size:15px;color:#4a4e42;margin-bottom:24px;}
+  #vn-cdm-page .modal-info p.desc{font-size:15.5px;color:#4a4e42;margin-bottom:24px;}
 
   /* applications / packaging / shelf-life meta table */
   #vn-cdm-page .modal-meta{
@@ -865,7 +872,7 @@ class="post-316 page type-page status-publish ast-article-single" id="post-316" 
 
   #vn-cdm-page .modal-form{padding:40px 40px 44px;max-width:560px;}
   #vn-cdm-page .modal-form .eyebrow{display:block;margin-bottom:10px;}
-  #vn-cdm-page .modal-form h3{font-size:23px;margin-bottom:6px;}
+  #vn-cdm-page .modal-form h3{font-size:21px;margin-bottom:6px;}
   #vn-cdm-page .modal-form .sub{font-size:14px;color:#565a4d;margin-bottom:28px;}
   #vn-cdm-page .field{margin-bottom:18px;}
   #vn-cdm-page .field label{
@@ -1325,7 +1332,7 @@ class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemsco
 </script>
     <style>
         .vivid-footer {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
             background: #ffffff;
             color: #4b5750;
             border-top: 3px solid #0a3d2e;

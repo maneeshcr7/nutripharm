@@ -82,7 +82,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             gap: 20px;
             padding: 15px 40px;
             border-top: 3px solid #0a3d2e;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
             background: #fff;
             overflow: visible;
         }
@@ -544,21 +544,29 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
 ================================================================= -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>
+/* Site-wide base: Inter for body and form controls, overriding the theme's
+   system-font default so every page renders on one type system. */
+body, button, input, select, textarea, .ast-button, .ast-custom-button {
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+</style>
 <style>
     .vau-hero, .vau-section, .vau-diff, .vau-contact {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Inter', Arial, Helvetica, sans-serif;
         box-sizing: border-box;
     }
     .vau-hero *, .vau-section *, .vau-diff *, .vau-contact * { box-sizing: border-box; }
 
     /* ================= SHARED ================= */
     .vau-eyebrow {
-        display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+        display: inline-block; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 12.5px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
         color: #0a3d2e; background: #f4f8f6; border: 1px solid #dcebe4; padding: 7px 16px; border-radius: 30px; margin-bottom: 18px;
     }
     .vau-eyebrow--center { display: block; width: fit-content; margin: 0 auto 18px; }
-    .vau-h2 { font-family: 'Poppins', Arial, sans-serif; font-size: 32px; font-weight: 700; color: #121212; margin: 0 0 16px; line-height: 1.3; }
+    .vau-h2 { font-family: 'Poppins', Arial, sans-serif; font-size: clamp(25px, 3.2vw, 32px); font-weight: 700; color: #121212; margin: 0 0 16px; line-height: 1.3; }
     .vau-h2--center { text-align: center; }
     .vau-lead { text-align: center; max-width: 640px; margin: 0 auto 44px; color: #4b5750; font-size: 15.5px; line-height: 1.7; }
     .vau-desc { color: #4b5750; font-size: 15.5px; line-height: 1.7; margin: 0 0 22px; }
@@ -567,7 +575,7 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
     .vau-btn-primary, .vau-btn-secondary {
         text-decoration: none; font-weight: 600; font-size: 15px; padding: 15px 30px; border-radius: 32px;
         transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, color 0.3s ease;
-        display: inline-block; font-family: Arial, Helvetica, sans-serif;
+        display: inline-block; font-family: 'Inter', Arial, Helvetica, sans-serif;
     }
     .vau-btn-primary { background: #0a3d2e; color: #fff !important; }
     .vau-btn-primary:hover { background: #0d5240; transform: translateY(-3px); box-shadow: 0 10px 22px rgba(10,61,46,0.3); }
@@ -585,7 +593,7 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
     }
     .vau-hero-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1.05fr 0.95fr; align-items: center; gap: 50px; position: relative; z-index: 1; }
     .vau-hero-copy h1 {
-        font-family: 'Poppins', Arial, sans-serif; font-size: 44px; line-height: 1.2; font-weight: 700; color: #121212;
+        font-family: 'Poppins', Arial, sans-serif; font-size: clamp(30px, 3.6vw, 46px); line-height: 1.2; font-weight: 700; color: #121212;
         margin: 20px 0 18px; opacity: 0; transform: translateY(18px); animation: vauRise 0.7s ease forwards; animation-delay: 0.1s;
     }
     .vau-hero-copy h1 span { color: #0a3d2e; }
@@ -678,8 +686,8 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
         display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
     }
     .vau-std-icon svg { width: 24px; height: 24px; stroke: #0a3d2e; fill: none; }
-    .vau-std-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 16.5px; font-weight: 700; margin: 0 0 8px; color: #121212; }
-    .vau-std-card p { font-size: 13.5px; color: #4b5750; margin: 0; line-height: 1.55; }
+    .vau-std-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px; color: #121212; }
+    .vau-std-card p { font-size: 14px; color: #4b5750; margin: 0; line-height: 1.55; }
     .vau-cord-card {
         background: #fff; border: 1px solid #dcebe4; border-radius: 18px; padding: 30px 22px; text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -690,8 +698,8 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
         display: flex; align-items: center; justify-content: center;
     }
     .vau-cord-icon svg { width: 24px; height: 24px; stroke: #0a3d2e; fill: none; }
-    .vau-cord-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 16.5px; font-weight: 700; margin: 0 0 8px; color: #121212; }
-    .vau-cord-card p { font-size: 13.5px; color: #4b5750; margin: 0; line-height: 1.55; }
+    .vau-cord-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 17px; font-weight: 700; margin: 0 0 8px; color: #121212; }
+    .vau-cord-card p { font-size: 14px; color: #4b5750; margin: 0; line-height: 1.55; }
 
     /* ================= FORMATS ================= */
     .vau-formats { background: #ffffff; }
@@ -717,7 +725,7 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
         content: ''; position: absolute; top: -110px; right: -95px; width: 300px; height: 300px; border-radius: 50%;
         background: radial-gradient(circle, rgba(126,209,151,0.42) 0%, rgba(126,209,151,0) 70%); pointer-events: none;
     }
-    .vau-diff-col h3 { font-family: 'Poppins', Arial, sans-serif; margin: 0 0 20px; font-size: 19px; font-weight: 700; position: relative; z-index: 1; }
+    .vau-diff-col h3 { font-family: 'Poppins', Arial, sans-serif; margin: 0 0 20px; font-size: 21px; font-weight: 700; position: relative; z-index: 1; }
     .vau-diff-col--trad h3 { color: #121212; }
     .vau-diff-col--vivid h3, .vau-diff-col--vivid li { color: #ffffff; }
     .vau-diff-col ul { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
@@ -1086,7 +1094,7 @@ class="site-footer" id="colophon" itemtype="https://schema.org/WPFooter" itemsco
 </script>
     <style>
         .vivid-footer {
-            font-family: Arial, Helvetica, sans-serif;
+            font-family: 'Inter', Arial, Helvetica, sans-serif;
             background: #ffffff;
             color: #4b5750;
             border-top: 3px solid #0a3d2e;
