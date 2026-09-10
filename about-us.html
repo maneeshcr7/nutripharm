@@ -643,20 +643,21 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     .vau-certs {
         position: relative; isolation: isolate; overflow: hidden;
         border-radius: 26px; padding: 44px 40px;
-        background: linear-gradient(135deg, #072a1f 0%, #0e5540 52%, #0a3d2e 100%);
-        box-shadow: 0 26px 60px rgba(10,61,46,0.22);
+        background: #d3dcd1;
+        border: 1px solid #c3cfc1;
+        box-shadow: 0 20px 46px rgba(10,61,46,0.10);
     }
     .vau-certs::before {
         content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
         background:
-            radial-gradient(620px 320px at 6% 0%, rgba(92,184,79,0.34), transparent 62%),
-            radial-gradient(560px 300px at 100% 100%, rgba(126,214,160,0.20), transparent 64%);
+            radial-gradient(620px 320px at 6% 0%, rgba(255,255,255,0.34), transparent 62%),
+            radial-gradient(560px 300px at 100% 100%, rgba(10,61,46,0.06), transparent 64%);
     }
     .vau-certs::after {
-        content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.55;
+        content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0.7;
         background-image:
-            linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            linear-gradient(rgba(10,61,46,0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(10,61,46,0.045) 1px, transparent 1px);
         background-size: 46px 46px;
         -webkit-mask-image: radial-gradient(circle at 50% 35%, #000, transparent 78%);
                 mask-image: radial-gradient(circle at 50% 35%, #000, transparent 78%);
@@ -664,9 +665,9 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     .vau-certs-head { text-align: center; margin: 0 0 26px; }
     .vau-certs-label {
         display: block; font-family: 'Poppins', Arial, sans-serif; font-weight: 700;
-        font-size: clamp(21px, 2.6vw, 27px); color: #ffffff; margin: 0 0 10px; line-height: 1.3;
+        font-size: clamp(21px, 2.6vw, 27px); color: #121212; margin: 0 0 10px; line-height: 1.3;
     }
-    .vau-certs-sub { max-width: 620px; margin: 0 auto; color: #cfe9dd; font-size: 14.5px; line-height: 1.65; }
+    .vau-certs-sub { max-width: 620px; margin: 0 auto; color: #4b5750; font-size: 14.5px; line-height: 1.65; }
 
     /* marquee: same seamless loop as the home page cert strip */
     .vau-certs-marquee {
@@ -682,10 +683,10 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     .vau-certs-marquee:hover .vau-certs-track { animation-play-state: paused; }
     .vau-certs-track li {
         flex: 0 0 auto; margin: 0 18px 0 0; display: flex; align-items: center; gap: 12px;
-        background: rgba(255,255,255,0.96); border: 1px solid rgba(255,255,255,0.6);
+        background: #ffffff; border: 1px solid #e4ece1;
         border-radius: 14px; padding: 9px 20px 9px 9px; white-space: nowrap;
         font-weight: 600; font-size: 14.5px; color: #0a3d2e;
-        box-shadow: 0 10px 24px rgba(4,32,24,0.18);
+        box-shadow: 0 6px 18px rgba(10,61,46,0.10);
     }
     .vau-cert-badge {
         flex: 0 0 auto; width: 46px; height: 46px; border-radius: 10px; background: #f4f8f6;
@@ -706,26 +707,26 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
 
     /* ---- Rigorous standards icon grid (inside the certifications panel) ---- */
     .vau-std-grid {
-        margin: 32px 0 0; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.14);
+        margin: 32px 0 0; padding-top: 30px; border-top: 1px solid rgba(10,61,46,0.16);
         display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
     }
     .vau-std-card {
         display: flex; align-items: flex-start; gap: 13px;
-        background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14);
+        background: #ffffff; border: 1px solid #e4ece1;
         border-radius: 14px; padding: 16px;
-        transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
     }
     .vau-std-card:hover {
-        transform: translateY(-4px); background: rgba(255,255,255,0.13);
-        border-color: rgba(255,255,255,0.30);
+        transform: translateY(-4px); box-shadow: 0 14px 28px rgba(10,61,46,0.10);
+        border-color: #cfe4da;
     }
     .vau-std-icon {
         flex: 0 0 auto; width: 36px; height: 36px; border-radius: 50%; margin: 1px 0 0;
-        background: rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center;
+        background: #f1f8f4; display: flex; align-items: center; justify-content: center;
     }
-    .vau-std-icon svg { width: 18px; height: 18px; stroke: #a8e6c1; fill: none; }
-    .vau-std-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 14.5px; font-weight: 700; margin: 0 0 4px; color: #ffffff; }
-    .vau-std-card p { font-size: 12.8px; color: #cfe9dd; margin: 0; line-height: 1.5; }
+    .vau-std-icon svg { width: 18px; height: 18px; stroke: #0a3d2e; fill: none; }
+    .vau-std-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 14.5px; font-weight: 700; margin: 0 0 4px; color: #121212; }
+    .vau-std-card p { font-size: 12.8px; color: #4b5750; margin: 0; line-height: 1.5; }
     .vau-cord-card {
         background: #fff; border: 1px solid #dcebe4; border-radius: 18px; padding: 30px 22px; text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
