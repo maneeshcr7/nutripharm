@@ -723,12 +723,119 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
   /* Full-width pharmacology infographic, now sitting inside the Cordyceps
      description rather than squeezed into the hero column. */
   #cordy-page .heritage-figure{
-    margin-top:56px;background:#ffffff;border:1px solid var(--line);border-radius:6px;
-    padding:28px 32px 20px;
+    margin-top:56px;background:#ECF4E9;border:1px solid rgba(13,92,46,0.14);border-radius:6px;
+    padding:36px 40px 32px;
   }
-  #cordy-page .heritage-figure .cordy-hero-graphic{width:100%;height:auto;display:block;}
   @media (max-width:640px){
-    #cordy-page .heritage-figure{margin-top:36px;padding:16px 14px 12px;}
+    #cordy-page .heritage-figure{margin-top:36px;padding:22px 18px 20px;}
+  }
+
+  /* ---------- SYSTEM MAP (pharmacological benefits) ---------- */
+  #cordy-page .sysmap-head{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,42ch);gap:14px 40px;
+    align-items:end;padding-bottom:22px;margin-bottom:32px;
+    border-bottom:1px solid rgba(13,92,46,0.16);
+  }
+  #cordy-page .sysmap-head h3{
+    font-family:'Poppins','Inter',sans-serif;font-weight:700;
+    font-size:clamp(23px,2.9vw,32px);line-height:1.06;letter-spacing:-0.02em;
+    margin:10px 0 0;color:var(--ink);text-wrap:balance;
+  }
+  #cordy-page .sysmap-head .sysmap-lede{
+    margin:0;font-size:15px;line-height:1.6;color:#4a4e42;
+  }
+  #cordy-page .sysmap-grid{
+    display:grid;grid-template-columns:minmax(200px,242px) minmax(150px,206px) minmax(0,1fr);
+    gap:clamp(20px,3vw,44px);align-items:stretch;
+  }
+  #cordy-page .sysmap-rail{display:flex;flex-direction:column;align-self:start;}
+  #cordy-page .sysmap-rail button{
+    display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+    background:none;border:0;border-left:2px solid rgba(13,92,46,0.16);
+    padding:11px 14px;margin:0;cursor:pointer;color:#565a4d;
+    font-family:'Inter',sans-serif;font-size:14px;font-weight:500;line-height:1.3;
+    transition:color .18s ease,border-color .18s ease,background .18s ease;
+  }
+  #cordy-page .sysmap-rail button svg{width:19px;height:19px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+  #cordy-page .sysmap-rail button:hover{color:var(--green-deep);background:rgba(255,255,255,0.6);}
+  #cordy-page .sysmap-rail button[aria-selected="true"]{
+    color:var(--green-deep);font-weight:600;background:#ffffff;border-left-color:var(--green);
+  }
+  #cordy-page .sysmap-fig{align-self:center;}
+  #cordy-page .sysmap-fig svg{display:block;width:100%;height:auto;}
+  #cordy-page .sysmap-fig .body-line{fill:none;stroke:rgba(13,92,46,0.34);stroke-width:1.4;}
+  #cordy-page .sysmap-fig .body-fill{fill:rgba(13,92,46,0.05);stroke:none;}
+  #cordy-page .sysmap-fig .hot{cursor:pointer;}
+  #cordy-page .sysmap-fig .hot .dot{fill:rgba(31,143,63,0.32);stroke:var(--green);stroke-width:1.2;transition:fill .2s ease;}
+  #cordy-page .sysmap-fig .hot .halo{fill:none;stroke:var(--green);stroke-width:1.1;opacity:0;transition:opacity .25s ease;}
+  #cordy-page .sysmap-fig .hot:hover .dot{fill:rgba(31,143,63,0.6);}
+  #cordy-page .sysmap-fig .hot.on .dot{fill:var(--green);}
+  #cordy-page .sysmap-fig .hot.on .halo{opacity:.9;}
+  #cordy-page .sysmap-figcap{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.14em;
+    text-transform:uppercase;color:#7a7f6e;text-align:center;margin-top:12px;
+  }
+  #cordy-page .sysmap-panel{
+    background:#ffffff;border:1px solid rgba(13,92,46,0.14);border-radius:4px;
+    padding:clamp(22px,2.6vw,32px);min-height:296px;display:flex;flex-direction:column;
+  }
+  #cordy-page .sysmap-panel .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;
+    letter-spacing:0.2em;text-transform:uppercase;color:#c4652a;margin-bottom:14px;
+  }
+  #cordy-page .sysmap-panel h4{
+    font-family:'Poppins','Inter',sans-serif;font-weight:700;
+    font-size:clamp(20px,2.5vw,28px);line-height:1.12;letter-spacing:-0.02em;
+    margin:0 0 14px;color:var(--green-deep);text-wrap:balance;
+  }
+  #cordy-page .sysmap-panel .lede{margin:0 0 22px;font-size:15.5px;line-height:1.65;color:#4a4e42;max-width:48ch;}
+  #cordy-page .sysmap-readout{
+    margin-top:auto;padding-top:20px;border-top:1px solid rgba(13,92,46,0.14);
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px 24px;
+  }
+  #cordy-page .sysmap-readout span{
+    display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;
+    letter-spacing:0.16em;text-transform:uppercase;color:#7a7f6e;margin-bottom:5px;
+  }
+  #cordy-page .sysmap-readout strong{font-size:14px;font-weight:600;color:var(--charcoal-text);line-height:1.35;}
+  #cordy-page .sysmap-foot{
+    margin-top:32px;padding-top:22px;border-top:1px solid rgba(13,92,46,0.16);
+    display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;justify-content:space-between;
+  }
+  #cordy-page .sysmap-also{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  #cordy-page .sysmap-also .lbl{
+    font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:0.18em;
+    text-transform:uppercase;color:#7a7f6e;margin-right:4px;
+  }
+  #cordy-page .sysmap-also .chip{
+    background:#ffffff;border:1px solid rgba(13,92,46,0.16);border-radius:999px;
+    padding:6px 13px;font-size:12.5px;color:var(--charcoal-text);
+  }
+  #cordy-page .sysmap-claim{
+    display:flex;align-items:center;gap:12px;font-size:14px;color:#4a4e42;
+  }
+  #cordy-page .sysmap-claim .pill{
+    display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;
+    border-radius:999px;padding:8px 16px;
+    font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;letter-spacing:0.14em;
+    text-transform:uppercase;white-space:nowrap;
+  }
+  #cordy-page .sysmap-claim .pill svg{width:15px;height:15px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+  @media (max-width:1000px){
+    #cordy-page .sysmap-head{grid-template-columns:1fr;align-items:start;}
+    #cordy-page .sysmap-grid{grid-template-columns:minmax(180px,220px) minmax(0,1fr);}
+    #cordy-page .sysmap-fig{grid-row:span 2;order:2;}
+    #cordy-page .sysmap-panel{grid-column:1 / -1;order:3;}
+  }
+  @media (max-width:640px){
+    #cordy-page .sysmap-grid{grid-template-columns:1fr;}
+    #cordy-page .sysmap-fig{grid-row:auto;max-width:240px;margin:0 auto;}
+    #cordy-page .sysmap-foot{flex-direction:column;align-items:flex-start;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    #cordy-page .sysmap-rail button,
+    #cordy-page .sysmap-fig .hot .dot,
+    #cordy-page .sysmap-fig .hot .halo{transition:none;}
   }
 
   /* ---------- WHY US ---------- */
@@ -992,132 +1099,173 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     </div>
   </div>
   <div class="wrap heritage-figure">
-      <svg class="cordy-hero-graphic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1120" width="100%" role="img" aria-label="Pharmacological benefits of Cordyceps">
-  <defs>
-    <radialGradient id="cb-glow" cx="50%" cy="50%" r="50%">
-      <stop offset="55%" stop-color="#eef4ea" stop-opacity="0.85"/>
-      <stop offset="100%" stop-color="#eef4ea" stop-opacity="0"/>
-    </radialGradient>
-  </defs>
-  <rect width="1600" height="1120" fill="none"/>
-  <text x="800" y="72" text-anchor="middle" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="21" font-weight="600" letter-spacing="4.6" fill="#0d5c2e">PHARMACOLOGICAL BENEFITS OF</text>
-  <text x="800" y="176" text-anchor="middle" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="104" font-weight="800" letter-spacing="-1" fill="#141414">CORDYCEPS</text>
-  <path d="M610 200 H770" stroke="#1f8f3f" stroke-width="2"/>
-  <circle cx="800" cy="200" r="5" fill="#1f8f3f"/>
-  <path d="M830 200 H990" stroke="#1f8f3f" stroke-width="2"/>
-  <text x="800" y="240" text-anchor="middle" font-family="'Inter', system-ui, sans-serif" font-size="24" fill="#565a4d">Nature&#8217;s powerful adaptogen for holistic wellness</text>
-  <circle cx="800" cy="560" r="232" fill="url(#cb-glow)"/>
-  <circle cx="800" cy="560" r="232" fill="none" stroke="#1f8f3f" stroke-width="2.2"/>
-  <circle cx="800" cy="560" r="245" fill="none" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-  <image href="assets/cordyceps-subject.png" x="628.2" y="376.7" width="343.6" height="385.1"/>
-  <circle cx="150" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(130.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M13.5 4a1.5 1.5 0 1 0 0-.01M9.5 21l2-5.5-3-2.5.5-4.5 4-1.5 2.5 3.5 3 1M8.5 12 5 10.5 2.5 12M13 15.5 9.5 17l-2 4"/></g>
-  <text x="215" y="378" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">ENHANCES ENERGY</text>
-  <text x="215" y="404" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">&amp; STAMINA</text>
-  <text x="215" y="434" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Improves ATP production and</text>
-  <text x="215" y="459" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">boosts physical performance.</text>
-  <line x1="560" y1="386" x2="612.2" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="560" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="612.2" cy="423.8" r="4.5" fill="#1f8f3f"/>
-  <circle cx="150" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(130.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
-  <text x="215" y="508" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS IMMUNE</text>
-  <text x="215" y="534" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">FUNCTION</text>
-  <text x="215" y="564" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Modulates immune response and</text>
-  <text x="215" y="589" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">enhances the body's natural defence.</text>
-  <line x1="560" y1="516" x2="571.8" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="560" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="571.8" cy="518.2" r="4.5" fill="#1f8f3f"/>
-  <circle cx="150" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(130.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v9M8.5 8C7 8 5 9.5 5 13v4a2 2 0 0 0 3 1.7l2-1.2V10c-.5-1.3-1-2-1.5-2zM15.5 8c1.5 0 3.5 1.5 3.5 5v4a2 2 0 0 1-3 1.7l-2-1.2V10c.5-1.3 1-2 1.5-2z"/></g>
-  <text x="215" y="638" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROMOTES RESPIRATORY</text>
-  <text x="215" y="664" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
-  <text x="215" y="694" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports lung function and helps</text>
-  <text x="215" y="719" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">with better oxygen utilization.</text>
-  <line x1="560" y1="646" x2="581.6" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="560" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="581.6" cy="638.3" r="4.5" fill="#1f8f3f"/>
-  <circle cx="150" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(130.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 3A2.5 2.5 0 0 0 7 5.5v.4A2.5 2.5 0 0 0 5 8.3a2.5 2.5 0 0 0 .5 3.2 2.5 2.5 0 0 0 0 3 2.5 2.5 0 0 0 2 4h.5A2.5 2.5 0 0 0 12 17V5.5A2.5 2.5 0 0 0 9.5 3zM14.5 3A2.5 2.5 0 0 1 17 5.5v.4a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1-.5 3.2 2.5 2.5 0 0 1 0 3 2.5 2.5 0 0 1-2 4h-.5A2.5 2.5 0 0 1 12 17"/></g>
-  <text x="215" y="768" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">NEUROPROTECTIVE</text>
-  <text x="215" y="794" text-anchor="start" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">EFFECTS</text>
-  <text x="215" y="824" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Supports cognitive function, memory,</text>
-  <text x="215" y="849" text-anchor="start" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and protects nerve cells from damage.</text>
-  <line x1="560" y1="776" x2="627.6" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="560" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="627.6" cy="715.2" r="4.5" fill="#1f8f3f"/>
-  <circle cx="1450" cy="400" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(1430.94 380.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7zM3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3"/></g>
-  <text x="1385" y="378" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">CARDIOVASCULAR</text>
-  <text x="1385" y="404" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORT</text>
-  <text x="1385" y="434" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps maintain heart health, improves</text>
-  <text x="1385" y="459" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">circulation and supports healthy BP.</text>
-  <line x1="1040" y1="386" x2="987.8" y2="423.8" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="1040" cy="386" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="987.8" cy="423.8" r="4.5" fill="#1f8f3f"/>
-  <circle cx="1450" cy="530" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(1430.94 510.94) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></g>
-  <text x="1385" y="508" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">REGULATES BLOOD</text>
-  <text x="1385" y="534" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUGAR LEVELS</text>
-  <text x="1385" y="564" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Helps improve insulin sensitivity and</text>
-  <text x="1385" y="589" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">supports healthy glucose metabolism.</text>
-  <line x1="1040" y1="516" x2="1028.2" y2="518.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="1040" cy="516" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="1028.2" cy="518.2" r="4.5" fill="#1f8f3f"/>
-  <circle cx="1450" cy="660" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(1430.94 640.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0M20.2 20.2c2-2 0-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8c-2 2 0 7.4 4.5 11.9 4.5 4.5 9.9 6.5 11.9 4.5zM15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9-2-2-7.4 0-11.9 4.5-4.5 4.5-6.5 9.9-4.5 11.9 2 2 7.4 0 11.9-4.5z"/></g>
-  <text x="1385" y="638" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">POWERFUL ANTIOXIDANT</text>
-  <text x="1385" y="664" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">PROPERTIES</text>
-  <text x="1385" y="694" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Neutralizes free radicals and</text>
-  <text x="1385" y="719" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">reduces oxidative stress.</text>
-  <line x1="1040" y1="646" x2="1018.4" y2="638.3" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="1040" cy="646" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="1018.4" cy="638.3" r="4.5" fill="#1f8f3f"/>
-  <circle cx="1450" cy="790" r="37" fill="#eef4ea" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.5"/>
-  <g transform="translate(1430.94 770.95) scale(1.5879)" fill="none" stroke="#0d5c2e" stroke-width="1.07" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10c3.5 0 6 2.2 6 5s-2.5 5.5-6.5 5.5c-4.5 0-5-3-8-3S4 17.5 4 17.5zM9 7v3.5M13 7v2.5M17 12.5c0 1.4-1 2.5-2.5 2.5"/></g>
-  <text x="1385" y="768" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">SUPPORTS LIVER</text>
-  <text x="1385" y="794" text-anchor="end" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="23" font-weight="700" letter-spacing="0.3" fill="#0d5c2e">HEALTH</text>
-  <text x="1385" y="824" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">Protects liver cells, supports detoxification</text>
-  <text x="1385" y="849" text-anchor="end" font-family="'Inter', system-ui, sans-serif" font-size="17.5" fill="#565a4d">and promotes overall liver function.</text>
-  <line x1="1040" y1="776" x2="972.4" y2="715.2" stroke="#1f8f3f" stroke-width="1.3" stroke-opacity="0.4"/>
-  <circle cx="1040" cy="776" r="3" fill="#1f8f3f" fill-opacity="0.55"/>
-  <circle cx="972.4" cy="715.2" r="4.5" fill="#1f8f3f"/>
-  <rect x="70" y="900" width="1460" height="150" rx="8" fill="#ffffff" stroke="#1f8f3f" stroke-width="1.2" stroke-opacity="0.35"/>
-  <circle cx="120.0" cy="975.0" r="27" fill="#eef4ea"/>
-  <g transform="translate(105.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"/></g>
-  <text x="160.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ADAPTOGENIC</text>
-  <text x="160.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">&amp; BALANCING</text>
-  <text x="160.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps the body adapt to stress</text>
-  <text x="160.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and restore balance.</text>
-  <path d="M435.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-  <circle cx="485.0" cy="975.0" r="27" fill="#eef4ea"/>
-  <g transform="translate(470.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.8-1.6l9.9-10.2a.5.5 0 0 1 .9.5l-1.9 6a1 1 0 0 0 .9 1.3h7a1 1 0 0 1 .8 1.6l-9.9 10.2a.5.5 0 0 1-.9-.5l1.9-6a1 1 0 0 0-.9-1.3z"/></g>
-  <text x="525.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ENHANCES EXERCISE</text>
-  <text x="525.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">PERFORMANCE</text>
-  <text x="525.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Improves VO₂ max, endurance</text>
-  <text x="525.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and recovery.</text>
-  <path d="M800.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-  <circle cx="850.0" cy="975.0" r="27" fill="#eef4ea"/>
-  <g transform="translate(835.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12m-9 0a9 9 0 1 0 18 0 9 9 0 1 0-18 0M8.5 9a1.4 1.4 0 1 0 0-.01M15 9.5a1.1 1.1 0 1 0 0-.01M9.5 15a1.6 1.6 0 1 0 0-.01M15 14.5a1.2 1.2 0 1 0 0-.01M12 11.8v.01"/></g>
-  <text x="890.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">SUPPORTS CELLULAR</text>
-  <text x="890.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">REGENERATION</text>
-  <text x="890.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Promotes tissue repair</text>
-  <text x="890.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">and healthy aging.</text>
-  <path d="M1165.0 922 V1028" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.28"/>
-  <circle cx="1215.0" cy="975.0" r="27" fill="#eef4ea"/>
-  <g transform="translate(1200.00 960.00) scale(1.2500)" fill="none" stroke="#0d5c2e" stroke-width="1.36" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></g>
-  <text x="1255.0" y="942" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ANTI-INFLAMMATORY</text>
-  <text x="1255.0" y="963" font-family="'Poppins', 'Inter', system-ui, sans-serif" font-size="18" font-weight="700" letter-spacing="0.2" fill="#0d5c2e">ACTION</text>
-  <text x="1255.0" y="990" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">Helps reduce inflammation and</text>
-  <text x="1255.0" y="1011" font-family="'Inter', system-ui, sans-serif" font-size="16.0" fill="#565a4d">supports overall wellness.</text>
-  <rect x="470" y="1059" width="238" height="40" rx="20" fill="#1f8f3f"/>
-  <g transform="translate(483.00 1068.00) scale(0.9167)" fill="none" stroke="#ffffff" stroke-width="2.07" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></g>
-  <text x="514" y="1086" font-family="'IBM Plex Mono', ui-monospace, monospace" font-size="15" font-weight="600" letter-spacing="1.6" fill="#ffffff">BACKED BY SCIENCE</text>
-  <path d="M728 1061 V1097" stroke="#1f8f3f" stroke-width="1" stroke-opacity="0.4"/>
-  <text x="750" y="1086" font-family="'Inter', system-ui, sans-serif" font-size="19" fill="#565a4d">Traditionally valued. Scientifically validated. Clinically relevant.</text>
-  </svg>
+    <div class="sysmap" id="sysmap">
+      <div class="sysmap-head">
+        <div>
+          <span class="eyebrow">Pharmacological benefits</span>
+          <h3>What Cordyceps acts on.</h3>
+        </div>
+        <p class="sysmap-lede">Eight primary functions, each with its site of action and the marker compound the claim rests on. Select one to read it.</p>
+      </div>
+
+      <div class="sysmap-grid">
+        <div class="sysmap-rail" role="tablist" aria-label="Primary functions of Cordyceps" id="sysmap-rail"></div>
+
+        <div class="sysmap-fig">
+          <svg viewBox="0 0 300 470" role="img" aria-label="Schematic figure marking the primary sites of Cordyceps activity">
+            <path class="body-fill" d="M119 112 Q150 100 181 112 Q188 150 189 186 Q192 222 186 244 Q150 258 114 244 Q108 222 111 186 Q112 150 119 112 Z"/>
+            <circle class="body-line" cx="150" cy="56" r="27"/>
+            <path class="body-line" d="M150 83 V101"/>
+            <path class="body-line" d="M119 112 Q150 100 181 112 Q188 150 189 186 Q192 222 186 244 Q150 258 114 244 Q108 222 111 186 Q112 150 119 112 Z"/>
+            <path class="body-line" d="M121 115 Q93 148 85 198 Q81 228 79 250"/>
+            <path class="body-line" d="M179 115 Q207 148 215 198 Q219 228 221 250"/>
+            <path class="body-line" d="M131 250 Q122 316 119 358 Q117 404 116 438"/>
+            <path class="body-line" d="M169 250 Q178 316 181 358 Q183 404 184 438"/>
+            <path class="body-line" d="M150 106 V246" stroke-dasharray="3 7" stroke-opacity="0.45"/>
+            <g id="sysmap-hotspots"></g>
+          </svg>
+          <div class="sysmap-figcap">Primary sites of action</div>
+        </div>
+
+        <div class="sysmap-panel" id="sysmap-panel" role="tabpanel" tabindex="0">
+          <div class="tag" data-f="sys"></div>
+          <h4 data-f="title"></h4>
+          <p class="lede" data-f="copy"></p>
+          <div class="sysmap-readout">
+            <div><span>Site of action</span><strong data-f="region"></strong></div>
+            <div><span>Marker / mechanism</span><strong data-f="marker"></strong></div>
+            <div><span>Evidence</span><strong>Traditional use + clinical literature</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sysmap-foot">
+        <div class="sysmap-also" id="sysmap-also"><span class="lbl">Also documented</span></div>
+        <div class="sysmap-claim">
+          <span class="pill"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4"/></svg>Backed by science</span>
+          <span>Traditionally valued. Scientifically validated. Clinically relevant.</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
+
+<script>
+/* Cordyceps system map — renders the rail, hotspots and detail panel. */
+(function(){
+  var host = document.getElementById('sysmap');
+  if(!host) return;
+
+  var ICONS = {
+    run:'M13.5 4a1.5 1.5 0 1 0 0-.01M9.5 21l2-5.5-3-2.5.5-4.5 4-1.5 2.5 3.5 3 1M8.5 12 5 10.5 2.5 12M13 15.5 9.5 17l-2 4',
+    shield:'M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4',
+    lungs:'M12 4v9M8.5 8C7 8 5 9.5 5 13v4a2 2 0 0 0 3 1.7l2-1.2V10c-.5-1.3-1-2-1.5-2zM15.5 8c1.5 0 3.5 1.5 3.5 5v4a2 2 0 0 1-3 1.7l-2-1.2V10c.5-1.3 1-2 1.5-2z',
+    brain:'M9.5 3A2.5 2.5 0 0 0 7 5.5v.4A2.5 2.5 0 0 0 5 8.3a2.5 2.5 0 0 0 .5 3.2 2.5 2.5 0 0 0 0 3 2.5 2.5 0 0 0 2 4h.5A2.5 2.5 0 0 0 12 17V5.5A2.5 2.5 0 0 0 9.5 3zM14.5 3A2.5 2.5 0 0 1 17 5.5v.4a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1-.5 3.2 2.5 2.5 0 0 1 0 3 2.5 2.5 0 0 1-2 4h-.5A2.5 2.5 0 0 1 12 17',
+    heart:'M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7zM3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3',
+    drop:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',
+    atom:'M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0M20.2 20.2c2-2 0-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8c-2 2 0 7.4 4.5 11.9 4.5 4.5 9.9 6.5 11.9 4.5zM15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9-2-2-7.4 0-11.9 4.5-4.5 4.5-6.5 9.9-4.5 11.9 2 2 7.4 0 11.9-4.5z',
+    liver:'M4 7h10c3.5 0 6 2.2 6 5s-2.5 5.5-6.5 5.5c-4.5 0-5-3-8-3S4 17.5 4 17.5zM9 7v3.5M13 7v2.5M17 12.5c0 1.4-1 2.5-2.5 2.5'
+  };
+
+  var SYSTEMS = [
+    {icon:'run',    sys:'Metabolic',      short:'Energy &amp; stamina',
+     title:'Enhances Energy &amp; Stamina',
+     copy:'Improves ATP production and boosts physical performance.',
+     region:'Skeletal muscle', marker:'ATP synthesis &#183; Adenosine', hot:[121,330]},
+    {icon:'shield', sys:'Immunologic',    short:'Immune function',
+     title:'Supports Immune Function',
+     copy:'Modulates immune response and enhances the body&#8217;s natural defence.',
+     region:'Gut-associated lymphoid tissue', marker:'&#946;-glucans &#183; Polysaccharides', hot:[150,242]},
+    {icon:'lungs',  sys:'Pulmonary',      short:'Respiratory health',
+     title:'Promotes Respiratory Health',
+     copy:'Supports lung function and helps with better oxygen utilization.',
+     region:'Lungs, bronchi', marker:'VO&#8322; max &#183; O&#8322; uptake', hot:[169,148]},
+    {icon:'brain',  sys:'Neurologic',     short:'Neuroprotection',
+     title:'Neuroprotective Effects',
+     copy:'Supports cognitive function, memory, and protects nerve cells from damage.',
+     region:'Central nervous system', marker:'Cordycepin &#183; Neurotrophic activity', hot:[150,54]},
+    {icon:'heart',  sys:'Cardiovascular', short:'Cardiovascular support',
+     title:'Cardiovascular Support',
+     copy:'Helps maintain heart health, improves circulation and supports healthy BP.',
+     region:'Myocardium, vasculature', marker:'Adenosine &#183; Vasodilation', hot:[135,150]},
+    {icon:'drop',   sys:'Endocrine',      short:'Blood sugar regulation',
+     title:'Regulates Blood Sugar Levels',
+     copy:'Helps improve insulin sensitivity and supports healthy glucose metabolism.',
+     region:'Pancreas, hepatic glucose', marker:'Insulin sensitivity &#183; CS-F30', hot:[169,208]},
+    {icon:'atom',   sys:'Redox',          short:'Antioxidant activity',
+     title:'Powerful Antioxidant Properties',
+     copy:'Neutralizes free radicals and reduces oxidative stress.',
+     region:'Systemic', marker:'SOD &#183; Free-radical scavenging', hot:[220,248]},
+    {icon:'liver',  sys:'Hepatic',        short:'Liver health',
+     title:'Supports Liver Health',
+     copy:'Protects liver cells, supports detoxification and promotes overall liver function.',
+     region:'Liver', marker:'Hepatocyte protection', hot:[126,200]}
+  ];
+
+  var ALSO = [
+    'Adaptogenic &amp; Balancing',
+    'Enhances Exercise Performance',
+    'Supports Cellular Regeneration',
+    'Anti-Inflammatory Action'
+  ];
+
+  var rail = document.getElementById('sysmap-rail');
+  var hotG = document.getElementById('sysmap-hotspots');
+  var panel = document.getElementById('sysmap-panel');
+  var also = document.getElementById('sysmap-also');
+
+  rail.innerHTML = SYSTEMS.map(function(b, i){
+    return '<button type="button" role="tab" id="sysmap-tab-' + i + '" aria-controls="sysmap-panel" ' +
+      'aria-selected="' + (i === 0 ? 'true' : 'false') + '" tabindex="' + (i === 0 ? '0' : '-1') + '" data-i="' + i + '">' +
+      '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + ICONS[b.icon] + '"/></svg>' +
+      '<span>' + b.short + '</span></button>';
+  }).join('');
+
+  hotG.innerHTML = SYSTEMS.map(function(b, i){
+    return '<g class="hot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" transform="translate(' + b.hot[0] + ',' + b.hot[1] + ')">' +
+      '<circle class="halo" r="15"></circle><circle class="dot" r="6"></circle>' +
+      '<circle r="17" fill="transparent"></circle></g>';
+  }).join('');
+
+  also.insertAdjacentHTML('beforeend', ALSO.map(function(t){
+    return '<span class="chip">' + t + '</span>';
+  }).join(''));
+
+  var tabs = rail.querySelectorAll('button');
+  var hots = hotG.querySelectorAll('.hot');
+
+  function select(i){
+    var b = SYSTEMS[i];
+    for(var j = 0; j < tabs.length; j++){
+      tabs[j].setAttribute('aria-selected', j === i ? 'true' : 'false');
+      tabs[j].setAttribute('tabindex', j === i ? '0' : '-1');
+      hots[j].classList.toggle('on', j === i);
+    }
+    panel.querySelector('[data-f="sys"]').innerHTML = b.sys + ' system';
+    panel.querySelector('[data-f="title"]').innerHTML = b.title;
+    panel.querySelector('[data-f="copy"]').innerHTML = b.copy;
+    panel.querySelector('[data-f="region"]').innerHTML = b.region;
+    panel.querySelector('[data-f="marker"]').innerHTML = b.marker;
+    panel.setAttribute('aria-labelledby', 'sysmap-tab-' + i);
+  }
+
+  for(var k = 0; k < tabs.length; k++){
+    tabs[k].addEventListener('click', function(){ select(+this.dataset.i); });
+    tabs[k].addEventListener('keydown', function(e){
+      var d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1
+            : (e.key === 'ArrowUp' || e.key === 'ArrowLeft') ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var next = (+this.dataset.i + d + SYSTEMS.length) % SYSTEMS.length;
+      tabs[next].focus();
+      select(next);
+    });
+    hots[k].addEventListener('click', function(){ select(+this.dataset.i); });
+  }
+
+  select(0);
+})();
+</script>
 
 <!-- ================= WHY US ================= -->
 <section class="why">
@@ -1284,19 +1432,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
       shelfLife:"24 months from manufacture",
       storage:"Cool, dry place, away from direct sunlight, below 25°C",
       benefits:["Whole dried fruiting bodies standardized at 1–2% cordycepin", "Organically cultivated on optimized substrates under controlled conditions", "Consistent moisture, appearance and bioactive profile batch to batch"]
-    },
-    {
-      id:"powder",
-      name:"Dried Cordyceps Powder",
-      img:IMG+'Dried-Cordyceps-Powder.png',
-      specs:["Cordycepin 1–2%", "Adenosine ≥ 0.2%", "Moisture < 2%"],
-      cardDesc:"Finely milled whole fruiting body powder, controlled-dried and free from fillers.",
-      desc:"Premium Cordyceps dried powder prepared from carefully cultivated biomass and processed under controlled drying conditions to retain its natural nutritional and bioactive constituents. Finely milled and quality tested for purity, consistency and stability, it is a versatile ingredient for capsules, tablets, beverages, functional foods and nutraceutical formulations. Suggested use: 1–3 g daily.",
-      applications:["Capsule and tablet filling", "Powder blends & sachets", "Functional food formulation"],
-      packaging:["500 g pouch", "1 kg pouch", "25 kg drum"],
-      shelfLife:"24 months from manufacture",
-      storage:"Store below 25°C in a sealed, moisture-proof container",
-      benefits:["Controlled drying retains the natural nutritional and bioactive profile", "No fillers, carriers or anti-caking agents", "Finely milled and free-flowing, suited to automated filling lines"]
     },
     {
       id:"tincture",
