@@ -715,17 +715,11 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
   /* ---------- INTRO / HERITAGE ---------- */
   #cordy-page .heritage{background:var(--paper);}
   #cordy-page .heritage-grid{
-    display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start;
+    max-width:840px;margin:0 auto;text-align:center;
   }
-  #cordy-page .heritage h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;max-width:15ch;}
-  #cordy-page .heritage p{font-size:15.5px;color:#4a4e42;margin-top:16px;}
-  #cordy-page .heritage-note{
-    background:var(--green-tint);border:1px solid var(--line);border-radius:4px;
-    padding:24px 26px;
-    border-left:3px solid var(--green);
-  }
-  #cordy-page .heritage-note .mono-tag{font-size:12px;color:var(--green-deep);display:block;margin-bottom:8px;}
-  #cordy-page .heritage-note p{margin:0;font-size:15.5px;color:var(--charcoal-text);}
+  #cordy-page .heritage .eyebrow{display:block;}
+  #cordy-page .heritage h2{font-size:clamp(25px,3.2vw,32px);margin:12px auto 0;max-width:30ch;text-wrap:balance;}
+  #cordy-page .heritage p{font-size:15.5px;color:#4a4e42;margin:16px auto 0;max-width:70ch;}
   /* Full-width pharmacology infographic, now sitting inside the Cordyceps
      description rather than squeezed into the hero column. */
   #cordy-page .heritage-figure{
@@ -783,29 +777,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     font-family:'Inter',sans-serif;
   }
   #cordy-page .view-more:hover{background:var(--ink);color:#fff;}
-
-  /* ---------- FAQ ---------- */
-  #cordy-page .faq{background:var(--parchment);}
-  #cordy-page .faq-wrap{max-width:820px;margin:0 auto;padding:0 24px;}
-  #cordy-page .faq h2{font-size:clamp(25px,3.2vw,32px);text-align:center;margin-top:12px;}
-  #cordy-page .faq .eyebrow{display:block;text-align:center;}
-  #cordy-page .faq-list{margin-top:40px;border-top:1px solid var(--line);}
-  #cordy-page .faq-item{border-bottom:1px solid var(--line);}
-  #cordy-page .faq-q{
-    width:100%;text-align:left;background:none;border:none;cursor:pointer;
-    padding:20px 4px;display:flex;justify-content:space-between;align-items:center;gap:16px;
-    font-family:'Inter',sans-serif;font-weight:600;font-size:16px;color:var(--ink);
-  }
-  #cordy-page .faq-q .plus{
-    font-family:'IBM Plex Mono',monospace;font-size:20px;color:var(--green);
-    flex-shrink:0;transition:transform .25s ease;
-  }
-  #cordy-page .faq-item.open .faq-q .plus{transform:rotate(45deg);}
-  #cordy-page .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
-  #cordy-page .faq-a p{font-size:15.5px;color:#4a4e42;padding:0 4px 20px;max-width:68ch;}
-  #cordy-page .faq-a a{color:var(--green-deep);text-decoration:underline;text-underline-offset:3px;}
-  #cordy-page .faq-cta{text-align:center;margin-top:44px;font-size:14px;color:#565a4d;}
-  #cordy-page .faq-cta a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
 
   /* ---------- MODALS ---------- */
   #cordy-page .overlay{
@@ -913,7 +884,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     #cordy-page .hero-grid{grid-template-columns:1fr;}
     #cordy-page .hero-text{padding-bottom:0;}
     #cordy-page .hero-stats{gap:24px;}
-    #cordy-page .heritage-grid{grid-template-columns:1fr;gap:32px;}
     #cordy-page .why-grid{grid-template-columns:repeat(2,1fr);}
     #cordy-page .product-grid{grid-template-columns:repeat(2,1fr);}
     #cordy-page .modal-product{grid-template-columns:1fr;}
@@ -981,10 +951,9 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     <div class="hero-text">
       <span class="eyebrow">500+ years in Southeast Asian pharmacopoeia · GRAS status, FDA</span>
       <h1>Bulk Cordyceps, standardized down to the Cordycepin percentage.</h1>
-      <p>India&#8217;s first fully water-soluble, standardized Cordyceps extract — built for nutraceutical, cosmeceutical and aquaculture formulators who need consistency batch to batch.</p>
+      <p>India&#8217;s first fully water-soluble, standardized Cordyceps extract — built for nutraceutical, cosmeceutical and aquaculture formulators who need consistency batch to batch. Every batch is assayed for Cordycepin and Adenosine before it ships, so the specification on the certificate of analysis is the specification in your finished product — not an average.</p>
       <div class="hero-cta">
         <a href="#products" class="btn btn-primary">View bulk products</a>
-        <a href="#faq" class="btn btn-outline">Sourcing FAQs</a>
       </div>
       <div class="hero-stats">
         <div class="stat"><strong>500+</strong><span>Years in use</span></div>
@@ -1017,10 +986,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
       <h2>Broad-spectrum by tradition. Standardized by us.</h2>
       <p>Cordyceps has been revered for over 500 years across Southeast Asia as a broad-spectrum therapeutic, and is officially listed in the pharmacopoeias of China, Japan and Korea for managing a wide range of medical ailments. Often considered one of the best preventive ingredients of our time, it carries GRAS status with the FDA.</p>
       <p>We built India&#8217;s first fully water-soluble, standardized Cordyceps extract on top of that legacy — so formulators get a raw material that behaves the same way every time it&#8217;s weighed out.</p>
-    </div>
-    <div class="heritage-note">
-      <span class="mono-tag">Why formulators standardize on us</span>
-      <p>Every batch is assayed for Cordycepin and Adenosine before it ships, so the specification on the certificate of analysis is the specification in your finished product — not an average.</p>
     </div>
   </div>
   <div class="wrap heritage-figure">
@@ -1196,16 +1161,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
       <p>Every format below is tested for safety and efficacy, and available in bulk for nutraceutical, cosmeceutical and functional-food use.</p>
     </div>
     <div class="product-grid" id="product-grid"></div>
-  </div>
-</section>
-
-<!-- ================= FAQ ================= -->
-<section class="faq" id="faq">
-  <div class="faq-wrap">
-    <span class="eyebrow">Sourcing FAQs</span>
-    <h2>Before you request a quote</h2>
-    <div class="faq-list" id="faq-list"></div>
-    <p class="faq-cta">Looking for something else we grow or extract? <a href="index.html">Head back to the homepage</a> to see our full range.</p>
   </div>
 </section>
 
@@ -1407,33 +1362,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
     }
   ];
 
-  var faqs = [
-    {
-      q:'What makes this Cordyceps different from standard extracts?',
-      a:'It\'s standardized to a specific Cordycepin range (1–8%) and processed with our proprietary Bio-Enh Technology, which is what makes it fully water-soluble and gives it a multi-fold increase in bioavailability over unprocessed extracts.'
-    },
-    {
-      q:'What is the minimum order quantity?',
-      a:'For powders and extracts, the minimum order is 10 kg. For capsule, tablet and packaged formats, the minimum order is 500 units. Both are set on the enquiry form when you request a quote.'
-    },
-    {
-      q:'Can Cordycepin and Adenosine percentages be customized?',
-      a:'Yes. Cordycepin can be standardized between 1–8% and Adenosine between 0.2–2%, depending on your finished-product requirements and industry — nutraceutical, cosmeceutical or aquaculture.'
-    },
-    {
-      q:'What certifications does this Cordyceps carry?',
-      a:'Our facility and process are FSSAI, ISO and GMP certified, and Cordyceps itself carries GRAS status with the FDA and is listed in the pharmacopoeias of China, Japan and Korea.'
-    },
-    {
-      q:'Do you supply for cosmeceutical and aquaculture use, or only nutraceuticals?',
-      a:'All three. The standardized extract (Cordy Maxx) in particular is customized specifically for nutraceutical, cosmeceutical and aquaculture inputs.'
-    },
-    {
-      q:'Where can I see your other bulk ingredients?',
-      a:'This page covers our full Cordyceps range. For our wider ingredient catalogue, <a href="index.html">visit the homepage</a>.'
-    }
-  ];
-
   // ---- render product cards ----
   var grid = document.getElementById('product-grid');
   products.forEach(function(p){
@@ -1448,30 +1376,6 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
         '<div class="p-actions"><button class="btn view-more" data-id="'+p.id+'">View more</button></div>'+
       '</div>';
     grid.appendChild(card);
-  });
-
-  // ---- render faq ----
-  var faqList = document.getElementById('faq-list');
-  faqs.forEach(function(f, i){
-    var item = document.createElement('div');
-    item.className = 'faq-item';
-    item.innerHTML =
-      '<button class="faq-q" type="button">'+f.q+'<span class="plus">+</span></button>'+
-      '<div class="faq-a"><p>'+f.a+'</p></div>';
-    faqList.appendChild(item);
-    var btn = item.querySelector('.faq-q');
-    var ans = item.querySelector('.faq-a');
-    btn.addEventListener('click', function(){
-      var isOpen = item.classList.contains('open');
-      faqList.querySelectorAll('.faq-item').forEach(function(other){
-        other.classList.remove('open');
-        other.querySelector('.faq-a').style.maxHeight = null;
-      });
-      if(!isOpen){
-        item.classList.add('open');
-        ans.style.maxHeight = ans.scrollHeight + 'px';
-      }
-    });
   });
 
   // ---- populate buy-form product select ----
