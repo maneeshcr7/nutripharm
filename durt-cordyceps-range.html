@@ -853,8 +853,11 @@ body, button, input, select, textarea, .ast-button, .ast-custom-button {
 
   /* ---------- PRODUCTS ---------- */
   #cordy-page .products{background:var(--paper);}
-  #cordy-page .section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;}
-  #cordy-page .products h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;max-width:16ch;}
+  #cordy-page .section-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;margin-left:auto;margin-right:auto;}
+  #cordy-page .section-head > *{width:100%;}
+  #cordy-page .section-head h2,
+  #cordy-page .section-head p{margin-left:auto;margin-right:auto;margin-bottom:0;}
+  #cordy-page .products h2{font-size:clamp(25px,3.2vw,32px);margin-top:12px;max-width:24ch;}
   #cordy-page .products .section-head p{max-width:44ch;color:#565a4d;font-size:15px;}
   #cordy-page .product-grid{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;
