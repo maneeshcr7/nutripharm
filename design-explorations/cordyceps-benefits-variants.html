@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four Takes on Cordyceps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap">
+<style>
+/* ============================================================
+   SHELL — the presentation deck around the four options
+   ============================================================ */
+:root{
+  --ink:#141414;
+  --charcoal:#20241f;
+  --green:#1f8f3f;
+  --green-deep:#0d5c2e;
+  --green-light:#6cc24a;
+  --tint:#eef4ea;
+  --parchment:#f0f2ea;
+  --paper:#fafaf7;
+  --bark:#161c15;
+  --bark-2:#1e261c;
+  --rust:#c4652a;
+  --rust-soft:#e08a4a;
+  --muted:#565a4d;
+  --line:rgba(20,20,20,0.12);
+
+  --shell-bg:#f4f4ef;
+  --shell-surface:#ffffff;
+  --shell-ink:#141414;
+  --shell-muted:#565a4d;
+  --shell-line:rgba(20,20,20,0.14);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --shell-bg:#12140f;
+    --shell-surface:#1a1d16;
+    --shell-ink:#f2f3ec;
+    --shell-muted:#a3a795;
+    --shell-line:rgba(242,243,236,0.16);
+  }
+}
+:root[data-theme="dark"]{
+  --shell-bg:#12140f;
+  --shell-surface:#1a1d16;
+  --shell-ink:#f2f3ec;
+  --shell-muted:#a3a795;
+  --shell-line:rgba(242,243,236,0.16);
+}
+
+*{box-sizing:border-box;}
+body{
+  margin:0;background:var(--shell-bg);color:var(--shell-ink);
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;}
+:focus-visible{outline:2.5px solid var(--green);outline-offset:3px;border-radius:2px;}
+
+.deck-head{
+  padding-block:clamp(40px,7vw,76px) clamp(28px,4vw,44px);
+  padding-left:20px;padding-right:20px;
+  max-width:1180px;margin:0 auto;
+}
+.deck-kicker{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--green);
+  display:block;margin-bottom:18px;
+}
+.deck-head h1{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;
+  font-size:clamp(30px,4.4vw,52px);line-height:1.08;letter-spacing:-.02em;
+  margin:0 0 18px;max-width:16ch;text-wrap:balance;
+}
+.deck-head p{
+  margin:0;max-width:62ch;font-size:clamp(15px,1.5vw,17px);line-height:1.65;color:var(--shell-muted);
+}
+.deck-nav{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;
+}
+.deck-nav a{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+  color:var(--shell-ink);border:1px solid var(--shell-line);border-radius:999px;
+  padding:9px 15px;transition:background .18s ease,border-color .18s ease,color .18s ease;
+}
+.deck-nav a:hover{background:var(--green);border-color:var(--green);color:#fff;}
+
+.deck-option{padding-block:0 clamp(56px,8vw,104px);}
+.deck-spec{
+  max-width:1180px;margin:0 auto;padding-left:20px;padding-right:20px;
+  padding-block:clamp(28px,4vw,44px) 22px;
+  display:grid;grid-template-columns:auto 1fr;gap:20px 30px;align-items:start;
+  border-top:1px solid var(--shell-line);
+}
+.deck-spec .idx{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;font-size:clamp(30px,4vw,44px);
+  line-height:1;color:var(--green);letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.deck-spec h2{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;font-size:clamp(21px,2.6vw,30px);
+  margin:0 0 8px;letter-spacing:-.01em;line-height:1.15;
+}
+.deck-spec .character{margin:0 0 14px;color:var(--shell-muted);font-size:15px;line-height:1.6;max-width:60ch;}
+.deck-spec dl{display:flex;flex-wrap:wrap;gap:8px 26px;margin:0;}
+.deck-spec dt{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:3px;
+}
+.deck-spec dd{margin:0 0 6px;font-size:14px;line-height:1.5;color:var(--shell-ink);max-width:34ch;}
+.deck-spec .pair{min-width:180px;flex:1 1 200px;}
+
+.deck-frame{
+  max-width:1180px;margin:0 auto;padding-left:20px;padding-right:20px;
+}
+.deck-frame > *{
+  border-radius:4px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(20,20,20,.08),0 18px 44px -22px rgba(20,20,20,.36);
+}
+.deck-foot{
+  max-width:1180px;margin:0 auto;padding:0 20px clamp(60px,9vw,110px);
+  border-top:1px solid var(--shell-line);padding-top:34px;
+}
+.deck-foot p{color:var(--shell-muted);font-size:15px;line-height:1.7;max-width:64ch;margin:0 0 10px;}
+
+/* shared icon sizing */
+.ico{display:block;width:100%;height:100%;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+
+/* ============================================================
+   OPTION 01 — THE MONOGRAPH
+   A pharmacopoeia entry. No icons, no cards: system tags,
+   hairline rules, numbered entries, marker compounds.
+   ============================================================ */
+.opt-mono{
+  background:var(--paper);color:var(--ink);
+  padding:clamp(38px,5vw,64px) clamp(20px,4vw,60px);
+}
+.opt-mono .mono-top{
+  display:grid;grid-template-columns:1fr auto;gap:20px;align-items:end;
+  padding-bottom:18px;border-bottom:2px solid var(--ink);
+}
+.opt-mono .stamp{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep);
+}
+.opt-mono h3{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;
+  font-size:clamp(28px,4.6vw,52px);line-height:1;letter-spacing:-.025em;margin:10px 0 0;
+}
+.opt-mono h3 em{font-style:italic;font-weight:500;color:var(--muted);font-size:.44em;letter-spacing:0;display:block;margin-top:10px;}
+.opt-mono .folio{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:1.9;
+}
+.opt-mono .mono-list{
+  columns:2;column-gap:clamp(30px,4vw,66px);column-rule:1px solid var(--line);
+  margin-top:6px;
+}
+.opt-mono .entry{
+  break-inside:avoid;display:grid;grid-template-columns:34px 1fr;gap:0 14px;
+  padding:16px 0 15px;border-bottom:1px solid var(--line);
+  transition:background .16s ease;
+}
+.opt-mono .entry:hover{background:var(--tint);}
+.opt-mono .entry .num{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;font-weight:600;
+  color:var(--green);padding-top:3px;font-variant-numeric:tabular-nums;
+}
+.opt-mono .entry .sys{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:5px;
+}
+.opt-mono .entry h4{
+  font-family:'Poppins','Inter',sans-serif;font-weight:600;font-size:16px;line-height:1.25;
+  margin:0 0 6px;letter-spacing:-.005em;
+}
+.opt-mono .entry p{margin:0 0 8px;font-size:14px;line-height:1.55;color:var(--muted);max-width:44ch;}
+.opt-mono .entry .marker{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:500;
+  color:var(--green-deep);letter-spacing:.02em;
+}
+.opt-mono .mono-foot{
+  margin-top:26px;padding-top:18px;border-top:2px solid var(--ink);
+  display:flex;flex-wrap:wrap;gap:14px 30px;align-items:baseline;justify-content:space-between;
+}
+.opt-mono .mono-foot .claim{
+  font-family:'Poppins','Inter',sans-serif;font-weight:600;font-size:clamp(15px,1.8vw,19px);letter-spacing:-.01em;
+}
+.opt-mono .mono-foot .ref{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);
+}
+@media (max-width:760px){
+  .opt-mono .mono-list{columns:1;}
+  .opt-mono .mono-top{grid-template-columns:1fr;align-items:start;}
+  .opt-mono .folio{text-align:left;}
+}
+
+/* ============================================================
+   OPTION 02 — THE SYSTEM MAP
+   Dark clinical dossier. Schematic figure + hotspots, tab rail,
+   one detail panel at a time.
+   ============================================================ */
+.opt-map{
+  background:var(--bark);color:#eef1e8;
+  padding:clamp(34px,4.5vw,58px) clamp(20px,4vw,52px);
+}
+.opt-map .map-head{
+  display:flex;flex-wrap:wrap;gap:12px 24px;align-items:baseline;justify-content:space-between;
+  padding-bottom:22px;margin-bottom:clamp(24px,3vw,38px);
+  border-bottom:1px solid rgba(238,241,232,.14);
+}
+.opt-map .map-head h3{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;
+  font-size:clamp(24px,3.4vw,38px);letter-spacing:-.02em;margin:0;line-height:1.05;
+}
+.opt-map .map-head .sub{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--green-light);
+}
+.opt-map .map-grid{
+  display:grid;grid-template-columns:minmax(210px,255px) minmax(200px,300px) 1fr;
+  gap:clamp(20px,3vw,44px);align-items:start;
+}
+.opt-map .rail{display:flex;flex-direction:column;gap:1px;}
+.opt-map .rail button{
+  display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+  background:none;border:0;border-left:2px solid rgba(238,241,232,.14);
+  padding:11px 12px;color:rgba(238,241,232,.62);cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:13.5px;font-weight:500;line-height:1.3;
+  transition:color .18s ease,border-color .18s ease,background .18s ease;
+}
+.opt-map .rail button .glyph{width:19px;height:19px;flex:none;stroke:currentColor;}
+.opt-map .rail button:hover{color:#eef1e8;background:rgba(238,241,232,.05);}
+.opt-map .rail button[aria-selected="true"]{
+  color:#fff;border-left-color:var(--green-light);background:rgba(108,194,74,.10);font-weight:600;
+}
+.opt-map .fig-col{align-self:center;}
+.opt-map .figure-wrap{position:relative;}
+.opt-map .figure-wrap svg{display:block;width:100%;height:auto;}
+.opt-map .body-stroke{stroke:rgba(238,241,232,.30);fill:none;stroke-width:1.4;}
+.opt-map .body-fill{fill:rgba(238,241,232,.045);stroke:none;}
+.opt-map .hot{cursor:pointer;}
+.opt-map .hot .dot{fill:rgba(108,194,74,.42);stroke:rgba(108,194,74,.7);stroke-width:1.2;transition:fill .2s ease,r .2s ease;}
+.opt-map .hot .halo{fill:none;stroke:var(--green-light);stroke-width:1.1;opacity:0;transition:opacity .25s ease;}
+.opt-map .hot:hover .dot{fill:rgba(108,194,74,.7);}
+.opt-map .hot.on .dot{fill:var(--green-light);r:7;}
+.opt-map .hot.on .halo{opacity:.85;}
+.opt-map .fig-cap{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(238,241,232,.45);text-align:center;margin-top:10px;
+}
+.opt-map .panel{
+  border:1px solid rgba(238,241,232,.16);background:var(--bark-2);
+  padding:clamp(22px,2.6vw,34px);min-height:300px;
+  display:flex;flex-direction:column;
+}
+.opt-map .panel .tag{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--rust-soft);margin-bottom:16px;
+}
+.opt-map .panel h4{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;
+  font-size:clamp(21px,2.7vw,31px);line-height:1.1;letter-spacing:-.02em;margin:0 0 14px;
+  color:#fff;text-wrap:balance;
+}
+.opt-map .panel p{margin:0 0 22px;font-size:15.5px;line-height:1.68;color:rgba(238,241,232,.76);max-width:48ch;}
+.opt-map .panel .readout{
+  margin-top:auto;padding-top:20px;border-top:1px solid rgba(238,241,232,.14);
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:16px 22px;
+}
+.opt-map .panel .readout div span{
+  display:block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(238,241,232,.42);margin-bottom:5px;
+}
+.opt-map .panel .readout div strong{
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:#eef1e8;line-height:1.35;
+}
+.opt-map .also{
+  margin-top:clamp(24px,3vw,36px);padding-top:20px;border-top:1px solid rgba(238,241,232,.14);
+  display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+}
+.opt-map .also .lbl{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(238,241,232,.45);margin-right:6px;
+}
+.opt-map .also .chip{
+  border:1px solid rgba(238,241,232,.2);border-radius:999px;padding:6px 13px;
+  font-size:12.5px;color:rgba(238,241,232,.8);
+}
+@media (max-width:940px){
+  .opt-map .map-grid{grid-template-columns:1fr 1fr;}
+  .opt-map .panel{grid-column:1 / -1;}
+}
+@media (max-width:620px){
+  .opt-map .map-grid{grid-template-columns:1fr;}
+  .opt-map .figure-wrap{max-width:250px;margin:0 auto;}
+}
+
+/* ============================================================
+   OPTION 03 — THE MOSAIC
+   Asymmetric bento. Mixed tile weights, one photo tile,
+   one dark tile, two figure tiles.
+   ============================================================ */
+.opt-bento{
+  background:var(--parchment);color:var(--ink);
+  padding:clamp(30px,4vw,52px) clamp(18px,3.4vw,48px);
+}
+.opt-bento .bento-head{max-width:52ch;margin-bottom:clamp(22px,3vw,34px);}
+.opt-bento .bento-head .eyebrow{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--green);display:block;margin-bottom:12px;
+}
+.opt-bento .bento-head h3{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;font-size:clamp(24px,3.4vw,38px);
+  letter-spacing:-.022em;line-height:1.08;margin:0;text-wrap:balance;
+}
+.opt-bento .grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+}
+.opt-bento .tile{
+  background:#fff;padding:22px 20px 20px;border-radius:3px;
+  display:flex;flex-direction:column;gap:9px;
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.opt-bento .tile:hover{transform:translateY(-2px);box-shadow:0 12px 26px -16px rgba(20,20,20,.5);}
+.opt-bento .tile .glyph{width:26px;height:26px;stroke:var(--green);}
+.opt-bento .tile h4{
+  font-family:'Poppins','Inter',sans-serif;font-weight:600;font-size:16.5px;
+  line-height:1.2;letter-spacing:-.01em;margin:2px 0 0;color:var(--green-deep);
+}
+.opt-bento .tile p{margin:0;font-size:13.8px;line-height:1.55;color:var(--muted);}
+.opt-bento .tile.wide{grid-column:span 2;}
+.opt-bento .tile.tall{grid-row:span 2;justify-content:flex-start;}
+.opt-bento .tile.tint{background:var(--tint);}
+.opt-bento .tile.wide h4{font-size:19px;}
+
+.opt-bento .tile.photo{
+  grid-column:span 2;grid-row:span 2;padding:0;position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 46%, #ffffff 0%, var(--tint) 72%);
+  align-items:center;justify-content:center;
+}
+.opt-bento .tile.photo img{
+  width:auto;max-width:80%;max-height:calc(100% - 62px);object-fit:contain;margin-bottom:34px;
+  filter:drop-shadow(0 16px 26px rgba(20,20,20,.18));
+}
+.opt-bento .tile.photo figcaption{
+  position:absolute;left:18px;bottom:16px;right:18px;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);
+}
+.opt-bento .tile.dark{
+  background:var(--green-deep);color:#eef4ea;grid-column:span 2;justify-content:center;gap:12px;
+}
+.opt-bento .tile.dark .lede{
+  font-family:'Poppins','Inter',sans-serif;font-weight:600;font-size:clamp(17px,2.1vw,23px);
+  line-height:1.25;letter-spacing:-.015em;margin:0;color:#fff;text-wrap:balance;
+}
+.opt-bento .tile.dark .sub{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--green-light);margin:0;
+}
+.opt-bento .tile.fig{background:#fff;gap:4px;justify-content:center;}
+.opt-bento .tile.fig strong{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;font-size:clamp(28px,3.6vw,42px);
+  line-height:1;letter-spacing:-.03em;color:var(--green);font-variant-numeric:tabular-nums;
+}
+.opt-bento .tile.fig span{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted);line-height:1.5;
+}
+.opt-bento .tile.more{grid-column:span 2;gap:0;}
+.opt-bento .tile.more .lbl{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10.5px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:12px;
+}
+.opt-bento .tile.more ul{margin:0;padding:0;list-style:none;display:grid;gap:0;}
+.opt-bento .tile.more li{
+  display:flex;gap:10px;align-items:baseline;padding:8px 0;
+  border-top:1px solid var(--line);font-size:14px;line-height:1.4;
+}
+.opt-bento .tile.more li:first-child{border-top:0;padding-top:0;}
+.opt-bento .tile.more li b{font-weight:600;color:var(--green-deep);}
+.opt-bento .tile.more li em{font-style:normal;color:var(--muted);font-size:13.2px;}
+@media (max-width:1000px){
+  .opt-bento .grid{grid-template-columns:repeat(2,1fr);}
+  .opt-bento .tile.photo{grid-column:span 2;grid-row:span 1;min-height:280px;}
+}
+@media (max-width:560px){
+  .opt-bento .grid{grid-template-columns:1fr;}
+  .opt-bento .tile.more li{flex-direction:column;gap:3px;}
+  .opt-bento .tile.wide,.opt-bento .tile.dark,.opt-bento .tile.more,.opt-bento .tile.photo{grid-column:span 1;}
+  .opt-bento .tile.tall{grid-row:span 1;}
+}
+
+/* ============================================================
+   OPTION 04 — THE SPEC DECK
+   Horizontal snap rail of assay-card style panels.
+   ============================================================ */
+.opt-deck{
+  background:var(--ink);color:var(--paper);
+  padding:clamp(32px,4vw,52px) 0 clamp(26px,3vw,40px);
+}
+.opt-deck .deck-top{
+  display:flex;flex-wrap:wrap;gap:16px 24px;align-items:flex-end;justify-content:space-between;
+  padding:0 clamp(20px,4vw,52px) clamp(24px,3vw,34px);
+}
+.opt-deck .deck-top h3{
+  font-family:'Poppins','Inter',sans-serif;font-weight:800;
+  font-size:clamp(26px,4.2vw,46px);letter-spacing:-.03em;line-height:.98;margin:0;
+  text-transform:uppercase;
+}
+.opt-deck .deck-top h3 span{color:var(--green-light);}
+.opt-deck .deck-top .note{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(250,250,247,.5);line-height:1.8;text-align:right;
+}
+.opt-deck .rail{
+  display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
+  padding:2px clamp(20px,4vw,52px) 26px;scrollbar-width:none;
+}
+.opt-deck .rail::-webkit-scrollbar{display:none;}
+.opt-deck .card{
+  scroll-snap-align:start;flex:0 0 clamp(240px,25vw,310px);
+  border:1px solid rgba(250,250,247,.18);padding:22px 22px 20px;
+  display:flex;flex-direction:column;min-height:326px;
+  background:linear-gradient(180deg,rgba(250,250,247,.05),rgba(250,250,247,0));
+  transition:border-color .2s ease,background .2s ease;
+}
+.opt-deck .card:hover{border-color:var(--green-light);background:linear-gradient(180deg,rgba(108,194,74,.10),rgba(250,250,247,0));}
+.opt-deck .card .head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+  padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid rgba(250,250,247,.18);
+}
+.opt-deck .card .head .n{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;
+  letter-spacing:.16em;color:var(--green-light);font-variant-numeric:tabular-nums;
+}
+.opt-deck .card .head .glyph{width:30px;height:30px;stroke:var(--paper);opacity:.85;}
+.opt-deck .card h4{
+  font-family:'Poppins','Inter',sans-serif;font-weight:700;font-size:19px;line-height:1.16;
+  letter-spacing:-.015em;margin:0 0 12px;color:#fff;text-wrap:balance;
+}
+.opt-deck .card p{margin:0;font-size:14.2px;line-height:1.6;color:rgba(250,250,247,.72);}
+.opt-deck .card .assay{
+  margin-top:auto;padding-top:16px;
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.06em;
+  color:var(--rust-soft);line-height:1.6;
+}
+.opt-deck .card .sys{
+  font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(250,250,247,.42);margin-top:6px;
+}
+.opt-deck .controls{
+  display:flex;align-items:center;gap:16px;padding:0 clamp(20px,4vw,52px);
+}
+.opt-deck .ticks{display:flex;gap:5px;flex:1;}
+.opt-deck .ticks button{
+  flex:1;height:3px;min-width:8px;background:rgba(250,250,247,.22);border:0;padding:0;cursor:pointer;
+  transition:background .2s ease;
+}
+.opt-deck .ticks button:hover{background:rgba(250,250,247,.5);}
+.opt-deck .ticks button.on{background:var(--green-light);}
+.opt-deck .arrows{display:flex;gap:6px;}
+.opt-deck .arrows button{
+  width:38px;height:38px;border:1px solid rgba(250,250,247,.28);background:none;color:var(--paper);
+  cursor:pointer;display:grid;place-items:center;transition:background .18s ease,border-color .18s ease;
+}
+.opt-deck .arrows button:hover{background:var(--green);border-color:var(--green);}
+.opt-deck .arrows svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+@media (max-width:560px){
+  .opt-deck .card{flex-basis:78vw;}
+  .opt-deck .deck-top .note{text-align:left;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important;scroll-behavior:auto !important;}
+}
+</style>
+</head>
+<body>
+
+<header class="deck-head">
+  <span class="deck-kicker">Vivid Nutripharm · Cordyceps page · Section study</span>
+  <h1>Four ways to present the Cordyceps benefit set</h1>
+  <p>Same twelve documented actions, same brand palette and type stack as the live site — four completely different structures. The current radial infographic reads as a single flat image; each of these is real HTML, so it reflows on mobile, indexes as text, and can carry interaction. Pick one and it goes into <code>durt-cordyceps-range.html</code> in place of the SVG.</p>
+  <nav class="deck-nav">
+    <a href="#opt1">01 · Monograph</a>
+    <a href="#opt2">02 · System map</a>
+    <a href="#opt3">03 · Mosaic</a>
+    <a href="#opt4">04 · Spec deck</a>
+  </nav>
+</header>
+
+<section class="deck-option" id="opt1">
+  <div class="deck-spec">
+    <div class="idx">01</div>
+    <div>
+      <h2>The Monograph</h2>
+      <p class="character">A pharmacopoeia entry, not a poster. Zero icons, zero cards — the structure is carried entirely by numbering, system tags, hairline rules and the marker compound under each claim. Reads as documentation, which is what a B2B formulator buying on specification actually wants.</p>
+      <dl>
+        <div class="pair"><dt>Best for</dt><dd>The B2B ingredient page, directly under the heritage copy</dd></div>
+        <div class="pair"><dt>Density</dt><dd>All 12 actions visible at once, no scrolling past</dd></div>
+        <div class="pair"><dt>Trade-off</dt><dd>Sober by design — no visual hook for consumer traffic</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="deck-frame"><div class="opt-mono" id="mono"></div></div>
+</section>
+
+<section class="deck-option" id="opt2">
+  <div class="deck-spec">
+    <div class="idx">02</div>
+    <div>
+      <h2>The System Map</h2>
+      <p class="character">Organises the claims by the body system they act on and puts them on a schematic figure. One benefit at a time, in depth, with its mechanism and marker read out beside it. The dark ground separates it from everything above and below on the page.</p>
+      <dl>
+        <div class="pair"><dt>Best for</dt><dd>The anchor moment of the page — the thing people remember</dd></div>
+        <div class="pair"><dt>Interaction</dt><dd>Click the rail or a hotspot; keyboard and screen-reader ready</dd></div>
+        <div class="pair"><dt>Trade-off</dt><dd>Only one claim is visible at rest; most build effort of the four</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="deck-frame"><div class="opt-map" id="map"></div></div>
+</section>
+
+<section class="deck-option" id="opt3">
+  <div class="deck-spec">
+    <div class="idx">03</div>
+    <div>
+      <h2>The Mosaic</h2>
+      <p class="character">An asymmetric tile field where weight equals importance: the eight primary actions get full tiles, the four secondary ones collapse into a single list tile, and the product photo becomes a tile rather than a centrepiece. Closest in spirit to the current design while behaving properly on a phone.</p>
+      <dl>
+        <div class="pair"><dt>Best for</dt><dd>The safest swap — familiar rhythm, immediate scan</dd></div>
+        <div class="pair"><dt>Extras</dt><dd>Absorbs the 500+ years and 1–8% Cordycepin figures as tiles</dd></div>
+        <div class="pair"><dt>Trade-off</dt><dd>The most conventional of the four; needs the photo to sing</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="deck-frame"><div class="opt-bento" id="bento"></div></div>
+</section>
+
+<section class="deck-option" id="opt4">
+  <div class="deck-spec">
+    <div class="idx">04</div>
+    <div>
+      <h2>The Spec Deck</h2>
+      <p class="character">Twelve assay cards on a horizontal snap rail, dark and technical, each stamped with the marker compound the claim rests on. Vertical space stays tight — the whole benefit set costs one screen height instead of five — and the sideways motion signals "there is more here" without a scroll cue.</p>
+      <dl>
+        <div class="pair"><dt>Best for</dt><dd>Long pages where the benefit set must not dominate</dd></div>
+        <div class="pair"><dt>Interaction</dt><dd>Drag, arrows, or tick rail; snaps card to card</dd></div>
+        <div class="pair"><dt>Trade-off</dt><dd>Horizontal scroll hides claims 4–12 until someone moves</dd></div>
+      </dl>
+    </div>
+  </div>
+  <div class="deck-frame"><div class="opt-deck" id="specdeck"></div></div>
+</section>
+
+<footer class="deck-foot">
+  <p><strong>All four run on the existing tokens</strong> — <code>#1f8f3f</code>, <code>#0d5c2e</code>, <code>#eef4ea</code>, Poppins / Inter / IBM Plex Mono — so whichever you pick sits inside the current page without a restyle. The rust accent (<code>#c4652a</code>) in options 02 and 04 is picked from the cordyceps itself and is the only new colour.</p>
+  <p>Copy is carried over verbatim from the current infographic. The system tags and marker compounds are additions — say the word if you'd rather they came out, or if any claim needs softening for regulatory review.</p>
+</footer>
+
+<script>
+/* ---------- shared data: the twelve documented actions ---------- */
+var ICONS = {
+  run:'M13.5 4a1.5 1.5 0 1 0 0-.01M9.5 21l2-5.5-3-2.5.5-4.5 4-1.5 2.5 3.5 3 1M8.5 12 5 10.5 2.5 12M13 15.5 9.5 17l-2 4',
+  shield:'M20 13c0 5-3.5 7.5-7.7 9-.2.1-.4.1-.6 0C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.2-2.7a1.2 1.2 0 0 1 1.5 0C14.5 3.8 17 5 19 5a1 1 0 0 1 1 1zM9 12l2 2 4-4',
+  lungs:'M12 4v9M8.5 8C7 8 5 9.5 5 13v4a2 2 0 0 0 3 1.7l2-1.2V10c-.5-1.3-1-2-1.5-2zM15.5 8c1.5 0 3.5 1.5 3.5 5v4a2 2 0 0 1-3 1.7l-2-1.2V10c.5-1.3 1-2 1.5-2z',
+  brain:'M9.5 3A2.5 2.5 0 0 0 7 5.5v.4A2.5 2.5 0 0 0 5 8.3a2.5 2.5 0 0 0 .5 3.2 2.5 2.5 0 0 0 0 3 2.5 2.5 0 0 0 2 4h.5A2.5 2.5 0 0 0 12 17V5.5A2.5 2.5 0 0 0 9.5 3zM14.5 3A2.5 2.5 0 0 1 17 5.5v.4a2.5 2.5 0 0 1 2 2.4 2.5 2.5 0 0 1-.5 3.2 2.5 2.5 0 0 1 0 3 2.5 2.5 0 0 1-2 4h-.5A2.5 2.5 0 0 1 12 17',
+  heart:'M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7zM3.2 13h6.3l.5-1 2 4.5 2-7 1.5 3.5h5.3',
+  drop:'M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z',
+  atom:'M12 12m-1 0a1 1 0 1 0 2 0 1 1 0 1 0-2 0M20.2 20.2c2-2 0-7.4-4.5-11.9C11.2 3.8 5.8 1.8 3.8 3.8c-2 2 0 7.4 4.5 11.9 4.5 4.5 9.9 6.5 11.9 4.5zM15.7 15.7c4.5-4.5 6.5-9.9 4.5-11.9-2-2-7.4 0-11.9 4.5-4.5 4.5-6.5 9.9-4.5 11.9 2 2 7.4 0 11.9-4.5z',
+  liver:'M4 7h10c3.5 0 6 2.2 6 5s-2.5 5.5-6.5 5.5c-4.5 0-5-3-8-3S4 17.5 4 17.5zM9 7v3.5M13 7v2.5M17 12.5c0 1.4-1 2.5-2.5 2.5',
+  leaf:'M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10zM2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12',
+  bolt:'M4 14a1 1 0 0 1-.8-1.6l9.9-10.2a.5.5 0 0 1 .9.5l-1.9 6a1 1 0 0 0 .9 1.3h7a1 1 0 0 1 .8 1.6l-9.9 10.2a.5.5 0 0 1-.9-.5l1.9-6a1 1 0 0 0-.9-1.3z',
+  cell:'M12 12m-9 0a9 9 0 1 0 18 0 9 9 0 1 0-18 0M8.5 9a1.4 1.4 0 1 0 0-.01M15 9.5a1.1 1.1 0 1 0 0-.01M9.5 15a1.6 1.6 0 1 0 0-.01M15 14.5a1.2 1.2 0 1 0 0-.01M12 11.8v.01',
+  flame:'M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5z'
+};
+
+var B = [
+  {n:1, icon:'run',    sys:'Metabolic',       short:'Energy &amp; stamina',
+   title:'Enhances Energy &amp; Stamina',
+   copy:'Improves ATP production and boosts physical performance.',
+   marker:'ATP synthesis · Adenosine', region:'Skeletal muscle', hot:[121,330]},
+  {n:2, icon:'shield', sys:'Immunologic',     short:'Immune function',
+   title:'Supports Immune Function',
+   copy:'Modulates immune response and enhances the body&#8217;s natural defence.',
+   marker:'β-glucans · Polysaccharides', region:'Gut-associated lymphoid tissue', hot:[150,242]},
+  {n:3, icon:'lungs',  sys:'Pulmonary',       short:'Respiratory health',
+   title:'Promotes Respiratory Health',
+   copy:'Supports lung function and helps with better oxygen utilization.',
+   marker:'VO&#8322; max · O&#8322; uptake', region:'Lungs, bronchi', hot:[169,148]},
+  {n:4, icon:'brain',  sys:'Neurologic',      short:'Neuroprotection',
+   title:'Neuroprotective Effects',
+   copy:'Supports cognitive function, memory, and protects nerve cells from damage.',
+   marker:'Cordycepin · Neurotrophic activity', region:'Central nervous system', hot:[150,54]},
+  {n:5, icon:'heart',  sys:'Cardiovascular',  short:'Cardiovascular support',
+   title:'Cardiovascular Support',
+   copy:'Helps maintain heart health, improves circulation and supports healthy BP.',
+   marker:'Adenosine · Vasodilation', region:'Myocardium, vasculature', hot:[135,150]},
+  {n:6, icon:'drop',   sys:'Endocrine',       short:'Blood sugar regulation',
+   title:'Regulates Blood Sugar Levels',
+   copy:'Helps improve insulin sensitivity and supports healthy glucose metabolism.',
+   marker:'Insulin sensitivity · CS-F30', region:'Pancreas, hepatic glucose', hot:[169,208]},
+  {n:7, icon:'atom',   sys:'Redox',           short:'Antioxidant activity',
+   title:'Powerful Antioxidant Properties',
+   copy:'Neutralizes free radicals and reduces oxidative stress.',
+   marker:'SOD · Free-radical scavenging', region:'Systemic', hot:[220,248]},
+  {n:8, icon:'liver',  sys:'Hepatic',         short:'Liver health',
+   title:'Supports Liver Health',
+   copy:'Protects liver cells, supports detoxification and promotes overall liver function.',
+   marker:'Hepatocyte protection', region:'Liver', hot:[126,200]},
+  {n:9, icon:'leaf',   sys:'Adaptogenic',     short:'Stress adaptation',
+   title:'Adaptogenic &amp; Balancing',
+   copy:'Helps the body adapt to stress and restore balance.',
+   marker:'Cortisol modulation'},
+  {n:10, icon:'bolt',  sys:'Performance',     short:'Exercise performance',
+   title:'Enhances Exercise Performance',
+   copy:'Improves VO&#8322; max, endurance and recovery.',
+   marker:'VO&#8322; max · Lactate threshold'},
+  {n:11, icon:'cell',  sys:'Regenerative',    short:'Cellular regeneration',
+   title:'Supports Cellular Regeneration',
+   copy:'Promotes tissue repair and healthy aging.',
+   marker:'Tissue repair · Senescence'},
+  {n:12, icon:'flame', sys:'Immunomodulatory',short:'Anti-inflammatory action',
+   title:'Anti-Inflammatory Action',
+   copy:'Helps reduce inflammation and supports overall wellness.',
+   marker:'Cytokine modulation'}
+];
+
+var PRIMARY = B.slice(0,8), SECONDARY = B.slice(8);
+function pad(n){ return n < 10 ? '0' + n : '' + n; }
+function glyph(icon, cls){
+  return '<svg class="ico ' + (cls||'glyph') + '" viewBox="0 0 24 24" aria-hidden="true"><path d="' + ICONS[icon] + '"/></svg>';
+}
+
+/* ---------- 01 · Monograph ---------- */
+(function(){
+  var rows = B.map(function(b){
+    return '<article class="entry">' +
+      '<div class="num">' + pad(b.n) + '</div>' +
+      '<div>' +
+        '<div class="sys">' + b.sys + '</div>' +
+        '<h4>' + b.title + '</h4>' +
+        '<p>' + b.copy + '</p>' +
+        '<div class="marker">' + b.marker + '</div>' +
+      '</div></article>';
+  }).join('');
+
+  document.getElementById('mono').innerHTML =
+    '<div class="mono-top">' +
+      '<div>' +
+        '<div class="stamp">Monograph · Cordyceps militaris</div>' +
+        '<h3>Twelve documented actions<em>Nature&#8217;s powerful adaptogen for holistic wellness</em></h3>' +
+      '</div>' +
+      '<div class="folio">Listed: CN · JP · KR pharmacopoeias<br>GRAS status, FDA<br>Standardized Cordycepin 1&#8211;8%</div>' +
+    '</div>' +
+    '<div class="mono-list">' + rows + '</div>' +
+    '<div class="mono-foot">' +
+      '<div class="claim">Traditionally valued. Scientifically validated. Clinically relevant.</div>' +
+      '<div class="ref">Marker compounds assayed per batch &#183; CoA on request</div>' +
+    '</div>';
+})();
+
+/* ---------- 02 · System Map ---------- */
+(function(){
+  var host = document.getElementById('map');
+  var TORSO = 'M119 112 Q150 100 181 112 Q188 150 189 186 Q192 222 186 244 Q150 258 114 244 Q108 222 111 186 Q112 150 119 112 Z';
+
+  var tabs = PRIMARY.map(function(b,i){
+    return '<button type="button" role="tab" id="maptab-' + b.n + '" aria-controls="mappanel" ' +
+      'aria-selected="' + (i === 0 ? 'true' : 'false') + '" data-i="' + i + '">' +
+      glyph(b.icon) + '<span>' + b.short + '</span></button>';
+  }).join('');
+
+  var hots = PRIMARY.map(function(b,i){
+    return '<g class="hot' + (i === 0 ? ' on' : '') + '" data-i="' + i + '" transform="translate(' + b.hot[0] + ',' + b.hot[1] + ')">' +
+      '<circle class="halo" r="15"/><circle class="dot" r="5.5"/>' +
+      '<circle r="17" fill="transparent"/></g>';
+  }).join('');
+
+  var chips = SECONDARY.map(function(b){
+    return '<span class="chip">' + b.title + '</span>';
+  }).join('');
+
+  host.innerHTML =
+    '<div class="map-head">' +
+      '<h3>What it acts on</h3>' +
+      '<div class="sub">Cordyceps &#183; 8 primary systems &#183; select to read</div>' +
+    '</div>' +
+    '<div class="map-grid">' +
+      '<div class="rail" role="tablist" aria-label="Body systems">' + tabs + '</div>' +
+      '<div class="fig-col">' +
+        '<div class="figure-wrap">' +
+          '<svg viewBox="0 0 300 470" role="img" aria-label="Schematic figure showing the body systems Cordyceps acts on">' +
+            '<path class="body-fill" d="' + TORSO + '"/>' +
+            '<circle class="body-stroke" cx="150" cy="56" r="27"/>' +
+            '<path class="body-stroke" d="M150 83 V101"/>' +
+            '<path class="body-stroke" d="' + TORSO + '"/>' +
+            '<path class="body-stroke" d="M121 115 Q93 148 85 198 Q81 228 79 250"/>' +
+            '<path class="body-stroke" d="M179 115 Q207 148 215 198 Q219 228 221 250"/>' +
+            '<path class="body-stroke" d="M131 250 Q122 316 119 358 Q117 404 116 438"/>' +
+            '<path class="body-stroke" d="M169 250 Q178 316 181 358 Q183 404 184 438"/>' +
+            '<path class="body-stroke" d="M150 106 V246" stroke-dasharray="3 7" stroke-opacity=".45"/>' +
+            hots +
+          '</svg>' +
+        '</div>' +
+        '<div class="fig-cap">Schematic &#183; primary sites of action</div>' +
+      '</div>' +
+      '<div class="panel" id="mappanel" role="tabpanel" tabindex="0">' +
+        '<div class="tag" data-f="sys"></div>' +
+        '<h4 data-f="title"></h4>' +
+        '<p data-f="copy"></p>' +
+        '<div class="readout">' +
+          '<div><span>Site of action</span><strong data-f="region"></strong></div>' +
+          '<div><span>Marker / mechanism</span><strong data-f="marker"></strong></div>' +
+          '<div><span>Evidence</span><strong>Traditional use + clinical literature</strong></div>' +
+        '</div>' +
+      '</div>' +
+    '</div>' +
+    '<div class="also"><span class="lbl">Also documented</span>' + chips + '</div>';
+
+  var buttons = host.querySelectorAll('.rail button');
+  var dots = host.querySelectorAll('.hot');
+  var panel = host.querySelector('#mappanel');
+
+  function select(i){
+    var b = PRIMARY[i];
+    buttons.forEach(function(btn,j){ btn.setAttribute('aria-selected', j === i ? 'true' : 'false'); });
+    dots.forEach(function(g,j){ g.classList.toggle('on', j === i); });
+    panel.querySelector('[data-f="sys"]').innerHTML = b.sys + ' system';
+    panel.querySelector('[data-f="title"]').innerHTML = b.title;
+    panel.querySelector('[data-f="copy"]').innerHTML = b.copy;
+    panel.querySelector('[data-f="region"]').innerHTML = b.region;
+    panel.querySelector('[data-f="marker"]').innerHTML = b.marker;
+    panel.setAttribute('aria-labelledby', 'maptab-' + b.n);
+  }
+
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){ select(+btn.dataset.i); });
+    btn.addEventListener('keydown', function(e){
+      var d = e.key === 'ArrowDown' ? 1 : e.key === 'ArrowUp' ? -1 : 0;
+      if(!d) return;
+      e.preventDefault();
+      var next = (+btn.dataset.i + d + PRIMARY.length) % PRIMARY.length;
+      buttons[next].focus();
+      select(next);
+    });
+  });
+  dots.forEach(function(g){
+    g.addEventListener('click', function(){ select(+g.dataset.i); });
+  });
+  select(0);
+})();
+
+/* ---------- 03 · Mosaic ---------- */
+(function(){
+  var WIDE = { 0:1, 5:1 }, TINT = { 2:1, 6:1 };
+  var t = PRIMARY.map(function(b,i){
+    var cls = 'tile' + (WIDE[i] ? ' wide' : '') + (TINT[i] ? ' tint' : '');
+    return '<article class="' + cls + '">' + glyph(b.icon) +
+      '<h4>' + b.title + '</h4><p>' + b.copy + '</p></article>';
+  });
+
+  var photo = '<figure class="tile photo">' +
+    '<img src="../assets/cordyceps-subject.png" alt="Dried Cordyceps militaris fruiting bodies" loading="lazy" decoding="async">' +
+    '<figcaption>Cordyceps militaris &#183; whole fruiting bodies</figcaption></figure>';
+
+  var dark = '<div class="tile dark">' +
+    '<p class="lede">Traditionally valued. Scientifically validated. Clinically relevant.</p>' +
+    '<p class="sub">Backed by science</p></div>';
+
+  var fig1 = '<div class="tile fig"><strong>500+</strong><span>Years in Southeast<br>Asian use</span></div>';
+  var fig2 = '<div class="tile fig tint"><strong>1&#8211;8%</strong><span>Standardized<br>Cordycepin</span></div>';
+
+  var more = '<div class="tile more"><div class="lbl">Also documented</div><ul>' +
+    SECONDARY.map(function(b){
+      return '<li><b>' + b.title + '</b><em>' + b.copy + '</em></li>';
+    }).join('') + '</ul></div>';
+
+  document.getElementById('bento').innerHTML =
+    '<div class="bento-head">' +
+      '<span class="eyebrow">Pharmacological benefits</span>' +
+      '<h3>One ingredient, twelve documented actions.</h3>' +
+    '</div>' +
+    '<div class="grid">' +
+      /* row 1 */ t[0] + photo +
+      /* row 2 */ t[1] + t[2] +
+      /* row 3 */ t[3] + t[4] + fig1 + fig2 +
+      /* row 4 */ t[5] + t[6] + t[7] +
+      /* row 5 */ more + dark +
+    '</div>';
+})();
+
+/* ---------- 04 · Spec Deck ---------- */
+(function(){
+  var host = document.getElementById('specdeck');
+
+  var cards = B.map(function(b){
+    return '<article class="card">' +
+      '<div class="head"><span class="n">' + pad(b.n) + ' / 12</span>' + glyph(b.icon) + '</div>' +
+      '<h4>' + b.title + '</h4>' +
+      '<p>' + b.copy + '</p>' +
+      '<div class="assay">' + b.marker + '<div class="sys">' + b.sys + '</div></div>' +
+      '</article>';
+  }).join('');
+
+  var ticks = B.map(function(b,i){
+    return '<button type="button" class="' + (i === 0 ? 'on' : '') + '" data-i="' + i + '" aria-label="Go to action ' + b.n + '"></button>';
+  }).join('');
+
+  host.innerHTML =
+    '<div class="deck-top">' +
+      '<h3>Cordyceps,<br><span>action by action</span></h3>' +
+      '<div class="note">12 documented actions<br>Marker compound stated per claim<br>Drag or use the arrows</div>' +
+    '</div>' +
+    '<div class="rail" id="specrail" tabindex="0" aria-label="Cordyceps actions, scroll horizontally">' + cards + '</div>' +
+    '<div class="controls">' +
+      '<div class="ticks" id="specticks">' + ticks + '</div>' +
+      '<div class="arrows">' +
+        '<button type="button" id="specprev" aria-label="Previous action"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>' +
+        '<button type="button" id="specnext" aria-label="Next action"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>' +
+      '</div>' +
+    '</div>';
+
+  var rail = host.querySelector('#specrail');
+  var tickBtns = host.querySelectorAll('#specticks button');
+  var cardEls = rail.querySelectorAll('.card');
+
+  function step(){ return cardEls[0].offsetWidth + 14; }
+  function goto(i){
+    rail.scrollTo({ left: i * step(), behavior: 'smooth' });
+  }
+  function sync(){
+    var i = Math.round(rail.scrollLeft / step());
+    tickBtns.forEach(function(t,j){ t.classList.toggle('on', j === i); });
+  }
+  rail.addEventListener('scroll', function(){
+    window.clearTimeout(rail._t);
+    rail._t = window.setTimeout(sync, 60);
+  });
+  tickBtns.forEach(function(t){
+    t.addEventListener('click', function(){ goto(+t.dataset.i); });
+  });
+  host.querySelector('#specprev').addEventListener('click', function(){
+    rail.scrollBy({ left: -step(), behavior: 'smooth' });
+  });
+  host.querySelector('#specnext').addEventListener('click', function(){
+    rail.scrollBy({ left: step(), behavior: 'smooth' });
+  });
+})();
+</script>
+</body>
+</html>
