@@ -546,7 +546,7 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 ================================================================= -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
 <style>
     /* ---------- shared tokens (scoped via class prefixes, no global resets) ---------- */
@@ -868,18 +868,30 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     .vtp-flip-back {
         position: absolute; inset: 0;
         transform: rotateY(180deg);
-        background: #0a3d2e;
+        background: linear-gradient(160deg, #0f4c39 0%, #0a3d2e 55%, #07301f 100%);
         color: #fff;
         display: flex; flex-direction: column; justify-content: center;
-        padding: 20px;
+        padding: 24px 22px;
         text-align: left;
     }
-    .vtp-flip-back h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 15px; margin: 0 0 10px; font-weight: 700; color: #fff; }
-    .vtp-flip-back p { font-size: 12.5px; line-height: 1.6; margin: 0; color: #d9ebe3; }
+    .vtp-flip-back h3 {
+        font-family: 'Poppins', Arial, sans-serif; font-size: 16.5px; margin: 0 0 12px;
+        font-weight: 700; color: #ffffff; line-height: 1.3; letter-spacing: -0.2px;
+        padding-bottom: 12px; position: relative;
+    }
+    .vtp-flip-back h3::after {
+        content: ''; position: absolute; left: 0; bottom: 0;
+        width: 34px; height: 2px; border-radius: 2px; background: #b8862f;
+    }
+    .vtp-flip-back p {
+        font-family: 'Inter', Arial, sans-serif; font-size: 13.5px; line-height: 1.72;
+        margin: 0; color: #e4f0ea; font-weight: 400; letter-spacing: 0.1px;
+    }
 
     @media (max-width: 1100px) {
-        .vtp-flip-back h3 { font-size: 13.5px; }
-        .vtp-flip-back p { font-size: 11.5px; }
+        .vtp-flip-back { padding: 18px 16px; }
+        .vtp-flip-back h3 { font-size: 14.5px; margin-bottom: 10px; padding-bottom: 10px; }
+        .vtp-flip-back p { font-size: 12.5px; line-height: 1.65; }
     }
     @media (max-width: 992px) {
         .vtp-layout { grid-template-columns: 1fr; gap: 34px; }
@@ -889,9 +901,9 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     @media (max-width: 640px) {
         .vtp-tech { padding: 56px 20px; }
         .vtp-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
-        .vtp-flip-back { padding: 14px; }
-        .vtp-flip-back h3 { font-size: 13px; }
-        .vtp-flip-back p { font-size: 11px; }
+        .vtp-flip-back { padding: 15px 13px; }
+        .vtp-flip-back h3 { font-size: 13.5px; margin-bottom: 9px; padding-bottom: 9px; }
+        .vtp-flip-back p { font-size: 11.5px; line-height: 1.6; }
     }
 
     /* ================= OUR SOLUTIONS (tabbed categories + scrollable product row) ================= */
@@ -902,8 +914,10 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
         margin-bottom: 40px;
     }
     .vso-head-text { text-align: left; }
-    .vso-head-text h2 { font-family: 'Poppins', Arial, sans-serif; font-size: 32px; color: #121212; margin: 0 0 10px; font-weight: 700; }
-    .vso-head-text p { font-size: 15.5px; color: #4b5750; max-width: 560px; margin: 0; }
+    .vso-head-text h2 { font-family: 'Poppins', Arial, sans-serif; font-size: 32px; color: #121212; margin: 0 0 12px; font-weight: 700; line-height: 1.28; max-width: 760px; }
+    .vso-head-text p { font-size: 15.5px; color: #4b5750; max-width: 620px; margin: 0; }
+    .vso-head-text p.vso-head-lead { font-size: 17px; font-weight: 600; color: #0a3d2e; margin: 0 0 8px; }
+    @media (max-width: 640px) { .vso-head-text h2 { font-size: 25px; } .vso-head-text p.vso-head-lead { font-size: 15.5px; } }
     .vso-head-top .vso-viewall { flex-shrink: 0; }
 
     .vso-tabs {
@@ -953,6 +967,7 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     .vso-pcard:hover .vso-pcard-media img { transform: scale(1.06); }
     .vso-pcard-body { padding: 14px 12px 16px; text-align: center; }
     .vso-pcard-body h4 { font-family: 'Poppins', Arial, sans-serif; font-size: 13.5px; color: #121212; margin: 0 0 4px; font-weight: 700; }
+    .vso-pcard-body h4:only-child { margin: 0; }
     .vso-pcard-body span { font-size: 11px; color: #7f8c86; }
 
     /* per-category View All CTA, shown at the end of each row's section */
@@ -1439,8 +1454,8 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
 <section class="vpr-process">
     <div class="vpr-inner">
         <div class="vpr-head">
-            <h2>From Seed to Shelf — Our Process</h2>
-            <p>A structured, six-stage journey that takes your product from concept to market — built for speed without cutting corners on quality.</p>
+            <h2>From Concept to Commercialization — End-to-End Wellness Manufacturing</h2>
+            <p>A seamless journey that takes your product from concept to market — built for speed without cutting corners on quality.</p>
         </div>
         <div class="vpr-line-wrap" id="vprLineWrap">
             <div class="vpr-track">
@@ -1449,42 +1464,42 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Discover.png" alt="Discovery icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Discovery</h3>
-                    <p>Market research &amp; concept evaluation</p>
+                    <p>Market Research &amp; Concept Evaluation</p>
                 </div>
                 <div class="vpr-step">
                     <div class="vpr-dot">
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Research-and-development.png" alt="Research icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Research</h3>
-                    <p>Scientific validation &amp; ingredient selection</p>
+                    <p>Scientific Validation &amp; Ingredient Selection</p>
                 </div>
                 <div class="vpr-step">
                     <div class="vpr-dot">
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Formulation-Development.png" alt="Formulation icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Formulation</h3>
-                    <p>Custom formulation &amp; development</p>
+                    <p>Custom Formulation &amp; Development</p>
                 </div>
                 <div class="vpr-step">
                     <div class="vpr-dot">
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Testing-Validation.png" alt="Testing icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Testing</h3>
-                    <p>Stability, safety &amp; efficacy testing</p>
+                    <p>Stability, Safety &amp; Efficacy Testing</p>
                 </div>
                 <div class="vpr-step">
                     <div class="vpr-dot">
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Manufacturing-Packaging.png" alt="Manufacturing icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Manufacturing</h3>
-                    <p>Scalable &amp; compliant production</p>
+                    <p>Scalable &amp; Compliant Production</p>
                 </div>
                 <div class="vpr-step">
                     <div class="vpr-dot">
                         <img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/07/Market-Ready-Products.png" alt="Brand launch icon" loading="lazy" width="120" height="120">
                     </div>
                     <h3>Brand Launch</h3>
-                    <p>Packaging, regulatory &amp; market support</p>
+                    <p>Packaging, Regulatory &amp; Market Support</p>
                 </div>
             </div>
         </div>
@@ -1596,8 +1611,9 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
     <div class="vso-inner">
         <div class="vso-head-top">
             <div class="vso-head-text">
-                <h2>Our Solutions</h2>
-                <p>Nine specialized product categories, each built on real science — pick a category and scroll through what&#8217;s inside.</p>
+                <h2>From inspiration to innovation. From innovation to impact.</h2>
+                <p class="vso-head-lead">We transform ideas into differentiated wellness products, built for what&#8217;s next.</p>
+                <p>Explore our specialized category of technologies, formulations and products shaping the next generation of wellness.</p>
             </div>
         </div>
 
@@ -1625,32 +1641,28 @@ class="post-10 page type-page status-publish ast-article-single" id="post-10" it
             <div class="vso-panel vso-panel-active" data-vso-panel="durt-cordyceps">
                 <div class="vso-cards-row">
                     <a href="durt-cordyceps-range.html#fruiting-bodies" class="vso-pcard">
-                        <div class="vso-pcard-media"><img decoding="async" src="assets/products/cordyceps-fruiting-bodies.jpg" alt="Dried Cordyceps Fruiting Bodies" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Dried Cordyceps Fruiting Bodies</h4><span>Cordyceps Range</span></div>
-                    </a>
-                    <a href="durt-cordyceps-range.html#powder" class="vso-pcard">
-                        <div class="vso-pcard-media"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/Dried-Cordyceps-Powder.png" alt="Dried Cordyceps Powder" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Dried Cordyceps Powder</h4><span>Cordyceps Range</span></div>
-                    </a>
-                    <a href="durt-cordyceps-range.html#tincture" class="vso-pcard">
-                        <div class="vso-pcard-media"><img decoding="async" src="assets/products/tincture-cordyceps.png" alt="Cordyceps Double Extract Tincture (Cordy Amrit)" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Cordyceps Double Extract Tincture (Cordy Amrit)</h4><span>Cordyceps Range</span></div>
+                        <div class="vso-pcard-media"><img decoding="async" src="assets/products/cordyceps-filaments.png" alt="Cordyceps Filaments — dried whole fruiting bodies" loading="lazy"></div>
+                        <div class="vso-pcard-body"><h4>Cordyceps Filaments</h4></div>
                     </a>
                     <a href="durt-cordyceps-range.html#cordy-maxx" class="vso-pcard">
                         <div class="vso-pcard-media"><img decoding="async" src="assets/products/cordy-maxx-extract.png?v=2" alt="Cordyceps Extract Powder (Cordy Maxx)" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Cordyceps Extract Powder (Cordy Maxx)</h4><span>Cordyceps Range</span></div>
+                        <div class="vso-pcard-body"><h4>Cordy Maxx Extract Powder</h4></div>
                     </a>
                     <a href="durt-cordyceps-range.html#capsules" class="vso-pcard">
                         <div class="vso-pcard-media"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/Cordyceps-Extract-CapsulesTablet.png" alt="Cordyceps Extract Tablets / Capsules (Eucordy)" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Cordyceps Extract Tablets / Capsules (Eucordy)</h4><span>Cordyceps Range</span></div>
+                        <div class="vso-pcard-body"><h4>Eucordy Tablets</h4></div>
                     </a>
-                    <a href="durt-cordyceps-range.html#green-tea" class="vso-pcard">
-                        <div class="vso-pcard-media"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/Cordyceps-Green-Tea-Extract.png" alt="Cordyceps + Green Tea Extract" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Cordyceps + Green Tea Extract</h4><span>Cordyceps Range</span></div>
+                    <a href="durt-cordyceps-range.html#tincture" class="vso-pcard">
+                        <div class="vso-pcard-media"><img decoding="async" src="assets/products/tincture-cordyceps.png" alt="Cordyceps Double Extract Tincture (Cordy Amrit)" loading="lazy"></div>
+                        <div class="vso-pcard-body"><h4>Tinctures</h4></div>
                     </a>
                     <a href="durt-cordyceps-range.html#coffee" class="vso-pcard">
                         <div class="vso-pcard-media"><img decoding="async" src="assets/products/cordyceps-coffee.jpg" alt="Cordyceps + Arabica Coffee Extract" loading="lazy"></div>
-                        <div class="vso-pcard-body"><h4>Cordyceps + Arabica Coffee Extract</h4><span>Cordyceps Range</span></div>
+                        <div class="vso-pcard-body"><h4>Cordyceps Coffee</h4></div>
+                    </a>
+                    <a href="durt-cordyceps-range.html#green-tea" class="vso-pcard">
+                        <div class="vso-pcard-media"><img decoding="async" src="https://skyblue-echidna-752271.hostingersite.com/wp-content/uploads/2026/08/Cordyceps-Green-Tea-Extract.png" alt="Cordyceps + Green Tea Extract" loading="lazy"></div>
+                        <div class="vso-pcard-body"><h4>Cordyceps Green Tea</h4></div>
                     </a>
                 </div>
                 <div class="vso-row-viewall">

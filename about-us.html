@@ -664,6 +664,25 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
     /* ================= FULL-SPECTRUM CORDYCEPS ================= */
     .vau-cordyceps { background: #f4f8f6; }
     .vau-cord-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .vau-cord-grid--five { grid-template-columns: repeat(5, 1fr); gap: 18px; }
+
+    /* ---- Rigorous standards icon grid (precision manufacturing) ---- */
+    .vau-std-grid {
+        max-width: 1180px; margin: 52px auto 0;
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .vau-std-card {
+        background: #ffffff; border: 1px solid #e3efe9; border-radius: 16px; padding: 24px 22px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .vau-std-card:hover { transform: translateY(-5px); box-shadow: 0 18px 34px rgba(10,61,46,0.10); border-color: #cfe4da; }
+    .vau-std-icon {
+        width: 46px; height: 46px; border-radius: 13px; background: #f1f7f4;
+        display: flex; align-items: center; justify-content: center; margin-bottom: 15px;
+    }
+    .vau-std-icon svg { width: 23px; height: 23px; stroke: #0a3d2e; fill: none; }
+    .vau-std-card h3 { font-family: 'Poppins', Arial, sans-serif; font-size: 16px; font-weight: 700; margin: 0 0 7px; color: #121212; }
+    .vau-std-card p { font-size: 13.5px; color: #4b5750; margin: 0; line-height: 1.6; }
     .vau-cord-card {
         background: #fff; border: 1px solid #dcebe4; border-radius: 18px; padding: 30px 22px; text-align: center;
         transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -691,12 +710,19 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
     .vau-diff-table { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 980px; margin: 0 auto; }
     .vau-diff-col { border-radius: 20px; padding: 36px 32px; }
     .vau-diff-col--trad { background: #fff; border: 1px solid #dcebe4; }
-    .vau-diff-col--vivid { background: #0a3d2e; color: #fff; position: relative; overflow: hidden; }
+    .vau-diff-col--vivid {
+        background: linear-gradient(150deg, #16714a 0%, #0f5638 48%, #0a3d2e 100%);
+        color: #fff; position: relative; overflow: hidden;
+        border: 1px solid rgba(126,209,151,0.28);
+        box-shadow: 0 22px 46px rgba(10,61,46,0.22);
+    }
     .vau-diff-col--vivid::before {
-        content: ''; position: absolute; top: -100px; right: -90px; width: 260px; height: 260px; border-radius: 50%;
-        background: radial-gradient(circle, rgba(74,157,63,0.25) 0%, rgba(74,157,63,0) 70%); pointer-events: none;
+        content: ''; position: absolute; top: -110px; right: -95px; width: 300px; height: 300px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(126,209,151,0.42) 0%, rgba(126,209,151,0) 70%); pointer-events: none;
     }
     .vau-diff-col h3 { font-family: 'Poppins', Arial, sans-serif; margin: 0 0 20px; font-size: 19px; font-weight: 700; position: relative; z-index: 1; }
+    .vau-diff-col--trad h3 { color: #121212; }
+    .vau-diff-col--vivid h3, .vau-diff-col--vivid li { color: #ffffff; }
     .vau-diff-col ul { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
     .vau-diff-col li { display: flex; align-items: center; gap: 10px; padding: 9px 0; font-size: 14.5px; font-weight: 600; }
     .vau-x { color: #c0392b; font-weight: 800; }
@@ -734,9 +760,13 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
         .vau-section, .vau-diff { padding: 56px 20px; }
         .vau-precision-grid { grid-template-columns: 1fr; gap: 40px; }
         .vau-cord-grid { grid-template-columns: repeat(2, 1fr); }
+        .vau-cord-grid--five { grid-template-columns: repeat(2, 1fr); }
+        .vau-std-grid { grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 640px) {
         .vau-cord-grid { grid-template-columns: 1fr; }
+        .vau-cord-grid--five { grid-template-columns: 1fr; }
+        .vau-std-grid { grid-template-columns: 1fr; margin-top: 36px; }
     }
 </style>
 
@@ -804,59 +834,6 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
     </div>
 </section>
 
-<!-- ================= FULL-SPECTRUM CORDYCEPS ================= -->
-<section class="vau-section vau-cordyceps vau-reveal">
-    <div class="vau-inner">
-        <span class="vau-eyebrow vau-eyebrow--center">Our Core Expertise</span>
-        <h2 class="vau-h2 vau-h2--center">Full-Spectrum Cordyceps</h2>
-        <p class="vau-lead">Harnessing the complete potential of Cordyceps through advanced extraction and scientific expertise.</p>
-        <div class="vau-cord-grid">
-            <div class="vau-cord-card">
-                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c3 4 5 7 5 10a5 5 0 0 1-10 0c0-3 2-6 5-10z"></path></svg></div>
-                <h3>Dried Fruiting Bodies</h3>
-                <p>Whole, naturally dried fruiting bodies</p>
-            </div>
-            <div class="vau-cord-card">
-                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"></circle><path d="M12 8v8M8 12h8"></path></svg></div>
-                <h3>Extract Powders</h3>
-                <p>Concentrated extracts for enhanced formulation flexibility</p>
-            </div>
-            <div class="vau-cord-card">
-                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v6a5 5 0 0 0 10 0V3"></path><path d="M12 14v7"></path></svg></div>
-                <h3>Dual Extracts / Tinctures</h3>
-                <p>Water- and alcohol-extracted formulations</p>
-            </div>
-            <div class="vau-cord-card">
-                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="9" width="16" height="7" rx="3.5"></rect><path d="M12 9v7"></path></svg></div>
-                <h3>Capsules</h3>
-                <p>Convenient, ready-to-use dosage format</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================= COMPANY OVERVIEW ================= -->
-<section class="vau-section vau-expertise vau-reveal">
-    <div class="vau-inner">
-        <span class="vau-eyebrow vau-eyebrow--center">Company Overview</span>
-        <h2 class="vau-h2 vau-h2--center">Our Approach</h2>
-        <p class="vau-lead">Science-led. Quality-driven. Innovation-focused.</p>
-        <div class="vau-chip-grid">
-            <div class="vau-chip">Nutraceutical R&amp;D</div>
-            <div class="vau-chip">Product Formulation &amp; Innovation</div>
-            <div class="vau-chip">Cordyceps Manufacturing</div>
-            <div class="vau-chip">Cordyceps-based Nutraceuticals</div>
-            <div class="vau-chip">Advanced Delivery Technologies</div>
-            <div class="vau-chip">Super Extraction Technologies</div>
-            <div class="vau-chip">End-to-End Nutraceutical Manufacturing</div>
-            <div class="vau-chip">Adaptogenic &amp; Preventive Wellness</div>
-            <div class="vau-chip">Sports Nutrition Formulations</div>
-            <div class="vau-chip">Effervescent Tablets</div>
-            <div class="vau-chip">Oral Spray Formulations</div>
-        </div>
-    </div>
-</section>
-
 <!-- ================= PRECISION MANUFACTURING ================= -->
 <section class="vau-section vau-precision vau-reveal">
     <div class="vau-inner vau-precision-grid">
@@ -873,11 +850,6 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
             <p class="vau-desc vau-desc-bold">
                 <strong>At Vivid, innovation is not just what we manufacture - it is how we approach the future of wellness.</strong>
             </p>
-            <ul class="vau-tick-list">
-                <li>Organic &amp; Vegan</li>
-                <li>Gluten-Free</li>
-                <li>No Added Fillers &amp; Additives</li>
-            </ul>
         </div>
         <div>
             <div class="vau-certs">
@@ -907,6 +879,89 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
             </div>
         </div>
     </div>
+    <div class="vau-std-grid">
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9.5V3"></path><path d="M8 15h8"></path></svg></div>
+                    <h3>Advanced Research</h3>
+                    <p>Formulation science that starts in the lab, not in a catalogue.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"></path><path d="M7 18h1M12 18h1M17 18h1"></path></svg></div>
+                    <h3>Precision Manufacturing</h3>
+                    <p>Controlled processes that reproduce the same result at scale.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><circle cx="12" cy="12" r="4.5"></circle><circle cx="12" cy="12" r="1"></circle></svg></div>
+                    <h3>Accurate Dosing</h3>
+                    <p>Every active weighed and verified to the declared quantity.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 14.5l1.8 1.8L15 12"></path></svg></div>
+                    <h3>Standardized Ingredients</h3>
+                    <p>Raw materials assayed to a specification before they enter a batch.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9a8 8 0 0 1 13.3-3.3L20 8"></path><path d="M20 4v4h-4"></path><path d="M20 15a8 8 0 0 1-13.3 3.3L4 16"></path><path d="M4 20v-4h4"></path></svg></div>
+                    <h3>Batch-to-Batch Consistency</h3>
+                    <p>The same profile in the tenth batch as in the first.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></div>
+                    <h3>Potency &amp; Performance</h3>
+                    <p>Actives that stay active through processing and packing.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 7v5.2l3.2 2"></path></svg></div>
+                    <h3>Stability</h3>
+                    <p>Shelf life proven under real storage and transit conditions.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg></div>
+                    <h3>Rigorous Quality Control</h3>
+                    <p>In-process and finished-goods testing on every production run.</p>
+                </div>
+                <div class="vau-std-card">
+                    <div class="vau-std-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"></path><path d="M6 20v-6M11 20V9M16 20v-9M21 20V5"></path></svg></div>
+                    <h3>Commercial Scalability</h3>
+                    <p>Pilot to commercial volumes without reformulating.</p>
+                </div>
+        </div>
+</section>
+
+<!-- ================= CORE EXPERTISE ================= -->
+<section class="vau-section vau-cordyceps vau-reveal">
+    <div class="vau-inner">
+        <span class="vau-eyebrow vau-eyebrow--center">Our Core Expertise</span>
+        <h2 class="vau-h2 vau-h2--center">Five Disciplines, One Integrated Capability</h2>
+        <p class="vau-lead">From the substrate a Cordyceps strain grows on to the spray that delivers it — every step is run in-house.</p>
+        <div class="vau-cord-grid vau-cord-grid--five">
+            <div class="vau-cord-card">
+                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"></path><path d="M2 21c0-3 1.9-5.4 5.1-6C9.5 14.5 12 13 13 12"></path></svg></div>
+                <h3>Cordyceps Cultivation</h3>
+                <p>Controlled cultivation for consistent quality and potency</p>
+            </div>
+            <div class="vau-cord-card">
+                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3"></path><path d="M1.5 14h5M9.5 8h5M17.5 16h5"></path></svg></div>
+                <h3>Formulations</h3>
+                <p>Customized formulations for diverse wellness applications</p>
+            </div>
+            <div class="vau-cord-card">
+                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5.5L5 18a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9.5V3"></path><path d="M8 15h8"></path></svg></div>
+                <h3>Extractions</h3>
+                <p>Advanced extraction for concentrated bioactive compounds</p>
+            </div>
+            <div class="vau-cord-card">
+                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.7s5.5 6.6 5.5 10.6a5.5 5.5 0 0 1-11 0C6.5 9.3 12 2.7 12 2.7z"></path><path d="M9.6 13.6a2.4 2.4 0 0 0 2.4 2.4"></path></svg></div>
+                <h3>Tinctures</h3>
+                <p>Water- and alcohol-based botanical liquid extracts</p>
+            </div>
+            <div class="vau-cord-card">
+                <div class="vau-cord-icon"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 9h6v11a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1z"></path><path d="M10 9V6h4v3"></path><path d="M14 4h3M17 2v4"></path><path d="M19.5 5.5h.01M20 8.5h.01"></path></svg></div>
+                <h3>Liposomal Oral Sprays</h3>
+                <p>Advanced liposomal delivery in convenient oral formats</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- ================= VERSATILE FORMATS ================= -->
@@ -921,6 +976,28 @@ class="post-7 page type-page status-publish ast-article-single" id="post-7" item
             <span class="vau-format-pill">Liquid Extracts &amp; Tinctures</span>
             <span class="vau-format-pill">Effervescent Tablets</span>
             <span class="vau-format-pill">Advanced Oral Sprays</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= COMPANY OVERVIEW ================= -->
+<section class="vau-section vau-expertise vau-reveal">
+    <div class="vau-inner">
+        <span class="vau-eyebrow vau-eyebrow--center">Company Overview</span>
+        <h2 class="vau-h2 vau-h2--center">Our Approach</h2>
+        <p class="vau-lead">Science-led. Quality-driven. Innovation-focused.</p>
+        <div class="vau-chip-grid">
+            <div class="vau-chip">Nutraceutical R&amp;D</div>
+            <div class="vau-chip">Product Formulation &amp; Innovation</div>
+            <div class="vau-chip">Cordyceps Manufacturing</div>
+            <div class="vau-chip">Cordyceps-based Nutraceuticals</div>
+            <div class="vau-chip">Advanced Delivery Technologies</div>
+            <div class="vau-chip">Super Extraction Technologies</div>
+            <div class="vau-chip">End-to-End Nutraceutical Manufacturing</div>
+            <div class="vau-chip">Adaptogenic &amp; Preventive Wellness</div>
+            <div class="vau-chip">Sports Nutrition Formulations</div>
+            <div class="vau-chip">Effervescent Tablets</div>
+            <div class="vau-chip">Oral Spray Formulations</div>
         </div>
     </div>
 </section>
