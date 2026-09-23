@@ -24,9 +24,11 @@ This repository contains a front-end mirror of the public Vivid Nutripharm websi
 | Men's Sexual Wellness | `mens-sexual-wellness.html` |
 | Women Wellness | `women-wellness.html` |
 | Effervescent | `effervescent.html` |
-| Single Extracts | `single-extracts.html` |
+| Wellness essentials | `single-extracts.html` |
 
 The product catalog spans multiple category pages, with product detail panels triggered from the listing views. Product tiles can deep-link directly to a specific item using the pattern `page.html#product-id`.
+
+Recent content updates standardize the public product branding across the homepage and category pages, including the chronic disease brands Pronefros, Diastat-V, Mobivive, Respran, Tarnil, Lipoblitz, Dozein, V-Sinura, Fix & Flexx, and Vivacio. The men’s and women’s wellness ranges also include their updated branded product names and formulation copy.
 
 ## Design notes
 
@@ -42,6 +44,8 @@ A few local assets are included in this repo, such as:
 
 - `assets/product-disc.png`
 - `assets/cordyceps-subject.png`
+
+The site also includes the updated “Wellness essentials” range, Cordyceps products named Cordyceps extract + Green tea (Aarogya) and Cordyceps extract + Coffee (Cordy Verve), and homepage review content.
 
 ## Local preview
 
