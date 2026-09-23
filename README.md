@@ -1,9 +1,14 @@
-# Vivid Nutripharm — static site
+# Vivid Nutripharm
 
-A static mirror of [vividnutripharm](https://skyblue-echidna-752271.hostingersite.com),
-published via GitHub Pages.
+Version: 1.1.0
 
-## What's here
+A static marketing website for Vivid Nutripharm, based on the live WordPress site and prepared for GitHub Pages hosting.
+
+## Project purpose
+
+This repository contains a front-end mirror of the public Vivid Nutripharm website. The pages are static HTML files that preserve the original product structure, category layout, and content flow while making the site easier to host and maintain.
+
+## Included pages
 
 | Page | File |
 |---|---|
@@ -21,26 +26,43 @@ published via GitHub Pages.
 | Effervescent | `effervescent.html` |
 | Single Extracts | `single-extracts.html` |
 
-54 products across the nine product pages. Clicking a product opens a large
-flip-out detail panel; homepage tiles deep-link straight to it via
-`<page>.html#<product-id>`.
+The product catalog spans multiple category pages, with product detail panels triggered from the listing views. Product tiles can deep-link directly to a specific item using the pattern `page.html#product-id`.
 
-## Two rebuilt graphics
+## Design notes
 
-The homepage process circle and the Cordyceps benefits diagram are inline SVG
-rather than flat images — real text, exact geometry, sharp at any zoom. Together
-they are ~25 KB where the originals were ~2.8 MB. The two cut-out photographs
-they place live in `assets/`.
+- The homepage process graphic and the Cordyceps benefits illustration are rebuilt as inline SVG rather than flattened images.
+- These vector graphics remain crisp at any zoom level and are much lighter than the original raster assets.
+- Supporting images used in the design are stored under `assets/`.
 
-## Dependency worth knowing
+## Dependencies and hosting
 
-Stylesheets, scripts and most images load from the live WordPress install at
-`skyblue-echidna-752271.hostingersite.com`. If that host goes away or its theme
-changes, these pages change with it. Only `assets/product-disc.png` and
-`assets/cordyceps-subject.png` are served from this repo.
+Most CSS, JavaScript, and image assets are loaded from the live WordPress site at `skyblue-echidna-752271.hostingersite.com`. That means the static pages depend on the external site for non-local styling and scripts.
 
-## Not wired up
+A few local assets are included in this repo, such as:
 
-None of the contact or enquiry forms transmit. They validate, show a success
-message and reset — the submit handler is still a placeholder on the live site
-too. Working contact routes are the phone numbers and `info@vividnutripharm.com`.
+- `assets/product-disc.png`
+- `assets/cordyceps-subject.png`
+
+## Local preview
+
+To preview the site locally, run a simple static server from the project root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000
+```
+
+## Known limitations
+
+- Contact and enquiry forms currently validate and reset without submitting data.
+- The form behavior is still a placeholder and is not fully wired to a backend or email service.
+- For direct contact, use the published phone numbers or the email address `info@vividnutripharm.com`.
+
+## Deployment
+
+This repo is intended for GitHub Pages deployment as a static site. For production hosting, make sure the site is configured to serve the root folder and preserve relative paths for assets and pages.
